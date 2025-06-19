@@ -3,7 +3,7 @@ layout: home
 title: "Proscrite's Portfolio"
 ---
 
-<img src="assets/profile.jpg" alt="Profile picture", style="width: 150px; border-radius: 50%;">
+<img src="assets/profile.jpg" alt="Profile picture" style="width: 150px; border-radius: 50%;">
 
 Welcome to my personal website. Here you'll find details and results of my projects.
 

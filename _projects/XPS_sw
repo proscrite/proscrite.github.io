@@ -1,0 +1,12 @@
+---
+title: "XPS analysis"
+date: 2020-03-01
+description: "XPS data analysis package in Python"
+---
+
+This project was a convenience package to analyse batch data of X-ray Photoemission Spectroscopy as part of my PhD thesis.
+
+It consisted of three main modules:
+- Parsing
+- Processing: background subtraction and scaling
+- Fitting: peak modelling and component search

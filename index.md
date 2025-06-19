@@ -10,3 +10,12 @@ Welcome to my personal website. Here you'll find details and results of my proje
 ## Projects
 
 See a list of my recent work below 👇
+
+<ul>
+  {% for project in site.projects %}
+    <li>
+      <a href="{{ project.url }}">{{ project.title }}</a><br>
+      <small>{{ project.description }}</small>
+    </li>
+  {% endfor %}
+</ul>

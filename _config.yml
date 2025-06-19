@@ -5,4 +5,4 @@ theme: jekyll-theme-minimal
 collections:
   projects:
     output: true
-    permalink: /projects/:name/
+    # permalink: /projects/:name/

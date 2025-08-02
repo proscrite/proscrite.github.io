@@ -175,10 +175,7 @@ cython_debug/
 /Gemfile
 
 # Ignore mutimedia files for now
-*.mp4
-*.jpg
-*.jpeg
-*.png
+/assets
 
 # ignore everything in proscrite-react/node_modules
 /proscrite-react/node_modules/*

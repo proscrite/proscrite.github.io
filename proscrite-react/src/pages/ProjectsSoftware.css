@@ -1,0 +1,21 @@
+.projects-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.projects-container h1 {
+  margin-bottom: 1.5rem;
+}
+/* Example grid for project cards */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.project-card {
+  padding: 1rem;
+  background: var(--vite-light-300);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}

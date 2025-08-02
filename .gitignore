@@ -172,3 +172,20 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/Gemfile
+
+# Ignore mutimedia files for now
+*.mp4
+*.jpg
+*.jpeg
+*.png
+
+# ignore everything in proscrite-react/node_modules
+/proscrite-react/node_modules/*
+/_site
+
+# ignore the production build output if you don't check it in
+/proscrite-react/dist/*
+
+# ignore any .map you generated in your src tree
+/proscrite-react/src/**/*.css.map

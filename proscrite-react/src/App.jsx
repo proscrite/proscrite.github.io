@@ -2,6 +2,8 @@ import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import ScienceCareer from './pages/ScienceCareer'
 import ProjectsSoftware from './pages/ProjectsSoftware'
+import fbiCover from './assets/fbi_cover_v2.png'
+import softwareProj from './assets/softwareProjects.png'
 import './App.css'
 
 function Home() {
@@ -12,14 +14,18 @@ function Home() {
         <h1>Pablo Herrero Gomez</h1>
         <h2>Personal Website</h2>
       </header>
-      <main className="cards">
-        <Link to="/science" className="card">
-          <h3>Science career</h3>
+
+      <div className="panels">
+        <Link to="/science" className="panel">
+          <img src={fbiCover} alt="Science career" />
+          <div className="panel-title"><h3>Science career</h3></div>
         </Link>
-        <Link to="/projects" className="card">
-          <h3>Projects & Software</h3>
+
+        <Link to="/projects" className="panel">
+          <img src={softwareProj} alt="Projects & Software" />
+          <div className="panel-title"><h3>Projects &amp; Software</h3></div>
         </Link>
-      </main>
+      </div>
     </div>
   )
 }

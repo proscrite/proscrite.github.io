@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: '/',
-  plugins: [react()],
+  base: './',  // ← makes all /assets/… references become relative
+  plugins: [react()]
 })

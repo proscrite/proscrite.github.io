@@ -1,8 +1,0 @@
-title: Proscrite's Portfolio
-description: A showcase of my personal and professional projects
-theme: jekyll-theme-minimal
-
-collections:
-  projects:
-    output: true
-    # permalink: /projects/:name/

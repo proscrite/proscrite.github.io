@@ -4,9 +4,9 @@ import ScienceCareer from './pages/ScienceCareer'
 import ProjectsSoftware from './pages/ProjectsSoftware'
 
 // now import everything from src/assets
-// import profileImg from './assets/profile.jpg'
-// import fbiCover from './assets/fbi_cover_v2.png'
-// import softwareProj from './assets/softwareProjects.png'
+import profileImg from './assets/profile.jpg'
+import fbiCover from './assets/fbi_cover_v2.png'
+import softwareProj from './assets/softwareProjects.png'
 
 import './App.css'
 
@@ -14,19 +14,19 @@ function Home() {
   return (
     <div className="home-container">
       <header className="header">
-        <img src="/assets/profile.jpg" alt="Profile" className="profile-pic" />
+        <img src={profileImg} alt="Profile" className="profile-pic" />
         <h1>Pablo Herrero Gomez</h1>
         <h2>Personal Website</h2>
       </header>
 
       <div className="panels">
         <Link to="/science" className="panel">
-          <img src="/assets/fbi_cover_v2.png" alt="Science career" />
+          <img src={fbiCover} alt="Science career" />
           <div className="panel-title"><h3>Science career</h3></div>
         </Link>
 
         <Link to="/projects" className="panel">
-          <img src="/assets/softwareProjects.png" alt="Projects & Software" />
+          <img src={softwareProj} alt="Projects & Software" />
           <div className="panel-title"><h3>Projects &amp; Software</h3></div>
         </Link>
       </div>

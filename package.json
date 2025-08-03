@@ -1,6 +1,6 @@
 {
-  "homepage": "https://proscrite.github.io/",
-  "name": "proscrite-react",
+  "homepage": "https://proscrite.github.io",
+  "name": "proscrite",
   "private": true,
   "version": "0.0.0",
   "type": "module",

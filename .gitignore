@@ -178,11 +178,11 @@ cython_debug/
 /assets
 
 # ignore everything in proscrite-react/node_modules
-/proscrite-react/node_modules/*
+/node_modules/*
 /_site
 
 # ignore the production build output if you don't check it in
-/proscrite-react/dist/*
+/dist/*
 
 # ignore any .map you generated in your src tree
-/proscrite-react/src/**/*.css.map
+/src/**/*.css.map

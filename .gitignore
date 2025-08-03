@@ -186,3 +186,4 @@ cython_debug/
 
 # ignore any .map you generated in your src tree
 /src/**/*.css.map
+/**/*.key

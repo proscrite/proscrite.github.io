@@ -17,6 +17,8 @@ function Home() {
         <img src={profileImg} alt="Profile" className="profile-pic" />
         <h1>Pablo Herrero Gomez</h1>
         <h2>Personal Website</h2>
+        <p>Welcome to my personal website! Here you can find information about my science career and software projects.</p>
+        <p>Feel free to explore the links below.</p>
       </header>
 
       <div className="panels">
@@ -24,7 +26,6 @@ function Home() {
           <img src={fbiCover} alt="Science career" />
           <div className="panel-title"><h3>Science career</h3></div>
         </Link>
-
         <Link to="/projects" className="panel">
           <img src={softwareProj} alt="Projects & Software" />
           <div className="panel-title"><h3>Projects &amp; Software</h3></div>

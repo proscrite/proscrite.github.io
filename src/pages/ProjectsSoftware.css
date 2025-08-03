@@ -13,9 +13,30 @@
   gap: 1rem;
 }
 .project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
   padding: 1rem;
   background: var(--vite-light-300);
-  border-radius: 8px;
   text-decoration: none;
   color: inherit;
+}
+.project-card img {
+  width: 100%;
+  display: block;
+}
+.project-card-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.project-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }

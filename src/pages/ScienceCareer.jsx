@@ -1,5 +1,6 @@
 import React from 'react'
-import { Chrono } from "react-chrono"
+import { Chrono } from 'react-chrono'
+import { Link } from 'react-router-dom'
 import './ScienceCareer.css'
 
 const items = [
@@ -23,6 +24,7 @@ const items = [
 export default function ScienceCareer() {
   return (
     <div className="science-container">
+      <Link to="/" className="back-link">← Back to Home</Link>
       <h1>Science Career</h1>
       <div className="video-wrapper">
         <iframe
@@ -38,7 +40,11 @@ export default function ScienceCareer() {
 
       <h2>📜 Timeline</h2>
       <div className="chrono-wrapper">
-        <Chrono items={items} mode="VERTICAL" />
+        <Chrono
+          items={items}
+          mode="VERTICAL"
+          disableToolbar             // ← completely removes the top buttons
+        />
       </div>
     </div>
   )

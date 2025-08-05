@@ -103,3 +103,26 @@
   padding: 8px 12px;
   border-radius: 4px;
 }
+
+.panels .panel {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panels .panel img {
+  display: block;
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+
+.panels .panel:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.panels .panel:hover img {
+  filter: brightness(0.85);
+}

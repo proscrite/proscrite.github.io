@@ -20,10 +20,12 @@
   background: var(--vite-light-300);
   text-decoration: none;
   color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card img {
   width: 100%;
   display: block;
+  transition: filter 0.3s ease;
 }
 .project-card-title {
   position: absolute;
@@ -33,6 +35,14 @@
   padding: 0.5rem 1rem;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+}
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.project-card:hover img {
+  filter: brightness(0.9);
 }
 .project-panels {
   display: flex;

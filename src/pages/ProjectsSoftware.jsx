@@ -8,11 +8,11 @@ import aboutMeImg from '../assets/heidelberg.jpg'
 import './ProjectsSoftware.css'
 
 const cards = [
-  { title: 'Software', img: softwareImg },
-  { title: 'Experiments / Setups', img: setupsImg },
-  { title: 'Outreach',           img: outreachImg },
-  { title: 'Other projects',     img: otherProjectsImg},
-  { title: 'About me',           img: aboutMeImg }
+  { title: 'Software',            img: softwareImg,     path: '/projects/software' },
+  { title: 'Experiments / Setups', img: setupsImg,      path: '/projects/experiments' },
+  { title: 'Outreach',            img: outreachImg,     path: '/projects/outreach' },
+  { title: 'Other projects',      img: otherProjectsImg,path: '/projects/other' },
+  { title: 'About me',            img: aboutMeImg,      path: '/projects/about' }
 ]
 
 export default function ProjectsSoftware() {
@@ -22,13 +22,13 @@ export default function ProjectsSoftware() {
       <h1>Projects & Software</h1>
 
       <div className="project-panels">
-        {cards.map(({ title, img }) => (
-          <div className="project-card" key={title}>
+        {cards.map(({ title, img, path }) => (
+          <Link to={path} className="project-card" key={title}>
             <img src={img} alt={title} />
             <div className="project-card-title">
               <h3>{title}</h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

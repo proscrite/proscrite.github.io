@@ -2,16 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import sabbathImg from '../assets/sabbath_software.png'
 import manhattanImg from '../assets/manhattan.png'
-// import outreachImg from '../assets/outreach.png'
-// import otherProjectsImg from '../assets/other_projects.png'
+import xpsSwImg from '../assets/xps_sw.png'
+import ritaImg from '../assets/rita.png'
 // import aboutMeImg from '../assets/heidelberg.jpg'
 import './ProjectsSoftware.css'
 
 const cards = [
   { title: 'Sabbath',                   img: sabbathImg,        path: '/projects/software/sabbath' },
   { title: 'ManHatTan',                 img: manhattanImg,      path: '/projects/software/manhattan' },
-  //   { title: 'XPS Analyser',              img: xpsImg,            path: '/projects/software/xps' },
-  //   { title: 'RiTa',                      img: ritaImg,           path: '/projects/software/rita' },
+  { title: 'XPS Analyser',              img: xpsSwImg,            path: '/projects/software/xps' },
+    { title: 'RITA',                    img: ritaImg,           path: '/projects/software/rita' },
 //   { title: 'Autostep Finder (Julia)',   img: autostepfinderImg, path: '/projects/software/autostepfinder' }
 ]
 

@@ -1,0 +1,25 @@
+.comm-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.comm-table th,
+.comm-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.comm-table th {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.comm-table a {
+  color: var(--link-color, #0077cc);
+  text-decoration: none;
+}
+
+.comm-table a:hover {
+  text-decoration: underline;
+}

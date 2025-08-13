@@ -2,10 +2,11 @@ import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import ScienceCareer from './pages/ScienceCareer'
 import ProjectsSoftware from './pages/ProjectsSoftware'
-import SoftwarePage from './pages/SoftwarePage'
-import ExperimentsPage from './pages/ExperimentsPage'
-import OutreachPage from './pages/OutreachPage'
-// import OtherProjectsPage from './pages/OtherProjectsPage'
+// Importing individual project pages
+import SoftwarePage from './pages/ProjectsSoftware/Software'
+import ExperimentsPage from './pages/ProjectsSoftware/Experiments'
+import OutreachPage from './pages/ProjectsSoftware/Outreach'
+// import OtherProjectsPage from './pages/ProjectsSoftware/OtherProjectsPage'
 // import AboutMePage from './pages/AboutMePage'
 
 // now import everything from src/assets
@@ -46,10 +47,10 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/science" element={<ScienceCareer />} />
       <Route path="/projects" element={<ProjectsSoftware />} />
-      <Route path="/projects/software"     element={<SoftwarePage />} /> 
-      <Route path="/projects/experiments" element={<ExperimentsPage />} />
-      <Route path="/projects/outreach"    element={<OutreachPage />} />
-      {/* <Route path="/projects/other"       element={<OtherProjectsPage />} />
+        <Route path="/projects/software"     element={<SoftwarePage />} /> 
+        <Route path="/projects/experiments" element={<ExperimentsPage />} />
+        <Route path="/projects/outreach"    element={<OutreachPage />} />
+        {/* <Route path="/projects/other"       element={<OtherProjectsPage />} />
       <Route path="/projects/about"       element={<AboutMePage />} />  */}
     </Routes>
   )

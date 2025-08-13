@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import softwareImg from '../assets/software.png'
-import setupsImg from '../assets/setups.png'
-import outreachImg from '../assets/outreach.png'
-import otherProjectsImg from '../assets/other_projects.png'
-import aboutMeImg from '../assets/heidelberg.jpg'
+import softwareImg from './images/software.png'
+import setupsImg from './images/setups.png'
+import outreachImg from './images/outreach.png'
+import otherProjectsImg from './images/other_projects.png'
+import aboutMeImg from './images/heidelberg.jpg'
 import './ProjectsSoftware.css'
 
 const cards = [

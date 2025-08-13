@@ -1,0 +1,323 @@
+
+const communications = [
+  {
+    year: 2025,
+    type: 'Poster',
+    title: 'Nano Center HUJI annual conference',
+    link: 'https://nano.huji.ac.il/event/nano-center-annual-conference-2025',
+    venue: 'Neve Ilan, Israel'
+  },
+  {
+    year: 2024,
+    type: 'Oral (parallel session)',
+    title: 'Azrieli Fellows Forum 2024',
+    link: 'https://www.youtube.com/embed/4kHX6_VbOJY',
+    venue: 'Tel Aviv, Israel'
+  },
+  {
+    year: 2024,
+    type: 'Poster',
+    title: 'International Conference for High Energy Physics (ICHEP)',
+    link: 'https://indico.cern.ch/event/1291157/contributions/5904000/ ',
+    venue: 'Prague, Czech Republic',
+  },
+  {
+    year: 2024,
+    type: 'Oral (parallel session)',
+    title: 'Neutrino conference',
+    link:  'https://agenda.infn.it/event/37867/contributions/228379/',
+    venue: 'Bicocca, Milan, Italy'
+  },
+  {
+    year: 2024,
+    type: 'Poster',
+    title: 'Nano Center HUJI annual conference',
+    link: 'https://nano.huji.ac.il/event/nano-center-annual-conference-2024',
+    venue: "Ma'ale Ha'hamisha, Israel"
+  },
+  {
+    year: 2024,
+    type: 'Oral (parallel session)',
+    title: 'Israeli Physical Society (IPS)',
+    link: 'https://www.israelphysicalsociety.org/conference/69th-annual-meeting/program',
+    venue: 'Tel Aviv, Israel'
+  },
+  {
+    year: 2022,
+    type: 'Poster',
+    title: 'Poster Neutrino 2022',
+    link: 'https://www.youtube.com/embed/jwfm_mmw-LY',
+    venue: 'Virtually hosted from Seoul, South Korea'
+  },
+  {
+    year: 2022,
+    type: 'Oral (parallel session)',
+    title: 'International Conference for High Energy Physics (ICHEP)',
+    link: 'https://agenda.infn.it/event/28874/contributions/169675/',
+    venue: 'Bologna, Italy'
+  },
+  {
+    year: 2022,
+    type: 'Oral (parallel session)',
+    title: 'XIV CPAN days',
+    link: 'https://indico.ific.uv.es/event/6735/registrations/participants',
+    venue: 'Leioa, Bilbao, ES'
+  },
+  {
+    year: 2022,
+    type: 'Oral (High school talk)',
+    title: 'Semana de la ciencia I.E.S. Damián Forment',
+    link: 'https://iesalcorisa.es/noticias/497-semana-de-la-ciencia-2022',
+    venue: 'Alcorisa, Teruel, ES'
+  },
+  {
+    year: 2021,
+    type: 'Oral (workshop)',
+    title: 'Café e zenzia: Workshop Laboratorio Subterráneo de Canfranc (LSC)',
+    link: 'https://lsc-canfranc.es/blog/',
+    venue: 'Canfranc, Huesca, ES'
+  },
+  {
+    year: 2021,
+    type: 'Oral (Workshop)',
+    title: 'Stephan Schönert Group Meeting ',
+    link: 'https://www.e15.ph.tum.de/staff/professors/prof_schoenert/index.html',
+    venue: 'Virtually hosted from Technical Üniversität München (TUM), Munich, DE ',
+  },
+  {
+    year: 2021,
+    type: 'Oral (parallel session)',
+    title: 'Techniques and Instrumentation for Particle Physics (TIPP)',
+    link: 'https://indico.cern.ch/event/981823/contributions/4302207/',
+    venue: 'Virtually hosted from Triumf, Vancouver, Canada'
+  },
+  {
+    year: 2021,
+    type: 'Oral (main session)',
+    title: 'Transpyrenean Nanotechnology (TrNano) workshop',
+    link: 'https://inma.unizar-csic.es/agenda-eventos/transpyrenean-nanotechnlogy-workshop-trnano-2021-8-y-9-de-abril/',
+    venue: 'Virtually hosted from INMA, Zaragoza, ES'
+  },
+  {
+    year: 2021,
+    type: 'Oral (main session)',
+    title: 'Reunión Ibérica de Vacío (RIVA)',
+    link: 'https://aseva.es/conferences/riva-online/program/',
+    venue: 'Virtually hosted from UAM (Madrid), ES'
+  },
+  {
+    year: 2020,
+    type: 'Poster',
+    title: 'Neutrino conference',
+    link: 'https://www.youtube.com/embed/0l5_KLsLNuY, https://conferences.fnal.gov/nu2020/',
+    venue: 'Virtually hosted from Fermilab, Chicago, US'
+  },
+  {
+    year: 2019,
+    type: 'Open doors day',
+    title: 'Semana de la ciencia/Zientzia Astea (University of the Basque Country)',
+    link: 'https://www.zientzia-astea.ehu.eus/2020/es/index.html',
+    venue: 'Tabakalera, Donostia, ES'
+  },
+  {
+    year: 2019,
+    type: 'Oral (High school talk)',
+    title: 'Semana de la ciencia Gavà (I replaced the speaker J.J. Gomez-Cadenas)',
+    link: 'https://www.safagava.edu/es/iv-semana-de-la-ciencia-de-gava/',
+    venue: 'Gavà, Cataluña, ES'
+  },
+  {
+    year: 2018,
+    type: 'Oral (parallel session)',
+    title: 'Deutsches Physikalisches Geschelschalft (DPG) Frühjahrstagunge',
+    link: 'https://www.dpg-verhandlungen.de/year/2018/conference/wuerzburg/part/t/session/91/contribution/7',
+    venue: 'Würzburg, DE'
+
+  },
+  {
+    year: 2018,
+    type: 'Open doors day',
+    title: 'Tag der offenen Tür am Max-Planck-Institut für Kernphysik 2018',
+    link: 'https://www.mpi-hd.mpg.de/mpi/de/institut/infrastruktur/technik/ausbildung-elektronik/aktivitaeten',
+    venue: 'Heidelberg, DE',
+  },
+]
+
+const mainPublications = [
+    {
+        year: 2025,
+        journal: 'ACS Sensors',
+        title:  'Iridium-Based Time-Resolved Luminescent Sensor for Ba2+ Detection',
+        link: 'https://pubs.acs.org/doi/abs/10.1021/acssensors.4c01892',
+    },
+    {
+        year: 2023,
+        journal: 'PhD Thesis at University of the Basque Country',
+        title: 'Development of sensors for individual barium ion identification in the context of the NEXT experiment',
+        link: 'https://addi.ehu.eus/handle/10810/63230'
+    },
+    {
+        year: 2022,
+        journal: 'Nature Communications',
+        title: 'Ba+2 ion trapping using organic submonolayer for ultra-low background neutrinoless double beta detector',
+        link: 'https://www.nature.com/articles/s41467-022-35153-0',
+  },
+  {
+        year: 2021,
+        journal: 'The European Physical Journal C',
+        title: 'Radon daughter removal from PTFE surfaces and its application in liquid xenon detectors',
+        link: 'https://link.springer.com/article/10.1140/epjc/s10052-021-09047-2'
+  },
+  {
+        year: 2021,
+        journal: 'Andgewandte Chemie International Edition',
+        title: 'A Large Starphene Comprising Pentacene Branches',
+        link: 'https://onlinelibrary.wiley.com/doi/10.1002/anie.202016163'
+  },
+  {
+        year: 2020,
+        journal: 'Nature',
+        title: 'Fluorescent bicolour sensor for low-background neutrinoless double β decay experiments',
+        link: 'https://www.nature.com/articles/s41586-020-2431-5'
+  },
+  {
+    year: 2018,
+    journal: 'MsC Thesis at University of Heidelberg',
+    title: 'Investigation of surface cleaning procedures for the removal of radon daughters from PTFE surfaces and their applicability in liquid xenon detectors',
+    link: 'https://pure.mpg.de/pubman/faces/ViewItemOverviewPage.jsp?itemId=item_3007160_1'}
+]
+
+const NextPublications = [
+    {
+        year: 2024,
+        journal: 'Nature Communications',
+        title:  'Fluorescence imaging of individual ions and molecules in pressurized noble gases for barium tagging in 136Xe',
+        link: 'https://www.nature.com/articles/s41467-024-54872-0',
+    },
+    {
+        year: 2024,
+        journal: 'RSC Applied Interfaces',
+        title: 'Supramolecular chemistry in solution and solid–gas interfaces: synthesis and photophysical properties of monocolor and bicolor fluorescent sensors for barium tagging in neutrinoless double beta decay',
+        link: 'https://pubs.rsc.org/en/content/articlelanding/2025/lf/d4lf00227j'
+    },
+    {
+        year: 2023,
+        journal: 'Journal of High Energy Physics',
+        title: 'Demonstration of neutrinoless double beta decay searches in gaseous xenon with NEXT',
+        link: 'https://link.springer.com/article/10.1007/JHEP09(2023)190'
+    },
+    {
+        year: 2023,
+        journal: 'Journal of Instrumentation',
+        title: 'NEXT-CRAB-0: a high pressure gaseous xenon time projection chamber with a direct VUV camera based readout',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/18/08/P08006'
+    },
+    {
+        year: 2023,
+        journal: 'Journal of Instrumentation',
+        title: 'A compact dication source for Ba2+ tagging and heavy metal ion sensor development',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/18/07/P07044'
+    },
+    {
+        year: 2023,
+        journal: 'Journal of Instrumentation',
+        title: 'Reflectance and fluorescence characteristics of PTFE coated with TPB at visible, UV, and VUV as a function of thickness',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/18/03/P03016'
+    },
+    {
+        year: 2022,
+        journal: 'Nuclear Instruments and Methods in Physics Research Section A',
+        title: 'The dynamics of ions on phased radio-frequency carpets in high pressure gases and application for barium tagging in xenon gas time projection chambers',
+        link: 'https://www.sciencedirect.com/science/article/pii/S0168900222004302?via%3Dihub'
+    },
+    {
+        year: 2022,
+        journal: 'Journal of Instrumentation',
+        title: 'Measurement of the 136Xe two-neutrino double- β -decay half-life via direct background subtraction in NEXT',
+        link: 'https://journals.aps.org/prc/abstract/10.1103/PhysRevC.105.055501'
+    },
+    {
+        year: 2022,
+        journal: 'Physical Review X',
+        title: 'Neutral Bremsstrahlung Emission in Xenon Unveiled',
+        link: 'https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021005'
+    },
+    {
+        year: 2021,
+        journal: 'Journal of High Energy Physics',
+        title: 'Sensitivity of a tonne-scale NEXT detector for neutrinoless double-beta decay searches',
+        link: 'https://link.springer.com/article/10.1007/JHEP08(2021)164'
+    },
+    {
+        year: 2021,
+        journal: 'Journal of High Energy Physics',
+        title: 'Boosting background suppression in the NEXT experiment through Richardson-Lucy deconvolution',
+        link: 'https://link.springer.com/article/10.1007/JHEP07(2021)146'
+    },
+    {
+        year: 2021,
+        journal: 'Journal of High Energy Physics',
+        title: 'Sensitivity of the NEXT experiment to Xe-124 double electron capture',
+        link: 'https://link.springer.com/article/10.1007/JHEP02(2021)203',
+    },
+    {
+        year: 2021,
+        journal: 'Journal of High Energy Physics',
+        title: 'Demonstration of background rejection using deep convolutional neural networks in the NEXT experiment',
+        link: 'https://link.springer.com/article/10.1007/JHEP01(2021)189'
+    },
+    {
+        year: 2020,
+        journal: 'Journal of Instrumentation',
+        title: 'Dependence of polytetrafluoroethylene reflectance on thickness at visible and ultraviolet wavelengths in air',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/15/11/P11031',
+    },
+    {
+        year: 2020,
+        journal: 'Journal of Physics G: Nuclear and Particle Physics',
+        title: 'Mitigation of backgrounds from cosmogenic 137Xe in xenon gas experiments using 3He neutron capture',
+        link: 'https://iopscience.iop.org/article/10.1088/1361-6471/ab8915' 
+    },
+    {
+        year: 2020,
+        journal: 'Journal of High Energy Physics',
+        title: 'Low-diffusion Xe-He gas mixtures for rare-event detection: electroluminescence yield',
+        link: 'https://link.springer.com/article/10.1007/JHEP04(2020)034'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of Instrumentation',
+        title: 'Radio frequency and DC high voltage breakdown of high pressure helium, argon, and xenon',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/15/04/P04022'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of High Energy Physics',
+        title: 'Demonstration of the event identification capabilities of the NEXT-White detector',
+        link: 'https://link.springer.com/article/10.1007/JHEP10(2019)052'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of High Energy Physics',
+        title: 'Energy calibration of the NEXT-White detector with 1% resolution near Qββ of 136Xe',
+        link: 'https://link.springer.com/article/10.1007/JHEP10(2019)230'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of High Energy Physics',
+        title: 'The NEXT-White detector for the search of neutrinoless double beta decay of 136Xe',
+        link: 'https://link.springer.com/article/10.1007/JHEP01(2019)106'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of Instrumentation',
+        title: 'Radiogenic backgrounds in the NEXT double beta decay experiment',
+        link: 'https://link.springer.com/article/10.1007/JHEP10(2019)051'
+    },
+    {
+        year: 2019,
+        journal: 'Journal of Instrumentation',
+        title: 'Electron drift and longitudinal diffusion in high pressure xenon-helium gas mixtures',
+        link: 'https://iopscience.iop.org/article/10.1088/1748-0221/14/08/P08009'
+    }
+]

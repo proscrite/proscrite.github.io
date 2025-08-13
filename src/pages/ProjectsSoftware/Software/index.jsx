@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import sabbathImg from '../assets/sabbath_software.png'
-import manhattanImg from '../assets/manhattan.png'
-import xpsSwImg from '../assets/xps_sw.png'
-import ritaImg from '../assets/rita.png'
-// import aboutMeImg from '../assets/heidelberg.jpg'
-import './ProjectsSoftware.css'
+import sabbathImg from './images/sabbath_software.png'
+import manhattanImg from './images/manhattan.png'
+import xpsSwImg from './images/xps_sw.png'
+import ritaImg from './images/rita.png'
+// import aboutMeImg from './images/heidelberg.jpg'
+import '../ProjectsSoftware.css'
 
 const cards = [
   { title: 'Sabbath',                   img: sabbathImg,        path: '/projects/software/sabbath' },

@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import sabbathSetupImg from '../assets/cfm_optics6.jpg'
-import ritaImg from '../assets/bgu_raTag_wis.jpg'
-import baIonSourceImg from '../assets/bgu_ba_ion.jpg'
-import microscopyCfmImg from '../assets/cfm_optics_2pa_laser.jpg'
-import xpsSetupImg from '../assets/cfm_xps2.jpg'
-import boldImg from '../assets/fbi_cover_v2.png'
-import nextImg from '../assets/next100_vessel.jpg'
-import ramonImg from '../assets/mpik_lab2.jpg'
-import xenon1tImg from '../assets/xenon1t.png'
-import './ProjectsSoftware.css'
+
+import sabbathSetupImg from './images/cfm_optics6.jpg'
+import ritaImg from './images/bgu_raTag_wis.jpg'
+import baIonSourceImg from './images/bgu_ba_ion.jpg'
+import microscopyCfmImg from './images/cfm_optics_2pa_laser.jpg'
+import xpsSetupImg from './images/cfm_xps2.jpg'
+import boldImg from './images/fbi_cover_v2.png'
+import nextImg from './images/next100_vessel.jpg'
+import ramonImg from './images/mpik_lab2.jpg'
+import xenon1tImg from './images/xenon1t.png'
+import '../ProjectsSoftware.css'
 
 const cards = [
   { title: 'Sabbath (Microscopy at HUJI)',      img: sabbathSetupImg,    path: '/projects/setups/sabbathHuji' },

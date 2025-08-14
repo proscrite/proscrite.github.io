@@ -5,7 +5,7 @@ import setupsImg from './images/setups.png'
 import outreachImg from './images/outreach.png'
 import otherProjectsImg from './images/other_projects.png'
 import aboutMeImg from './images/heidelberg.jpg'
-import './ProjectsSoftware.css'
+import './Projects.css'
 
 const cards = [
   { title: 'Software',            img: softwareImg,     path: '/projects/software' },

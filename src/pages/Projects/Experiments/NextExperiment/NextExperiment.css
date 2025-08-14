@@ -1,0 +1,7 @@
+.project-image {
+  display: block;
+  margin: 20px auto;     /* center + spacing */
+  width: 100%;
+  max-width: 800px;      /* adjust to taste */
+  height: auto;
+}

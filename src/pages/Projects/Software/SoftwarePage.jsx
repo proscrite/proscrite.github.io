@@ -5,7 +5,7 @@ import manhattanImg from './images/manhattan.png'
 import xpsSwImg from './images/xps_sw.png'
 import ritaImg from './images/rita.png'
 // import aboutMeImg from './images/heidelberg.jpg'
-import '../ProjectsSoftware.css'
+import '../Projects.css'
 
 const cards = [
   { title: 'Sabbath',                   img: sabbathImg,        path: '/projects/software/sabbath' },

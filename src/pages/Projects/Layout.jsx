@@ -1,7 +1,7 @@
 //// filepath: src/pages/ProjectsSoftware/Layout.jsx
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import './ProjectsSoftware.css'
+import './Projects.css'
 
 export default function ProjectsLayout() {
   return (

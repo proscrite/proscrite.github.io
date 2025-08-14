@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import VideoWrapper from '../../../components/VideoWrapper'
-import {CommTable, MainPubTable}  from '../../../components/CommTable'
-import { communications, mainPublications, nextPublications } from './data'
+import CommTable  from '../../../components/CommTable'
+import PubTable from '../../../components/PubTable'
+// import { , mainPublications, nextPublications } from './data.js'
+import {communications} from './data.js'
+import { mainPublications, nextPublications } from './data_publications.js'
 
 import './OutreachPage.css'
 
@@ -43,12 +46,13 @@ export default function OutreachPage() {
       <h2>Other Communications</h2>
       <CommTable data={communications} />
 
-      <h2>Publications</h2>
-      <p>Here are some of the publications I have authored or co-authored during my career:</p>
-      <MainPubTable data={mainPublications} />
-
-      <p>The following are publications I co-authored as member of the NEXT collaboration:</p>
-      <MainPubTable data={nextPublications} />
+    <h1>Publications</h1>
+        <h2>My main publications</h2>
+            <p>Here are some of the publications I have authored or co-authored during my career:</p>
+            <PubTable data={mainPublications} /> 
+        <h2>NEXT Collaboration Publications</h2>
+            <p>The following are publications I co-authored as member of the NEXT collaboration:</p>
+            <PubTable data={nextPublications} />
     </div>
   )
 }

@@ -15,22 +15,18 @@ const cards = [
   { title: 'About me',            img: aboutMeImg,      path: '/projects/about' }
 ]
 
-export default function ProjectsSoftware() {
+export default function ProjectsIndex() {
   return (
-    <div className="projects-container">
-      <Link to="/" className="back-link">← Back to Home</Link>
-      <h1>Projects & Software</h1>
-
+    <>
+      <h1>Projects &amp; Software</h1>
       <div className="project-panels">
         {cards.map(({ title, img, path }) => (
           <Link to={path} className="project-card" key={title}>
-            <img src={img} alt={title} />
-            <div className="project-card-title">
-              <h3>{title}</h3>
-            </div>
+            <img src={img} alt={title}/>
+            <div className="project-card-title"><h3>{title}</h3></div>
           </Link>
         ))}
       </div>
-    </div>
+    </>
   )
 }

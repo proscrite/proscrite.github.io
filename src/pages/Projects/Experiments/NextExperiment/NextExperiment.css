@@ -1,7 +1,46 @@
-.project-image {
-  display: block;
-  margin: 20px auto;     /* center + spacing */
-  width: 100%;
-  max-width: 800px;      /* adjust to taste */
-  height: auto;
+/* 1) make your page container wider and centered */
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
+
+/* 2) stack video and text vertically instead of side-by-side */
+.project-details {
+  display: flex;
+  flex-direction: column;    /* → column layout */
+  align-items: center;       /* center children horizontally */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* 3) make the video span the full wrapper width */
+.project-video {
+  width: 100%;
+  max-width: 100%;           /* drop any smaller hard-coded width */
+  height: auto;
+  border-radius: 8px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* 4) let the text fill below the video */
+.project-text {
+  width: 100%;
+  color: #ddd;
+  line-height: 1.6;
+  /* you can add margin-top if you want extra spacing */
+}
+
+/* 3) let the image grow bigger */
+.project-image {
+  flex: 1 1 50%;
+  max-width: none;
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* collapse rule no longer needed since it’s now a single column */
+/* @media (max-width: 768px) { … } */

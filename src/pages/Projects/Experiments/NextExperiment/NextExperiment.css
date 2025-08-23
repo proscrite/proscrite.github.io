@@ -5,32 +5,59 @@
   padding: 0 2rem;
 }
 
-/* 2) stack video and text vertically instead of side-by-side */
+/* 2) stack video and text vertically (video on top, text below) */
 .project-details {
   display: flex;
-  flex-direction: column;    /* → column layout */
-  align-items: center;       /* center children horizontally */
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
   max-width: 1200px;
   margin: 2rem auto;
 }
 
-/* 3) make the video span the full wrapper width */
+/* 3) video + overlay wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 4) your video full-width, clickable */
 .project-video {
   width: 100%;
-  max-width: 100%;           /* drop any smaller hard-coded width */
   height: auto;
   border-radius: 8px;
   background: #000;
   cursor: pointer;
 }
 
-/* 4) let the text fill below the video */
+/* 5) caption on top of the video */
+.video-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+/* 6) your “▶ Playing…” and “⬇️ Click to continue” hints */
+.video-wrapper .absolute {
+  position: absolute;
+  top: 1rem;
+  left: 1rem; 
+  /* tailwind classes like .text-gray-400 etc will still apply their colors/font-size */
+}
+
+/* 7) static text under the video */
 .project-text {
   width: 100%;
   color: #ddd;
   line-height: 1.6;
-  /* you can add margin-top if you want extra spacing */
 }
 
 /* 3) let the image grow bigger */
@@ -40,6 +67,20 @@
   width: 60%;
   height: auto;
   border-radius: 8px;
+}
+
+/* new: horizontal row for all the back-links */
+.back-links {
+  display: flex;
+  flex-wrap: wrap;         /* allows wrapping on very narrow screens */
+  gap: 1rem;               /* space between links */
+  justify-content: center; /* center them in the container */
+  margin-bottom: 2rem;     /* separation from the title */
+}
+
+/* optional: ensure each link doesn’t break onto two lines */
+.back-link {
+  white-space: nowrap;
 }
 
 /* collapse rule no longer needed since it’s now a single column */

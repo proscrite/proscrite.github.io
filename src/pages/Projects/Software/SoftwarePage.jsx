@@ -18,9 +18,6 @@ const cards = [
 export default function SoftwareLayout() {
   return (
     <div className="projects-container">
-      <Link to="/projects" className="back-link">
-        ← Back to Projects & Software
-      </Link>
       <h1>My Software</h1>
       <div className="project-panels">
         {cards.map(({ title, img, path }) => (

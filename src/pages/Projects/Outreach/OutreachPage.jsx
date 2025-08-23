@@ -12,7 +12,6 @@ import './OutreachPage.css'
 export default function OutreachPage() {
   return (
     <div className="projects-container">
-      <Link to="/projects" className="back-link">← Back to Projects & Software</Link>
       <h1>Outreach & Communication</h1>
       <p>
             I have been involved in various outreach and communication activities,

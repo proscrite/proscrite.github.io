@@ -25,7 +25,7 @@ export default function ProjectsLayout() {
           <Link to="/projects/experiments" className="back-link">← to Experiments & Setups</Link>
         )}
         {isSoftwareChild && (
-          <Link to="/projects/software" className="back-link">← to Software & Tools</Link>
+          <Link to="/projects/software" className="back-link">← to Software</Link>
         )}
       </div>
       <Outlet/>

@@ -3,8 +3,9 @@ import { Routes, Route }  from 'react-router-dom'
 import Home               from './pages/Home'
 import ScienceCareer      from './pages/ScienceCareer'
 import ProjectsIndex      from './pages/Projects/index'
-import ProjectsLayout     from './pages/Projects/Layout'
-import SoftwareLayout     from './pages/Projects/Software'
+import ProjectsLayout     from './pages/Projects/ProjectsLayout'
+import SoftwareLayout     from './pages/Projects/Software/SoftwareLayout'
+import SoftwareIndex      from './pages/Projects/Software/index'
 import ExperimentsLayout  from './pages/Projects/Experiments/ExperimentsLayout'
 import ExperimentsIndex   from './pages/Projects/Experiments/index'
 import OutreachPage       from './pages/Projects/Outreach'
@@ -12,6 +13,8 @@ import OutreachPage       from './pages/Projects/Outreach'
 import SabbathHujiPage from './pages/Projects/Experiments/SabbathHuji'
 import NextExperimentPage from './pages/Projects/Experiments/NextExperiment'
 import BoldPage from './pages/Projects/Experiments/Bold'
+
+import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import './App.css'
 
 export default function App() {
@@ -22,7 +25,10 @@ export default function App() {
 
       <Route path="projects" element={<ProjectsLayout/>}>
         <Route index         element={<ProjectsIndex/>}/>
-        <Route path="software"    element={<SoftwareLayout/>}/>
+        <Route path="software" element={<SoftwareLayout/>}>
+          <Route index            element={<SoftwareIndex/>}/>
+          <Route path="manhattan" element={<ManhattanPage/>}/>
+        </Route>
         <Route path="experiments" element={<ExperimentsLayout/>}>
           <Route index              element={<ExperimentsIndex/>}/>
           <Route path="SabbathHuji" element={<SabbathHujiPage/>}/>

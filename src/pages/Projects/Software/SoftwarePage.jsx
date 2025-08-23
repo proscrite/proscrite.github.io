@@ -15,7 +15,7 @@ const cards = [
 //   { title: 'Autostep Finder (Julia)',   img: autostepfinderImg, path: '/projects/software/autostepfinder' }
 ]
 
-export default function SoftwareLayout() {
+export default function SoftwareIndex() {
   return (
     <div className="projects-container">
       <h1>My Software</h1>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Bold.css'
 import BoldInteractiveMap from './BoldInteractiveMap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import nextImg from '../images/fbi_cover_v2.png'
 import bold2 from './images/BOLD_scheme/BOLD_scheme.002.png'
@@ -33,6 +33,83 @@ import tri1 from './images/tri_molecs/molecs.007.png' // Replace with actual fil
 import tri2 from './images/tri_molecs/molecs.008.png'
 import tri3 from './images/tri_molecs/molecs.009.png'
 
+// Surfaces images
+import naturePaper from './images/surfaces/nature_evaporation.png'
+import natureCommPaper from './images/surfaces/natureComm_stm.png'
+
+// Ion sources images
+import evaporatorImg from './images/ion_sources/evaporator.png'
+import ionSourceImg from './images/ion_sources/ion_source.png'
+import raTagImg from './images/ion_sources/ra_tag.png';
+
+function PaperListItem({ href, imgSrc, imgAlt, children }) {
+  // Internal link if href starts with '/'; external otherwise
+  const isInternal = href && href.startsWith('/');
+  const linkProps = isInternal
+    ? { to: href, style: { display: 'inline-block', marginRight: '18px' } }
+    : { href, target: '_blank', rel: 'noopener noreferrer', style: { display: 'inline-block', marginRight: '18px' } };
+
+  return (
+    <li style={{ display: 'flex', alignItems: 'center', marginBottom: '1.2em' }}>
+      {isInternal ? (
+        <Link {...linkProps}>
+          <img
+            src={imgSrc}
+            alt={imgAlt}
+            style={{ width: '400px', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
+          />
+        </Link>
+      ) : (
+        <a {...linkProps}>
+          <img
+            src={imgSrc}
+            alt={imgAlt}
+            style={{ width: '400px', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
+          />
+        </a>
+      )}
+      <span>{children}</span>
+    </li>
+  );
+}
+
+function ScrollToId({id, children }) {
+  function handleClick(e) {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+  return (
+    <a
+      href={`#${id}`}
+      onClick={handleClick}
+      style={{ color: '#6fa3ff', textDecoration: 'underline', cursor: 'pointer' }}
+    >
+      {children}
+    </a>
+  );
+}
+function ProjectDetailSection({ images, index, setIndex, title, children }) {
+  return (
+    <div className="project-details">
+      <div className="image-wrapper">
+        <img
+          src={images[index]}
+          alt={`${title} molecule ${index + 1}`}
+          className="project-image clickable-image"
+          onClick={() => setIndex((index + 1) % images.length)}
+        />
+        <div className="image-hint">
+          Click to view next ({index + 1}/{images.length})
+        </div>
+      </div>
+      <div className="project-text">
+        <h3>{title}</h3>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function BoldPage() {
   const [boldIndex, setBoldIndex] = useState(0)
   const [naphIndex, setNaphIndex] = useState(0)
@@ -49,7 +126,7 @@ export default function BoldPage() {
 
   return (
     <div className="projects-container">
-      <h1>BOLD: Barium atOm Light Detection</h1>
+      <h1 id="bold-start">BOLD: Barium atOm Light Detection</h1>
       <div>
         <div className="image-wrapper">
           <img
@@ -96,118 +173,94 @@ export default function BoldPage() {
         They fall mainly in three categories:
       </p>
 
+
       {/* Light Switch Section */}
-      <div className="project-details">
-        <div className="image-wrapper">
-          <img
-            src={naphImages[naphIndex]}
-            alt={`Naphthalamide molecule ${naphIndex + 1}`}
-            className="project-image clickable-image"
-            onClick={() => setNaphIndex((naphIndex + 1) % naphImages.length)}
-          />
-          <div className="image-hint">
-            Click to view next ({naphIndex + 1}/{naphImages.length})
-          </div>
-        </div>
-        <div className="project-text">
-          <h3>The Light switch:</h3>
-          <p>
-            These are molecules that are essentially switched on when the Ba²⁺ ion is captured. The fluorescence light is <i>off</i> when the molecule is in free state,
-            and <i><b>on</b></i> when it catches it. The detection technique then revolves around measuring the intensity of the tagger in both states. 
-            If the light intensity in the <b>on</b> state is sufficiently large with respect to the <i>off</i> state, then a threshold can be used to discriminate between them.
-          </p>
-          <p>
-            Several types of molecules display this effect. The most promising of these are naphtalamide derivates linked to a crown-ether.
-            The crown-ether acts as the main ion-receptor unit. This is also the component that determines the ion selectivity.
-            You can think of it as a baseball glove. The size of the glove has to suit the size of the ball. 
-            The glove is obviously no good if it is much smaller than the ball. And if it's too big, then the catcher wouldn't notice if the ball has hit it or not.
-          </p>
-          <p>
-            The naphtalamide is the component that emits fluorescence. However, the link to the crown-ether creats a free electron pair, which acts like a circuit short. 
-            This is why the tagger in the free state does not emit light. In the presence of the ion, the electron pair interact with it, disabling the short, and effectively switching <b>on</b> the fluorescence.
-          </p>
-        </div>
-      </div>
+      <ProjectDetailSection
+        images={naphImages}
+        index={naphIndex}
+        setIndex={setNaphIndex}
+        title="The Light switch:"
+      >
+        <p>
+          These are molecules that are essentially switched on when the Ba²⁺ ion is captured. The fluorescence light is <i>off</i> when the molecule is in free state,
+          and <i><b>on</b></i> when it catches it. The detection technique then revolves around measuring the intensity of the tagger in both states. 
+          If the light intensity in the <b>on</b> state is sufficiently large with respect to the <i>off</i> state, then a threshold can be used to discriminate between them.
+        </p>
+        <p>
+          Several types of molecules display this effect. The most promising of these are naphtalamide derivates linked to a crown-ether.
+          The crown-ether acts as the main ion-receptor unit. This is also the component that determines the ion selectivity.
+          You can think of it as a baseball glove. The size of the glove has to suit the size of the ball. 
+          The glove is obviously no good if it is much smaller than the ball. And if it's too big, then the catcher wouldn't notice if the ball has hit it or not.
+        </p>
+        <p>
+          The naphtalamide is the component that emits fluorescence. However, the link to the crown-ether creats a free electron pair, which acts like a circuit short. 
+          This is why the tagger in the free state does not emit light. In the presence of the ion, the electron pair interact with it, disabling the short, and effectively switching <b>on</b> the fluorescence.
+        </p>
+      </ProjectDetailSection>
+
 
       {/* Traffic Light Section */}
-      <div className="project-details">
-        <div className="image-wrapper">
-          <img
-            src={fbiImages[fbiIndex]}
-            alt={`FBI molecule ${fbiIndex + 1}`}
-            className="project-image clickable-image"
-            onClick={() => setFbiIndex((fbiIndex + 1) % fbiImages.length)}
-          />
-          <div className="image-hint">
-            Click to view next ({fbiIndex + 1}/{fbiImages.length})
-          </div>
-        </div>
-        <div className="project-text">
-          <h3>The Traffic Light:</h3>
-          <p>
-            These molecules emit a different in wavelengths in their free state and in the Ba-bound state. They are the are so-called Fluorescent Bicolor Indicators (FBI). 
-            The crown-ether is also the ion catcher of FBIs. The fluorophore component is different from that of the light switch.
-            It contains a rotatable "neck" which plays a crucial role in the detection mechanism. In the free state,
-            the neck acts as a buffer between the crown-ether and the rest of the fluorophore. This means that there is no circuit short like in the Light Switch Tagger, and therefore no <i>off</i> state.
-            In fact, in the free state, the neck itself contributes to the light emission.  However, when the ion is captured, the neck component is attracted to it. 
-            This interaction results in the neck getting twisted around its axis and getting disconnected from the light emission circuit.
-            To understand why this produces a change in the color we need to discuss the basics of how fluorescence works.
-          </p>
-          <p>
-            Fluorescence light is produced by using a laser to promote electrons to an excited state. When the electrons relax into their ground state, a fluorescence photon is emitted.
-            In organic compounds, these electrons exist in molecular orbitals with high aromaticity (the pentagon and hexagon cycles). 
-            The molecular orbitals of FBIs in the free state span the neck and the main fluorophore unit. 
-            However, in the ion-bound state, these orbitals are limited only to the latter.
-            This means that the energy of the electron cloud that floats around the orbitals increases. 
-            Higher energy electrons emit higher frequency (and shorter wavelength) photons, and with them, the traffic light changes colors.
-          </p>
-        </div>
-      </div>
+      <ProjectDetailSection
+        images={fbiImages}
+        index={fbiIndex}
+        setIndex={setFbiIndex}
+        title="The Traffic Light:"
+      >
+        <p>
+          These molecules emit a different in wavelengths in their free state and in the Ba-bound state. They are the are so-called Fluorescent Bicolor Indicators (FBI). 
+          The crown-ether is also the ion catcher of FBIs. The fluorophore component is different from that of the light switch.
+          It contains a rotatable "neck" which plays a crucial role in the detection mechanism. In the free state,
+          the neck acts as a buffer between the crown-ether and the rest of the fluorophore. This means that there is no circuit short like in the Light Switch Tagger, and therefore no <i>off</i> state.
+          In fact, in the free state, the neck itself contributes to the light emission.  However, when the ion is captured, the neck component is attracted to it. 
+          This interaction results in the neck getting twisted around its axis and getting disconnected from the light emission circuit.
+          To understand why this produces a change in the color we need to discuss the basics of how fluorescence works.
+        </p>
+        <p>
+          Fluorescence light is produced by using a laser to promote electrons to an excited state. When the electrons relax into their ground state, a fluorescence photon is emitted.
+          In organic compounds, these electrons exist in molecular orbitals with high aromaticity (the pentagon and hexagon cycles). 
+          The molecular orbitals of FBIs in the free state span the neck and the main fluorophore unit. 
+          However, in the ion-bound state, these orbitals are limited only to the latter.
+          This means that the energy of the electron cloud that floats around the orbitals increases. 
+          Higher energy electrons emit higher frequency (and shorter wavelength) photons, and with them, the traffic light changes colors.
+        </p>
+      </ProjectDetailSection>
+
 
       {/* Old Lightbulb Section */}
-      <div className="project-details">
-        <div className="image-wrapper">
-          <img
-            src={triImages[triIndex]}
-            alt={`Tri molecule ${triIndex + 1}`}
-            className="project-image clickable-image"
-            onClick={() => setTriIndex((triIndex + 1) % triImages.length)}
-          />
-          <div className="image-hint">
-            Click to view next ({triIndex + 1}/{triImages.length})
-          </div>
-        </div>
-        <div className="project-text">
-          <h3>The old lightbulb:</h3>
-          <p>
-            Think of these molecules as that old lightbulb that stays on for a few seconds after you have switched off the current. 
-            The neat trick is that, in the absence of ion, the lightbulb switches on and off sharp as a razor. 
-            This is a fluorescence process, and it therefore has a lifetime in the order of nanoseconds.
-            Instead, when the tagger captures the ion, the light lingers for a few more (mili)seconds. 
-            The interaction with the ion induces a change from fluorescence to phosphorescence, which is usually 1000 times slower. 
-            Oh! And on top of that, these molecules also change colors!
-          </p>
-          <p>
-            The photochemistry of these phosphorescent molecules is a bit more intricate than for the previous categories (in fact we are still trying to understand it!).
-            The main idea is that the inorganic component (Ir-3-bipyrimidine) is responsible for the phosphorescence. 
-            This is because atoms with many orbital levels like Iridium create forbidden molecular states. 
-            The excited electrons can tunnel to this state, but then they are "trapped" because the transition to the ground state is "forbidden". 
-            In more technical terms, this means that it is highly unlikely for this transition to occur, i.e. it occurs with a much slower lifetime.
-          </p>
-          <p>
-            In the absence of the ion, the organic component that links to the crown-ether takes all the protagonism in the light emission theater.
-            More technically, the emission is produced primarily by the orbitals of the organic component, which contain no forbidden states. 
-            However, this changes when the ion interacts with the crown-ether an the organic component. Then it's time for the iridium to shine! ... Only a bit more slowly.
-          </p>
-        </div>
-      </div>
+      <ProjectDetailSection
+        images={triImages}
+        index={triIndex}
+        setIndex={setTriIndex}
+        title="The old lightbulb:"
+      >
+        <p>
+          Think of these molecules as that old lightbulb that stays on for a few seconds after you have switched off the current. 
+          The neat trick is that, in the absence of ion, the lightbulb switches on and off sharp as a razor. 
+          This is a fluorescence process, and it therefore has a lifetime in the order of nanoseconds.
+          Instead, when the tagger captures the ion, the light lingers for a few more (mili)seconds. 
+          The interaction with the ion induces a change from fluorescence to phosphorescence, which is usually 1000 times slower. 
+          Oh! And on top of that, these molecules also change colors!
+        </p>
+        <p>
+          The photochemistry of these phosphorescent molecules is a bit more intricate than for the previous categories (in fact we are still trying to understand it!).
+          The main idea is that the inorganic component (Ir-3-bipyrimidine) is responsible for the phosphorescence. 
+          This is because atoms with many orbital levels like Iridium create forbidden molecular states. 
+          The excited electrons can tunnel to this state, but then they are "trapped" because the transition to the ground state is "forbidden". 
+          In more technical terms, this means that it is highly unlikely for this transition to occur, i.e. it occurs with a much slower lifetime.
+        </p>
+        <p>
+          In the absence of the ion, the organic component that links to the crown-ether takes all the protagonism in the light emission theater.
+          More technically, the emission is produced primarily by the orbitals of the organic component, which contain no forbidden states. 
+          However, this changes when the ion interacts with the crown-ether an the organic component. Then it's time for the iridium to shine! ... Only a bit more slowly.
+        </p>
+      </ProjectDetailSection>
       
     <h2 id="surfaces">Sensor Assembly</h2>
         <p>
           One of the main challenges in the BOLD project is to adapt the SMFI technique to the harsh environment of a high-pressure xenon gas TPC.
           This requires the development of a robust and efficient sensor assembly on a substrate that can operate reliably under these conditions.
           The sensor assembly consists of several components:
-          <ul>
+          <ul style={{ textAlign: 'left' }} >
           <li> A transparent substrate coated with the fluorescent taggers, </li>
           
           <li> Linking the taggers to the substrate in a way that preserves their functionality,</li>
@@ -216,37 +269,114 @@ export default function BoldPage() {
           
           <li> A mechanical structure to move the assembly in place to the desired location within the TPC.</li>
           </ul>
-        </p>
-        <p>
+
           I have been involved in the design and testing of various sensor assembly prototypes, exploring different substrate materials and configurations to optimize performance.
           This required extensive work in surface science, chemistry and optics. During my PhD I focused on developing techniques for coating the substrates with the taggers and characterizing their performance using surface science techniques.
           For more details about this work, please refer to the two papers we published during my PhD: 
-          <ul>
-            <li><a href="https://doi.org/10.1038/s41586-020-2431-5" target="_blank" rel="noopener noreferrer">Fluorescent bicolour sensor for low-background neutrinoless double β decay experiments</a>  </li>
-            <li><a href="https://doi.org/10.1038/s41467-022-35153-0" target="_blank" rel="noopener noreferrer">Ba+2 ion trapping using organic submonolayer for ultra-low background neutrinoless double beta detector</a>. </li>
+
+          <ul id='papers-list' style={{ listStyle: 'none', padding: 0 }}>
+            <PaperListItem
+              href="https://doi.org/10.1038/s41586-020-2431-5"
+              imgSrc={naturePaper}
+              imgAlt="Nature Paper"
+            >
+              Paper 1: I. Rivilla, B. Aparicio, J. M. Bueno ..., <u>Pablo Herrero</u> et al., <i>Nature</i> volume <b>583</b>, pages 48–54 (2020),{' '}
+              <a
+                href="https://doi.org/10.1038/s41586-020-2431-5"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: '1.1em', color: '#6fa3ff', textDecoration: 'none' }}
+              >
+                "Fluorescent bicolour sensor for low-background neutrinoless double β decay experiments."
+              </a>
+            </PaperListItem>
+            <PaperListItem
+              href="https://doi.org/10.1038/s41467-022-35153-0"
+              imgSrc={natureCommPaper}
+              imgAlt="Nature Communications Paper"
+            >
+              Paper 2: <u>Pablo Herrero</u> et al. <i>Nature Communications</i> volume <b>13</b>, Article number: <b>7421</b> (2022).{' '}
+              <a
+                href="https://doi.org/10.1038/s41467-022-35153-0"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-block', marginRight: '18px' }}
+              >
+                "Ba+2 ion trapping using organic submonolayer for ultra-low background neutrinoless double beta detector."
+              </a>
+            </PaperListItem>
           </ul>
+          
           The page on <Link to="/projects/experiments/SurfaceScience">Surface Science for BOLD at CFM</Link> also contains relevant information about the topic.
         </p>
 
-      <h2 id="optics">Single Molecule Light Detection</h2>
-        <p>
-          Light detection sensitivity at the single-molecule level is achieved through dedicated optical microscopy. 
-          A laser is used to promote the electrons in the molecular orbitals to their excited states. When they relax back to the ground state,
-          the fluorescence photons are emitted with a longer wavelength than that of the laser. Those photons are collected by a microscope objective,
-          and separated from the laser light path using a dichroic mirror and several different filters. Finally, a camera detects the photons and converts them into an image.
-          This is one of the main branches of R&D in the BOLD project, and I have been deeply involved in it. You can find more details about it in the <Link to="/projects/experiments/SabbathHuji">HUJI microscopy Page</Link>.
-        </p>
-        <p>
-          We can then follow the time dependence of the detected light in a fixed spot. The signature of a single molecule is a step-like decrease in light intensity.
-          This is due to a phenomenon called photobleaching. Basically, when molecules are exposed to laser radiation for long enough, they end up disintegrating and ceasing to emit light.
-          Think of it as popcorn. When you put the corn kernels in the microwave, they start popping one by one until there are no more left.
-          Similarly, when a molecule is exposed to laser light, it eventually "pops" and stops fluorescing.
-          By analyzing these step-like decreases in light intensity, we can identify the presence of single molecules and study their properties.
-        </p>
+    <h2 id="optics">Single Molecule Light Detection</h2>
+      <p>
+        Light detection sensitivity at the single-molecule level is achieved through dedicated optical microscopy. 
+        A laser is used to promote the electrons in the molecular orbitals to their excited states. When they relax back to the ground state,
+        the fluorescence photons are emitted with a longer wavelength than that of the laser. Those photons are collected by a microscope objective,
+        and separated from the laser light path using a dichroic mirror and several different filters. Finally, a camera detects the photons and converts them into an image.
+        This is one of the main branches of R&D in the BOLD project, and I have been deeply involved in it. You can find more details about it in the <Link to="/projects/experiments/SabbathHuji">HUJI microscopy Page</Link>.
+      </p>
+      <p>
+        We can then follow the time dependence of the detected light in a fixed spot. The signature of a single molecule is a step-like decrease in light intensity.
+        This is due to a phenomenon called photobleaching. Basically, when molecules are exposed to laser radiation for long enough, they end up disintegrating and ceasing to emit light.
+        Think of it as popcorn. When you put the corn kernels in the microwave, they start popping one by one until there are no more left.
+        Similarly, when a molecule is exposed to laser light, it eventually "pops" and stops fluorescing.
+        By analyzing these step-like decreases in light intensity, we can identify the presence of single molecules and study their properties.
+      </p>
 
-    <h2 id="ion-sources">Reproduce the double beta decay conditions</h2>
+    <h2 id="ion-sources">Reproducing the ion capture conditions</h2>
         <p>
-          Ion source ion sources ion sources
+          One of the key factors in the BOLD project is to ensure that the fluorescent taggers can effectively capture Ba²⁺ ions under conditions similar to those in the NEXT detector.
+          This involves developing different ion sources that can produce Ba²⁺ ions in a controlled manner.
+          I have been involved in the design, construction, and testing of several ion sources, listed below:
+          <ul style={{ textAlign: 'justify' }}>
+            <PaperListItem
+              href="/projects/experiments/SurfaceScience"
+              imgSrc={evaporatorImg}
+              imgAlt="Evaporator Scheme"
+            >
+            <b>1. Barium salt evaporators: </b> The simplest mechanism to test interaction of fluorophores with Ba²⁺ is to add the ions in form of a salt.
+              In the <ScrollToId id="papers-list"> two publications listed above</ScrollToId>, we used Ba(ClO₄)₂ and BaCl₂ obtained by sublimating the salts in Ultra-High Vacuum and depositing them on the tagger-coated substrates.
+              The anions behave as spectators in the chelation process, so they are not expected to affect the results.
+              This assures the purity of the deposited material and allowed us to study the interaction of chemosensors with Ba²⁺ under controlled conditions with surface science techniques.
+              However, controlling the amount of Ba²⁺ deposited can be challenging. A thickness in the scale of a few monolayers (a single layer of closely packed atoms or molecules) can be achieved,
+              but this is not sparse enough to mimic the conditions in the NEXT detector (one single ion). In addition, the process needs to be studied in high-pressure gas xenon, not in Ultra-High Vacuum (which is required for sublimation).
+            </PaperListItem>
+
+            <PaperListItem
+              href="/projects/experiments/BoldIonSource"  // TODO: Link to the BOLD Ion Source Page
+              imgSrc={ionSourceImg}
+              imgAlt="Ion Source Scheme"
+            >
+              <b> 2. Dedicated ion sources: </b> Two Ba²⁺ ion sources have been developed by the NEXT collaboration. One is based on a commercial plasma source and it operates under high-vacuum. 
+            More details on this system can be found in <Link to="https://iopscience.iop.org/article/10.1088/1748-0221/18/07/P07044">this publication</Link>.
+              The second source is a custom-built system which features differential pumping stages to allow operation in higher gas pressures. 
+                The ion is guided by ion optics through a tiny capillary into the target chamber filled with a few mbar of helium gas.
+                This gas collides with the ions, reducing their energy to a few eV, which is the expected energy of arriving Ba²⁺ ions in the NEXT detector. 
+                More details about this source can be found in <Link to="/projects/experiments/BoldIonSource">the BOLD Ion Source Page</Link>.
+            </PaperListItem>
+            
+            <PaperListItem
+              href="/projects/experiments/ritaSetup"  // TODO: Link to the BOLD Ion Source Page
+              imgSrc={raTagImg}
+              imgAlt="Ion Source Scheme"
+            >
+              <b> 3. High-pressure sources: </b> The only realistic way to fully reproduce the conditions in the NEXT detector is to introduce high-energy Ba²⁺ ions produced in a dedicated research beamline, through a thin window and into the high-pressure xenon gas.
+              This is the approach intended to follow by <Link to="https://doi.org/10.3390/atoms12120071">the nEXO collaboration at TRIUMF</Link>, with a <i>liquid</i> xenon TPC.
+              However, a much more simpler and versatile source can be developed by making use of a little chemistry trick. Barium is chemically identical to Radium (both are alkaline earth metals), and therefore,
+              Radium ions (Ra²⁺) can be used as a proxy for Ba²⁺. The advantage of Ra²⁺ is that it is radioactive, and therefore it can be used to produce ions in-situ within the high-pressure xenon gas.
+              By introducing a tiny amount of a thorium salt into the gas, the alpha decay of Th-228 produces a recoiling daughter nucleus of Ra-226 with an energy of about 100 keV.
+              These ions can then be captured by the fluorescent taggers, allowing us to study their behavior under realistic conditions.
+              On top of that, the alpha particles produced in the decay can be used as a flag for the ion emission event at a single-atom level.
+              This project is undergoing, and I am actively involved in its development. You can read more about it <Link to="/projects/experiments/ritaSetup">in this page</Link>.
+            </PaperListItem>
+          </ul>
+        </p>
+        <p>
+
+
 
         </p>
     </div>

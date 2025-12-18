@@ -15,7 +15,7 @@ const areas = [
   { name: 'Optics', img: opticsImg, style: { left: '393px', top: '337px', width: '149px', height: '188px' }, target: 'optics' },
   { name: 'Next', img: nextImg, style: { left: '373px', top: '15px', width: '485px', height: '220px' }, target: '/projects/experiments/nextexperiment' },
   { name: 'Ion Sources', img: ionSourcesImg, style: { left: '690px', top: '224px', width: '246px', height: '288px' }, target: 'ion-sources' },
-  { name: 'Bold', img: boldImg, style: { left: '355px', top: '142px', width: '268px', height: '117px' }, target: null },
+  { name: 'Bold', img: boldImg, style: { left: '355px', top: '142px', width: '268px', height: '117px' }, target: 'bold-start' },
 ];
 
 

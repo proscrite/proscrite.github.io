@@ -8,10 +8,10 @@ import ritaImg from './images/rita.png'
 import '../Projects.css'
 
 const cards = [
-  { title: 'Sabbath',                   img: sabbathImg,        path: '/projects/software/sabbath' },
-  { title: 'ManHatTan',                 img: manhattanImg,      path: '/projects/software/manhattan' },
-  { title: 'XPS Analyser',              img: xpsSwImg,            path: '/projects/software/xps' },
-    { title: 'RITA',                    img: ritaImg,           path: '/projects/software/rita' },
+  { title: 'Sabbath (microscopy GUI)',                   img: sabbathImg,        path: '/projects/software/sabbath' },
+  { title: 'ManHatTan (NLP as a hobby)',                 img: manhattanImg,      path: '/projects/software/manhattan' },
+  { title: 'RaTag (software for RITA)',                  img: ritaImg,           path: '/projects/software/rita' },
+  { title: 'XPS Analyser',                               img: xpsSwImg,            path: '/projects/software/xps' },
 //   { title: 'Autostep Finder (Julia)',   img: autostepfinderImg, path: '/projects/software/autostepfinder' }
 ]
 

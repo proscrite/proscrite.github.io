@@ -2,6 +2,13 @@
 export const communications = [
   {
     year: 2025,
+    type: 'Oral (main session)',
+    title: 'Next-generation neutrinoless double beta decay experiments workshop',
+    link: 'https://nyx.physics.mcgill.ca/event/538/contributions/3352/',
+    venue: 'Montreal, ON, Canada'
+  },
+  {
+    year: 2025,
     type: 'Poster',
     title: 'Nano Center HUJI annual conference',
     link: 'https://nano.huji.ac.il/event/nano-center-annual-conference-2025',

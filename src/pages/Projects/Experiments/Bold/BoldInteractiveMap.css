@@ -1,0 +1,21 @@
+.bold-map-container {
+  position: relative;
+  width: 960px; /* or your chosen width */
+  height: 540px; /* or your chosen height */
+  margin: 2rem auto;
+  background: url('./images/interdisciplinarity/arrows.png') center center no-repeat;
+  background-size: cover; /* or 'cover' if you want to fill, but 'contain' keeps aspect ratio */
+  overflow: hidden;
+}
+.bold-map-img {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 2;
+}
+.bold-map-img:hover, .bold-map-img:focus {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff4081;
+}

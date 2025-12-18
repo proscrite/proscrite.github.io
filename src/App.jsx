@@ -10,9 +10,11 @@ import ExperimentsLayout  from './pages/Projects/Experiments/ExperimentsLayout'
 import ExperimentsIndex   from './pages/Projects/Experiments/index'
 import OutreachPage       from './pages/Projects/Outreach'
 
-import SabbathHujiPage from './pages/Projects/Experiments/SabbathHuji'
 import NextExperimentPage from './pages/Projects/Experiments/NextExperiment'
-import BoldPage from './pages/Projects/Experiments/Bold'
+import BoldPage from './pages/Projects/Experiments/Bold/BoldPage'
+import SabbathHujiPage from './pages/Projects/Experiments/SabbathHuji'
+import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/SurfaceSciencePage'
+import RitaPage from './pages/Projects/Experiments/RitaSetup/RitaPage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import './App.css'
@@ -31,9 +33,11 @@ export default function App() {
         </Route>
         <Route path="experiments" element={<ExperimentsLayout/>}>
           <Route index              element={<ExperimentsIndex/>}/>
-          <Route path="SabbathHuji" element={<SabbathHujiPage/>}/>
           <Route path="NextExperiment" element={<NextExperimentPage/>}/>
           <Route path="Bold" element={<BoldPage/>}/>
+          <Route path="RitaSetup" element={<RitaPage/>}/>
+          <Route path="SabbathHuji" element={<SabbathHujiPage/>}/>
+          <Route path="SurfaceScience" element={<SurfaceSciencePage/>}/>
         </Route>
         <Route path="outreach"    element={<OutreachPage/>}/>
       </Route>

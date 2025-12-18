@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import sabbathSetupImg from './images/cfm_optics6.jpg'
-import ritaImg from './images/bgu_raTag_wis.jpg'
+import ritaImg from './images/rita_gasline_landscape.jpg'
 import baIonSourceImg from './images/bgu_ba_ion.jpg'
 import microscopyCfmImg from './images/cfm_optics_2pa_laser.jpg'
 import xpsSetupImg from './images/cfm_xps2.jpg'
@@ -12,15 +12,15 @@ import xenon1tImg from './images/xenon1t.png'
 import '../Projects.css'
 
 const cards = [
-  { title: 'NEXT', slug: 'nextExperiment', img: nextImg },
-  { title: 'BOLD (Barium Ion Light Detection)', slug: 'bold', img: boldImg },
-  { title: 'Sabbath (Microscopy at HUJI)', slug: 'SabbathHuji', img: sabbathSetupImg },
-  { title: 'RITA (Radium Ion Tagging)', slug: 'ritaSetup', img: ritaImg },
-  { title: 'Barium Ion Gun for BOLD', slug: 'baSource', img: baIonSourceImg },
-  { title: 'Microscopy for BOLD at CFM', slug: 'microscopyCfm', img: microscopyCfmImg },
-  { title: 'Surface Science for BOLD at CFM', slug: 'xpsSetup', img: xpsSetupImg },
-  { title: 'RaMon', slug: 'ramon', img: ramonImg },
-  { title: 'XENON-1T', slug: 'xenon-1t', img: xenon1tImg }
+  { title: 'The context: NEXT (particle physics)', slug: 'nextExperiment', img: nextImg },
+  { title: 'Main project: BOLD (Barium Ion Light Detection)', slug: 'bold', img: boldImg },
+  { title: 'Nuclear physics project: RITA (Radium Ion Tagging)', slug: 'ritaSetup', img: ritaImg },
+  { title: 'Ion physics project: Barium Ion Gun for BOLD', slug: 'baSource', img: baIonSourceImg },
+  { title: 'Optics project: Sabbath (Microscopy at HUJI)', slug: 'SabbathHuji', img: sabbathSetupImg },
+  { title: 'Optics project: Microscopy for BOLD at CFM', slug: 'microscopyCfm', img: microscopyCfmImg },
+  { title: 'Surface Science for BOLD at CFM', slug: 'SurfaceScience', img: xpsSetupImg },
+  { title: 'Nuclear physics project: RaMon', slug: 'ramon', img: ramonImg },
+  { title: 'Past experiments: XENON-1T', slug: 'xenon-1t', img: xenon1tImg }
 ]
 
 export default function ExperimentsIndex() {

@@ -45,6 +45,12 @@ export const mainPublications = [
 
 export const nextPublications = [
     {
+        year: 2025,
+        journal: 'The European Physical Journal C',
+        title: 'Ion transport on phased radiofrequency carpets in xenon gas',
+        link: 'https://link.springer.com/article/10.1140/epjc/s10052-025-14396-3',
+    },
+    {
         year: 2024,
         journal: 'Nature Communications',
         title:  'Fluorescence imaging of individual ions and molecules in pressurized noble gases for barium tagging in 136Xe',

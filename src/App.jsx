@@ -14,7 +14,7 @@ import NextExperimentPage from './pages/Projects/Experiments/NextExperiment'
 import BoldPage from './pages/Projects/Experiments/Bold/BoldPage'
 import SabbathHujiPage from './pages/Projects/Experiments/SabbathHuji'
 import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/SurfaceSciencePage'
-import RitaPage from './pages/Projects/Experiments/RitaSetup/RitaPage'
+import RitaPage from './pages/Projects/Experiments/RaTagSetup/RitaPage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import './App.css'

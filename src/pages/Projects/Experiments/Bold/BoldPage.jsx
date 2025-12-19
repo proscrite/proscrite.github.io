@@ -46,29 +46,31 @@ function PaperListItem({ href, imgSrc, imgAlt, children }) {
   // Internal link if href starts with '/'; external otherwise
   const isInternal = href && href.startsWith('/');
   const linkProps = isInternal
-    ? { to: href, style: { display: 'inline-block', marginRight: '18px' } }
-    : { href, target: '_blank', rel: 'noopener noreferrer', style: { display: 'inline-block', marginRight: '18px' } };
+    ? { to: href }
+    : { href, target: '_blank', rel: 'noopener noreferrer' };
 
   return (
-    <li style={{ display: 'flex', alignItems: 'center', marginBottom: '1.2em' }}>
-      {isInternal ? (
-        <Link {...linkProps}>
-          <img
-            src={imgSrc}
-            alt={imgAlt}
-            style={{ width: '400px', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
-          />
-        </Link>
-      ) : (
-        <a {...linkProps}>
-          <img
-            src={imgSrc}
-            alt={imgAlt}
-            style={{ width: '400px', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
-          />
-        </a>
-      )}
-      <span>{children}</span>
+    <li className="paper-list-item">
+      <div className="paper-list-img-wrapper">
+        {isInternal ? (
+          <Link {...linkProps}>
+            <img
+              src={imgSrc}
+              alt={imgAlt}
+              className="paper-list-img"
+            />
+          </Link>
+        ) : (
+          <a {...linkProps}>
+            <img
+              src={imgSrc}
+              alt={imgAlt}
+              className="paper-list-img"
+            />
+          </a>
+        )}
+      </div>
+      <div className="paper-list-content">{children}</div>
     </li>
   );
 }
@@ -125,7 +127,7 @@ export default function BoldPage() {
   const triImages = [tri1, tri2, tri3]
 
   return (
-    <div className="projects-container">
+    <div className="main-container projects-container">
       <h1 id="bold-start">BOLD: Barium atOm Light Detection</h1>
       <div>
         <div className="image-wrapper">
@@ -280,7 +282,9 @@ export default function BoldPage() {
               imgSrc={naturePaper}
               imgAlt="Nature Paper"
             >
-              Paper 1: I. Rivilla, B. Aparicio, J. M. Bueno ..., <u>Pablo Herrero</u> et al., <i>Nature</i> volume <b>583</b>, pages 48–54 (2020),{' '}
+              <span style={{whiteSpace: 'nowrap'}}>
+                Paper 1: I. Rivilla, B. Aparicio, J. M. Bueno ..., <u>Pablo Herrero</u> et al., <i>Nature</i> volume <b>583</b>, pages 48–54 (2020),
+              </span>{' '}
               <a
                 href="https://doi.org/10.1038/s41586-020-2431-5"
                 target="_blank"
@@ -295,7 +299,9 @@ export default function BoldPage() {
               imgSrc={natureCommPaper}
               imgAlt="Nature Communications Paper"
             >
-              Paper 2: <u>Pablo Herrero</u> et al. <i>Nature Communications</i> volume <b>13</b>, Article number: <b>7421</b> (2022).{' '}
+              <span style={{whiteSpace: 'nowrap'}}>
+                Paper 2: <u>Pablo Herrero</u> et al. <i>Nature Communications</i> volume <b>13</b>, Article number: <b>7421</b> (2022).
+              </span>{' '}
               <a
                 href="https://doi.org/10.1038/s41467-022-35153-0"
                 target="_blank"
@@ -337,40 +343,52 @@ export default function BoldPage() {
               imgSrc={evaporatorImg}
               imgAlt="Evaporator Scheme"
             >
-            <b>1. Barium salt evaporators: </b> The simplest mechanism to test interaction of fluorophores with Ba²⁺ is to add the ions in form of a salt.
+              <span>
+                <b>1. Barium salt evaporators: </b> The simplest mechanism to test interaction of fluorophores with Ba²⁺ is to add the ions in form of a salt.
+              </span>{' '}
+              <span>
               In the <ScrollToId id="papers-list"> two publications listed above</ScrollToId>, we used Ba(ClO₄)₂ and BaCl₂ obtained by sublimating the salts in Ultra-High Vacuum and depositing them on the tagger-coated substrates.
               The anions behave as spectators in the chelation process, so they are not expected to affect the results.
               This assures the purity of the deposited material and allowed us to study the interaction of chemosensors with Ba²⁺ under controlled conditions with surface science techniques.
               However, controlling the amount of Ba²⁺ deposited can be challenging. A thickness in the scale of a few monolayers (a single layer of closely packed atoms or molecules) can be achieved,
               but this is not sparse enough to mimic the conditions in the NEXT detector (one single ion). In addition, the process needs to be studied in high-pressure gas xenon, not in Ultra-High Vacuum (which is required for sublimation).
+              </span>{' '}
             </PaperListItem>
 
             <PaperListItem
-              href="/projects/experiments/BoldIonSource"  // TODO: Link to the BOLD Ion Source Page
+              href="/projects/experiments/BoldIonSource"
               imgSrc={ionSourceImg}
               imgAlt="Ion Source Scheme"
             >
-              <b> 2. Dedicated ion sources: </b> Two Ba²⁺ ion sources have been developed by the NEXT collaboration. One is based on a commercial plasma source and it operates under high-vacuum. 
-            More details on this system can be found in <Link to="https://iopscience.iop.org/article/10.1088/1748-0221/18/07/P07044">this publication</Link>.
-              The second source is a custom-built system which features differential pumping stages to allow operation in higher gas pressures. 
-                The ion is guided by ion optics through a tiny capillary into the target chamber filled with a few mbar of helium gas.
-                This gas collides with the ions, reducing their energy to a few eV, which is the expected energy of arriving Ba²⁺ ions in the NEXT detector. 
-                More details about this source can be found in <Link to="/projects/experiments/BoldIonSource">the BOLD Ion Source Page</Link>.
+              <span>
+                <b>2. Dedicated ion sources: </b> Two Ba²⁺ ion sources have been developed by the NEXT collaboration. One is based on a commercial plasma source and it operates under high-vacuum.
+                More details on this system can be found in <Link to="https://iopscience.iop.org/article/10.1088/1748-0221/18/07/P07044">this publication</Link>.
+              </span>{' '}
+              <span>
+              The second source is a custom-built system which features differential pumping stages to allow operation in higher gas pressures.
+              The ion is guided by ion optics through a tiny capillary into the target chamber filled with a few mbar of helium gas.
+              This gas collides with the ions, reducing their energy to a few eV, which is the expected energy of arriving Ba²⁺ ions in the NEXT detector.
+              More details about this source can be found in <Link to="/projects/experiments/BoldIonSource">the BOLD Ion Source Page</Link>.
+              </span>{' '}
             </PaperListItem>
             
             <PaperListItem
-              href="/projects/experiments/ritaSetup"  // TODO: Link to the BOLD Ion Source Page
+              href="/projects/experiments/ritaSetup"
               imgSrc={raTagImg}
               imgAlt="Ion Source Scheme"
             >
-              <b> 3. High-pressure sources: </b> The only realistic way to fully reproduce the conditions in the NEXT detector is to introduce high-energy Ba²⁺ ions produced in a dedicated research beamline, through a thin window and into the high-pressure xenon gas.
-              This is the approach intended to follow by <Link to="https://doi.org/10.3390/atoms12120071">the nEXO collaboration at TRIUMF</Link>, with a <i>liquid</i> xenon TPC.
+              <span>
+                <b>3. High-pressure sources: </b> The only realistic way to fully reproduce the conditions in the NEXT detector is to introduce high-energy Ba²⁺ ions produced in a dedicated research beamline, through a thin window and into the high-pressure xenon gas.
+                This is the approach intended to follow by <Link to="https://doi.org/10.3390/atoms12120071">the nEXO collaboration at TRIUMF</Link>, with a <i>liquid</i> xenon TPC.
+              </span>{' '}
+              <span >
               However, a much more simpler and versatile source can be developed by making use of a little chemistry trick. Barium is chemically identical to Radium (both are alkaline earth metals), and therefore,
               Radium ions (Ra²⁺) can be used as a proxy for Ba²⁺. The advantage of Ra²⁺ is that it is radioactive, and therefore it can be used to produce ions in-situ within the high-pressure xenon gas.
               By introducing a tiny amount of a thorium salt into the gas, the alpha decay of Th-228 produces a recoiling daughter nucleus of Ra-226 with an energy of about 100 keV.
               These ions can then be captured by the fluorescent taggers, allowing us to study their behavior under realistic conditions.
               On top of that, the alpha particles produced in the decay can be used as a flag for the ion emission event at a single-atom level.
               This project is undergoing, and I am actively involved in its development. You can read more about it <Link to="/projects/experiments/ritaSetup">in this page</Link>.
+              </span>
             </PaperListItem>
           </ul>
         </p>

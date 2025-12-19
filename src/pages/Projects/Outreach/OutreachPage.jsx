@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import VideoWrapper from '../../../components/VideoWrapper.jsx'
 import CommTable  from '../../../components/CommTable.jsx'
@@ -10,8 +10,11 @@ import { mainPublications, nextPublications } from './data_publications.js'
 import './OutreachPage.css'
 
 export default function OutreachPage() {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
-    <div className="projects-container">
+    <div className="main-container projects-container">
       <h1>Outreach & Communication</h1>
       <p>
             I have been involved in various outreach and communication activities,

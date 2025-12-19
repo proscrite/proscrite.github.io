@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Chrono } from 'react-chrono'
 import { Link } from 'react-router-dom'
 import './ScienceCareer.css'
@@ -62,8 +62,11 @@ const items = [
 ]
 
 export default function ScienceCareer() {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
-    <div className="science-container">
+    <div className="main-container science-container">
       <Link to="/" className="back-link">← Back to Home</Link>
       <h1>Science Career</h1>
       <div className="video-wrapper">

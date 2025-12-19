@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import sabbathSetupImg from './images/cfm_optics6.jpg'
 import ritaImg from './images/rita_gasline_landscape.jpg'
@@ -24,8 +24,11 @@ const cards = [
 ]
 
 export default function ExperimentsIndex() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <>
+    <div className="main-container">
       <h1>Experiments & Setups</h1>
       <div className="project-panels">
         {cards.map(({ title, img, slug }) => (
@@ -41,6 +44,6 @@ export default function ExperimentsIndex() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   )
 }

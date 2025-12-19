@@ -4,9 +4,19 @@
   padding: 0 1rem;
 }
 .video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 .chrono-wrapper {
   height: 500px;

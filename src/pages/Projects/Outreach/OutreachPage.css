@@ -1,9 +1,21 @@
+
+.main-container {
+  overflow-x: hidden;
+}
+
 .comm-table {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
   margin-top: 1.5rem;
 }
 
+table,
+.comm-table {
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
 .comm-table th,
 .comm-table td {
   border: 1px solid #ccc;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route }  from 'react-router-dom'
 import Home               from './pages/Home'
-import ScienceCareer      from './pages/ScienceCareer'
+import ScienceCareer      from './pages/ScienceCareer/ScienceCareerPage'
 import ProjectsIndex      from './pages/Projects/index'
 import ProjectsLayout     from './pages/Projects/ProjectsLayout'
 import SoftwareLayout     from './pages/Projects/Software/SoftwareLayout'
@@ -18,6 +18,7 @@ import RitaPage from './pages/Projects/Experiments/RaTagSetup/RitaPage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import './App.css'
+
 
 export default function App() {
   return (

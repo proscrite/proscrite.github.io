@@ -120,6 +120,11 @@
   pointer-events: none;
 }
 
+.rita-setup-image-wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
 /* Responsive: stack on smaller screens */
 @media (max-width: 768px) {
   .project-details {

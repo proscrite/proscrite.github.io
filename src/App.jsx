@@ -17,6 +17,7 @@ import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/Surf
 import RitaPage from './pages/Projects/Experiments/RaTagSetup/RitaPage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
+import RaTagPage from './pages/Projects/Software/RaTag/RaTagPage'
 import './App.css'
 
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="software" element={<SoftwareLayout/>}>
           <Route index            element={<SoftwareIndex/>}/>
           <Route path="manhattan" element={<ManhattanPage/>}/>
+          <Route path="RaTag" element={<RaTagPage/>}/>
         </Route>
         <Route path="experiments" element={<ExperimentsLayout/>}>
           <Route index              element={<ExperimentsIndex/>}/>

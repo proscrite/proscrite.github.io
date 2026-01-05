@@ -83,14 +83,18 @@ export default function RitaPage() {
       </p>
       <div>
       <div className="image-wrapper">
+          <div className="image-caption">
+            <p>{captions[ritaIndex]} ({ritaIndex + 1} / {ritaImages.length})</p>
+          </div>
           <img 
           src={ritaImages[ritaIndex]} alt={`RITA scheme ${ritaIndex + 1}`} 
           className='project-image clickable-image'
           onClick={() => setRitaIndex((ritaIndex + 1) % ritaImages.length)}
           />
-          <div className="image-caption">
-            <p>{captions[ritaIndex]} ({ritaIndex + 1} / {ritaImages.length})</p>
-          </div>
+          <div className="image-navigation">
+            <button onClick={() => setRitaIndex((ritaIndex - 1 + ritaImages.length) % ritaImages.length)}>Previous</button>
+            <button onClick={() => setRitaIndex((ritaIndex + 1) % ritaImages.length)}>Next</button>
+        </div>
       </div>
 
       <p align="justify">
@@ -117,6 +121,10 @@ export default function RitaPage() {
         <div className="image-caption">
           <p>{captions_setup[ritaSetupIndex]} ({ritaSetupIndex + 1} / {ritaSetupImages.length})</p>
         </div>
+        <div className="image-navigation">
+            <button onClick={() => setRitaSetupIndex((ritaSetupIndex - 1 + ritaSetupImages.length) % ritaSetupImages.length)}>Previous</button>
+            <button onClick={() => setRitaSetupIndex((ritaSetupIndex + 1) % ritaSetupImages.length)}>Next</button>
+        </div>
       </div>
 
       <h2>Recombination studies:</h2>
@@ -131,7 +139,13 @@ export default function RitaPage() {
       The ionization electrons drift in the electric field created by the potential applied to the gate. Beyond the gate, a higher potential is applied, 
       which further accelerates the electrons and cause the xenon to emit electroluminescence. This is is recorded as a longer and more intense PMT signal or "S2".
       </p>
-      <img src={exampleWfm} alt="Example of PMT waveform" />
+      <div className="image-wrapper smaller-image-wrapper">
+        <img src={exampleWfm} alt="Example of PMT waveform" />
+      </div>
+      <div className="image-caption">
+        <p>Example of PMT waveform showing S1 and S2 signals.</p>
+      </div>
+
       <p align="justify">
         The time difference between S2 and S1 is the drift time, which depends on the electron drift velocity at a fixed drift length and electric field. 
         Therefore, the time window in the oscilloscope should always feature a small S1 and a larger S2 with a fixed delay between them.
@@ -177,7 +191,7 @@ export default function RitaPage() {
         To study recombination, we use the PMT to measure the scintillation light produced in the xenon gas when recoiling ions from the ²²⁸Th source interact with the gas.
         By analyzing the PMT waveforms, we can extract information about the amount of scintillation light produced and infer the recombination fraction under different electric field conditions.
         Moreover, by correlating the PMT signals with the tagged alpha decays from the silicon detector, we can study how recombination varies with the energy of the recoiling ions. 
-        In other words, we can select a specific alpha energy from the ²²⁸Th decay chain and analyze the corresponding daughter ion's interaction in the xenon gas (²²⁴Ra, ²²⁴Rn, ²¹⁶Po, ²¹²Bi and ²¹²Po). 
+        In other words, we can select a specific alpha energy from the ²²⁸Th decay chain and analyze the corresponding daughter ion's interaction in the xenon gas (²²⁴Ra, ²²⁰Rn, ²¹⁶Po, ²¹²Bi and ²¹²Po). 
       </p>
 
       <h2>Software:</h2>  

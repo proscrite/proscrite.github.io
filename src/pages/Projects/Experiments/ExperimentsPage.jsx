@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import sabbathSetupImg from './images/cfm_optics6.jpg'
+import sabbathSetupImg from './images/huji_lab5.jpg'
 import ritaImg from './images/rita_gasline_landscape.jpg'
 import baIonSourceImg from './images/bgu_ba_ion.jpg'
 import microscopyCfmImg from './images/cfm_optics_2pa_laser.jpg'

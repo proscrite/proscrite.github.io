@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RaTagInteractiveMap from './RaTagInteractiveMap';
 import './RaTagPage.css'
 import { Link } from 'react-router-dom'
 
 // import sabbathSetupImg from '../images/cfm_optics6.jpg'
 import exampleWfm from './images/example_frame.png'
-import rita_repo from './images/RaTag_repo_structure/RaTag_repo_structure.001.png'
 import data1 from './images/RaTag_data_structure/RaTag_data_structure.001.png'
 import data2 from './images/RaTag_data_structure/RaTag_data_structure.002.png'
 import data3 from './images/RaTag_data_structure/RaTag_data_structure.003.png'
@@ -65,9 +64,11 @@ function ScrollToId({id, children }) {
 export default function RaTagPage() {
   const [dataImageIndex, setDataImageIndex] = useState(0);
   const [alphaImageIndex, setAlphaImageIndex] = useState(0);
+  useEffect(() => {window.scrollTo(0, 0);}, []);
   return (
     <div className="projects-container">
       <h1>RaTag analysis repository</h1>
+
       <p align='justify'>
         This page describes the RaTag repository, which I developed to analyse the data produced by the RITA setup. 
         To understand the physics motivation and methodology of the experiment, check out the page of the <Link to="/projects/experiments/ritaSetup">RITA experiment</Link>.
@@ -88,6 +89,7 @@ export default function RaTagPage() {
         A systematic tracking of these conditions, processing of all the waveforms to extract statistically significant metrics requires a dedicated, auditable and reproducible software suite.
         In this page you can find a description of this software, which I called "RaTag".
       </p>
+      
       <h2>Data structure</h2>
       <p align='justify'>
         The data hierarchy is sketched in the image below. Click on the image to cycle through the different levels. 
@@ -117,13 +119,14 @@ export default function RaTagPage() {
         The steps in the pipelines are represented by workflows. These are lower-level functions that orchestrate calls to different classes and functions in the module to perform a concrete chain of operations.
       </p>
     
-    <p align='justify'>
+    <p id="RepoMap" align='justify'>
       Click on one of the modules in the image to go to its corresponding section in this page.
     </p>
     <RaTagInteractiveMap />
 
     
     <h3 id="preparation">Preparation</h3>
+    
     <p align='justify'>
       This module contains the code to prepare the data for analysis. It includes the following steps:
     <ul>
@@ -134,15 +137,20 @@ export default function RaTagPage() {
        Histograms of S1 and S2 times are created and fitted to obtain mean and confidence intervals for the S1 and S2 windows, which are then used in downstream analysis.</li>
       <li><strong>Data persistence</strong>: The resulting S1 and S2 windows and transport properties are saved as set metadata to allow for efficient reuse.</li>
       <li><strong>S1/S2 window validation</strong>: The estimated S1 and S2 windows are validated by plotting a subset of frames with the detected windows overlaid. 
-      The user can check these plots to ensure that the windows are correctly identified. An example of validation plot <ScrollToId id="example-pmt-waveform">is shown above above</ScrollToId> .</li>
+      The user can check these plots to ensure that the windows are correctly identified. An example of validation plot <ScrollToId id="example-pmt-waveform">is shown above</ScrollToId> .</li>
     </ul>
     </p>
     <p align='justify'>
       The run preparation module is typically run once per measurement campaign to set up the data for further analysis.
       Below is an example of the run preparation module in action, showing the timing histograms for S1 and S2 (start, end and duration) and a summary plot over all sets.
     </p>
-    <img src={runPrep} alt="Run preparation module" />
-    
+    <div>
+      <img src={runPrep} alt="Run preparation module" />
+      <div className="image-caption">
+        <p>(Top left:) Example of S1 time histogram. (Right panel:) Example of S2 time histograms, from top to bottom: S2 start, S2 end, and S2 duration. (Bottom left:) Summary plot over all sets.</p>
+      </div>
+    </div>
+    <ScrollToId id="RepoMap">Return to Repo Map</ScrollToId>
     
     <h3 id="recoils">Recoils</h3>
     <p align='justify'>
@@ -223,6 +231,7 @@ export default function RaTagPage() {
       This analysis reveals a different behaviour for the different isotopes. Already at moderately high drift fields (70 V/cm), recombination is very strong for all isotopes except for ²²⁸Th and ²²⁴Ra decays.
       This is consistent with the dependence on recoil energy for columnar recombination models.
     </p>
+    <ScrollToId id="RepoMap">Return to Repo Map</ScrollToId>
 
     <h3 id="xrays">X-Rays</h3>
     <p align='justify'>
@@ -281,7 +290,7 @@ export default function RaTagPage() {
         </div>
       </div>
     </div>
-
+    <ScrollToId id="RepoMap">Return to Repo Map</ScrollToId>
 
     <h3 id="finalAnalysis">Final Analysis</h3>
     <p align='justify'>
@@ -296,6 +305,7 @@ export default function RaTagPage() {
       This calibration is then applied to the recoil S2 areas to obtain the number of detected electrons for each recoil event.
       This so-called "<i>g</i><sub>S2</sub>" factor is used to produce recombination plots in terms of detected electrons per keV for each isotope.
     </p>
+    <ScrollToId id="RepoMap">Return to Repo Map</ScrollToId>
 
     <h3 id="alphas">Alphas</h3>
 
@@ -344,7 +354,7 @@ export default function RaTagPage() {
       The alpha module can be run at any stage, as long as the multi-isotope run data is available. 
       However, it is typically run before the recoil integration module to allow for isotope-specific analysis of the recoil S2 areas.
     </p>
-    
+    <ScrollToId id="RepoMap">Return to Repo Map</ScrollToId>
 
     </div>
   )

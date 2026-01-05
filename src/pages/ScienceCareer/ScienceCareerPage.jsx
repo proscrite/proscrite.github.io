@@ -1,18 +1,20 @@
 import React, {useEffect} from 'react'
 import { Chrono } from 'react-chrono'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './ScienceCareer.css'
 
 const items = [
   {
     title: "2025",
     cardTitle: "RaTag",
-    cardDetailedText: "I started a new project to develop a Radium ion source for BOLD at the Ben Gurion University of the Negev in Beer Sheba, Israel."
+    cardDetailedText: "I started a new project to develop a Radium ion source for BOLD at the Ben Gurion University of the Negev in Beer Sheba, Israel.",
+    url: "#/projects/experiments/RitaSetup"
   },
   {
     title: "2024",
     cardTitle: "Sabbath: Microscopy at HUJI for BOLD",
-    cardDetailedText: "Started working on microscopy techniques at the Hebrew University of Jerusalem to extend the advances in microscopy for BOLD that I started during my PhD ."
+    cardDetailedText: "Started working on microscopy techniques at the Hebrew University of Jerusalem to extend the advances in microscopy for BOLD that I started during my PhD .",
+    url: "#/projects/experiments/SabbathHuji"
   },
   {
     title: "2023",
@@ -22,22 +24,26 @@ const items = [
   {
     title: "2022",
     cardTitle: "NEXT-BOLD",
-    cardDetailedText: "I focused on microscopy techniques for the NEXT-BOLD project."
+    cardDetailedText: "I focused on microscopy techniques for the NEXT-BOLD project.",
+    url: "#/projects/experiments/Bold"
   },
   {
     title: "2021",
     cardTitle: "Study of FBI molecules on surfaces for BOLD",
-    cardDetailedText: "I published my first paper on the study of FBI molecules on surfaces for BOLD with XPS and STM."
+    cardDetailedText: "I published my first paper on the study of FBI molecules on surfaces for BOLD with XPS and STM.",
+    url: "#/projects/experiments/SurfaceScience"
   },
   {
     title: "2020",
     cardTitle: "Surface Science for BOLD",
-    cardDetailedText: "I started working on the surface science for BOLD, studying the FBI molecules on surfaces. I also developed a new technique to deposit large molecules on surfaces from liquid solution by Atomic Layer Injection (ALI)."
+    cardDetailedText: "I started working on the surface science for BOLD, studying the FBI molecules on surfaces. I also developed a new technique to deposit large molecules on surfaces from liquid solution by Atomic Layer Injection (ALI).",
+    url: "#/projects/experiments/SurfaceScience"
   },
   {
     title: "2019",
     cardTitle: "NEXT Experiment",
-    cardDetailedText: "I started working on the NEXT experiment, a neutrinoless double beta decay experiment. I saw the birth of the NEXT-BOLD project, a European project to develop a new technique to detect the Barium ion produced in the neutrinoless double beta decay of Xenon-136."
+    cardDetailedText: "I started working on the NEXT experiment, a neutrinoless double beta decay experiment. I saw the birth of the NEXT-BOLD project, a European project to develop a new technique to detect the Barium ion produced in the neutrinoless double beta decay of Xenon-136.",
+    url: "#/projects/experiments/NextExperiment"
   },
   {
     title: "2018",
@@ -62,9 +68,28 @@ const items = [
 ]
 
 export default function ScienceCareer() {
+  const navigate = useNavigate();
+  
   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+    window.scrollTo(0, 0);
+    
+    // Intercept clicks on Chrono links to use React Router navigation
+    const handleChronoLinks = (e) => {
+      const target = e.target.closest('a[href^="#/"]');
+      if (target) {
+        e.preventDefault();
+        const path = target.getAttribute('href').replace('#', '');
+        navigate(path);
+      }
+    };
+    
+    document.addEventListener('click', handleChronoLinks);
+    
+    return () => {
+      document.removeEventListener('click', handleChronoLinks);
+    };
+  }, [navigate]);
+  
   return (
     <div className="main-container science-container">
       <Link to="/" className="back-link">← Back to Home</Link>
@@ -86,7 +111,7 @@ export default function ScienceCareer() {
         <Chrono
           items={items}
           mode="VERTICAL"
-          disableToolbar             // ← completely removes the top buttons
+          disableToolbar
         />
       </div>
     </div>

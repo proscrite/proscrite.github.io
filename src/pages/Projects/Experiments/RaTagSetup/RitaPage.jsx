@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Rita.css'
 import { Link } from 'react-router-dom';
 
@@ -67,6 +67,7 @@ export default function RitaPage() {
   
   const [ritaIndex, setRitaIndex] = useState(0)
   const [ritaSetupIndex, setRitaSetupIndex] = useState(0)
+  useEffect(() => {window.scrollTo(0, 0);}, []);
   return (
     <div className="main-container projects-container">
       <h1>RITA: Radium Ion TAgging</h1>
@@ -203,16 +204,18 @@ export default function RitaPage() {
         It was developed with auditability and reproducibility in mind, ensuring that all analysis steps are well-documented and can be reproduced by other researchers.
         More information about the software can be found in the <Link to="/projects/software/RaTag">RaTag software page</Link>.
       </p>
+      <div className="image-wrapper smaller-image-wrapper">
       <Link to="/projects/software/RaTag" className="clickable-image">
         <img
           src={rita_repo}
           alt="RaTag software repository structure"
-          className="project-image"
+          className="project-image smaller-image-wrapper"
         />
         <div className="image-caption">
           <p>RaTag software repository structure.</p>
         </div>
       </Link>
+      </div>
     </div>
   )
 }

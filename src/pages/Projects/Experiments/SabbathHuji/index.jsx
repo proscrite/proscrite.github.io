@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import sabbathSetupImg from '../images/cfm_optics6.jpg'
+import sabbathSetupImg from '../images/huji_lab5.jpg'
 
 export default function SabbathHujiPage() {
   return (

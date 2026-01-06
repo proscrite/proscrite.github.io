@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import sabbathSetupImg from './images/huji_lab5.jpg'
+import sabatSetupImg from './images/huji_lab5.jpg'
 import ritaImg from './images/rita_gasline_landscape.jpg'
 import baIonSourceImg from './images/bgu_ba_ion.jpg'
 import microscopyCfmImg from './images/cfm_optics_2pa_laser.jpg'
@@ -15,8 +15,8 @@ const cards = [
   { title: 'The context: NEXT (particle physics)', slug: 'nextExperiment', img: nextImg },
   { title: 'Main project: BOLD (Barium Ion Light Detection)', slug: 'bold', img: boldImg },
   { title: 'Nuclear physics project: RITA (Radium Ion Tagging)', slug: 'ritaSetup', img: ritaImg },
+  { title: 'Optics project: SABAT (Microscopy at HUJI)', slug: 'SabatHuji', img: sabatSetupImg },
   { title: 'Ion physics project: Barium Ion Gun for BOLD', slug: 'baSource', img: baIonSourceImg },
-  { title: 'Optics project: Sabbath (Microscopy at HUJI)', slug: 'SabbathHuji', img: sabbathSetupImg },
   { title: 'Optics project: Microscopy for BOLD at CFM', slug: 'microscopyCfm', img: microscopyCfmImg },
   { title: 'Surface Science for BOLD at CFM', slug: 'SurfaceScience', img: xpsSetupImg },
   { title: 'Nuclear physics project: RaMon', slug: 'ramon', img: ramonImg },

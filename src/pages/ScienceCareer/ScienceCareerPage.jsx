@@ -14,7 +14,7 @@ const items = [
     title: "2024",
     cardTitle: "Sabbath: Microscopy at HUJI for BOLD",
     cardDetailedText: "Started working on microscopy techniques at the Hebrew University of Jerusalem to extend the advances in microscopy for BOLD that I started during my PhD .",
-    url: "#/projects/experiments/SabbathHuji"
+    url: "#/projects/experiments/SabatHuji"
   },
   {
     title: "2023",

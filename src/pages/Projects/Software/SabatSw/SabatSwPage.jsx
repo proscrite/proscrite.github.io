@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import './SabatSw.css'
 import SabatSwInteractive from './SabatSwInteractive';
 
-import mainImg from './images/main_window.png'
 // import focusManualVid from './images/recording_manual_focusing.mp4'
 
 export default function SabatSwPage() {

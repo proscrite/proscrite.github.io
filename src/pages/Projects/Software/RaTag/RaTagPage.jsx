@@ -72,7 +72,17 @@ export default function RaTagPage() {
       <p align='justify'>
         This page describes the RaTag repository, which I developed to analyse the data produced by the RITA setup. 
         To understand the physics motivation and methodology of the experiment, check out the page of the <Link to="/projects/experiments/ritaSetup">RITA experiment</Link>.
+        This repository is open-source and can be found in its <Link to="https://github.com/proscrite/RaTag" target="_blank" rel="noopener noreferrer">GitHub page</Link>.
       </p>
+      {/* <p align='justify'>
+        The RITA setup is designed to study the transport of ions in high-pressure xenon gas.
+        To do so, we use alpha-emitting isotopes from the <sup>228</sup>Th decay chain (²²⁸Th, ²²⁴Ra, ²²⁰Rn, ²¹⁶Po, ²¹²Bi and ²¹²Po) deposited on a source holder inside the detector.
+        When an alpha decay occurs, both scintillation light and ionization electrons are produced in the gas.
+        The scintillation light (S1) is detected promptly by photomultiplier tubes (PMTs) located behind the cathode, providing the event's start time (t0).
+        The ionization electrons drift towards the anode under the influence of an electric field, taking a time proportional to the distance they traveled.
+        As the electrons reach the electroluminescence (EL) region near the anode, they are accelerated, producing a secondary scintillation signal (S2).
+        This S2 signal is detected by both the PMTs and a silicon detector located behind the anode. The PMTs provide the energy measurement, while the silicon detector offers precise timing information for alpha events, allowing for event tagging and correlation.
+      </p> */}
       <p align='justify'>
         Essentially, the prompt signal (S1) of the decay event and the electroluminescence signal (S2) are recorded by the oscilloscope.
         This is recorded in the form of a waveform: a time window recorded by the oscilloscope with voltage values for one or more channels.

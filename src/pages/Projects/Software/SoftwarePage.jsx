@@ -4,15 +4,16 @@ import sabatImg from './images/sabat_software.png'
 import manhattanImg from './images/manhattan.png'
 import xpsSwImg from './images/xps_sw.png'
 import ritaImg from './images/ratag_sw.png'
+import autostepfinderImg from './images/autostepfinder.png'
 // import aboutMeImg from './images/heidelberg.jpg'
 import '../Projects.css'
 
 const cards = [
   { title: 'RaTag (software for RITA)',                  img: ritaImg,           path: '/projects/software/RaTag' },
-  { title: 'Sabat (microscopy GUI)',                   img: sabatImg,        path: '/projects/software/sabatsw' },
+  { title: 'Sabat (microscopy GUI)',                     img: sabatImg,           path: '/projects/software/sabatsw' },
   { title: 'ManHatTan (NLP as a hobby)',                 img: manhattanImg,      path: '/projects/software/manhattan' },
   { title: 'XPS Analyser',                               img: xpsSwImg,            path: '/projects/software/xps' },
-//   { title: 'Autostep Finder (Julia)',   img: autostepfinderImg, path: '/projects/software/autostepfinder' }
+  { title: 'Autostep Finder (Julia)',                    img: autostepfinderImg,     path: '/projects/software/autostepfinder' }
 ]
 
 export default function SoftwareIndex() {

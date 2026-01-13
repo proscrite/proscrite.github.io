@@ -50,6 +50,10 @@ const spectromCaptions = [
 import samplePrepImg1 from './images/sample_preparation.png'
 import sabatSwImg from '../../Software/images/sabat_software.png'
 
+import arduinoImg1 from './images/arduino_3d-print.jpg'
+import arduinoImg2 from './images/arduino_3d-print4.jpg'
+import videoArduino from './images/arduino_3d-print3.mp4'
+
 export default function SabatHujiPage() {
   const [schemeIndex, setSchemeIndex] = useState(0);
   const [setupIndex, setSetupIndex] = useState(0);
@@ -201,6 +205,30 @@ export default function SabatHujiPage() {
         </div>
       </div>
 
+      <p align='justify'>
+        Once the setup is optimized, the target molecule will be replaced with an actual Ba²⁺ chemosensor. 
+        The molecule of choice for this project will be the so-called <a href="https://ionbiosciences.com/store/?checkbox-product_cat=121/"> commercial IPG molecules</a>. 
+        These chemosensors were originally synthesized as potassium sensors, but the NEXT collaboration has recently published a paper proving its efficacy at capturing Ba²⁺: 
+      </p>
+      <ul style={{ textAlign: 'left' }}>
+
+       <li> R. L. Miller et al. (NEXT Collaboration) <i>Analyst</i> volume <b>150</b>, Article number: <b>5558-5567</b> (2025).
+          <a
+            href="DOI	https://doi.org/10.1039/D5AN00577A"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-block', marginRight: '18px' }}
+          >
+            "Barium ion sensing with IPG K+ molecular probes."
+          </a>
+        </li>
+      </ul>
+
+      <p align='justify'>
+        Three variants of IPG molecules exist (IPG-1,2 and 4), and they all capture Ba²⁺ with similar efficiency. 
+        I carried out preliminary characterization of the photochemistry of these molecules in solution to verify their health and the solution preparation protocols.
+      </p>
+
       <h2> Software for Data Acquisition and Analysis </h2>
 
       <p align='justify'>
@@ -237,14 +265,69 @@ export default function SabatHujiPage() {
       </div>
 
       <h2> Optical power control </h2>
+      <p align='justify'>
+        One of the most satisfying side-projects within the development of the Sabat Microscope was fully computerized system to control the optical power.
+        The usual way to achieve this is with a commercial motorized filter: either a polarizer + half-wave plate or a continuous neutral density filter (NDF).
+        The lab disposed of a passive (not motorized) continuous NDF and some stepper motors, so I decided to manufacture a motorized version in a DIY way.
+      </p>
 
+      <p align='justify'>
+        The images below show the arrangement. The passive NDF was mounted on a 3D-printed gear. Another smaller gear was design to transfer the rotation of the motor axis.
+        The stepper motor rotation is controlled by a driver and an Arduino. This driver allows to run current through the motor only when the Arduino sends a signal, which prevents it from overheating.
+        The Arduino is also used to send a signal to the controller of the shutter, which can be seen in left side of the second image (Thorlabs red component).
+      </p>
+      <div>
+        <div className="smaller-image-wrapper">
+          <img
+            src={arduinoImg1}
+            alt="DIY motorized power filter"
+            className="project-image"
+          />
+          <div className="image-caption">
+            Optical components in the DIY-manufactured optical power filter: Passive NDF mounted on a set of 3D-printed gears.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="smaller-image-wrapper">
+          <img
+            src={arduinoImg2}
+            alt="DIY motorized power filter"
+            className="project-image"
+          />
+          <div className="image-caption">
+            Electronic components to control the manufactured NDF: Shutter controller (red), Arduino (left, green case), motor driver (center) and stepper motor (right).
+          </div>
+        </div>
+      </div>
+
+      <p align='justify'>
+        The next video demonstrates a full NDF rotation being controlled by the Arduino:
+      </p>
+      <div className="video-wrapper">
+          <video
+            className="project-video"
+            src={videoArduino}
+            muted
+            playsInline
+            autoPlay={false}
+            controls={true}
+          />
+      </div>
 
       <h2> Next steps </h2>
       <p align='justify'>
         <ul style={{ textAlign: 'left' }}>
-          <li> Measurement of low-concentration samples to reach single-molecule resolution (Single-step algorithm). </li>
-          <li> Characterization of IPG-1,2,4 molecules instead of Bromobimane/Rhodamine-B. </li>
-          <li> Replacing black box with pressure vessel for in-situ detection in controlled low-pressure atmoshpere. </li>
+          <li> <b>Measurement of single-molecules</b>: Preparation of low-concentration samples to reach single-molecule resolution.
+           My colleagues at DIPC recently achieved this milestone by dedicating significant R&D efforts to immobilization of molecules on the substrate through chemisorption.
+           To this end, they used an updated version of the <Link to="/projects/software/Autostepfinder">python AutoStepFinder code I helped develop</Link>. 
+          </li>
+          
+          <li> <b> <i>In-situ</i> Microscopy</b>: To get closer to the experimental conditions in NEXT, the black box will be replaced with a small pressure vessel for in-situ detection in controlled low-pressure atmoshpere.
+            This will build up on the expertise gathered by our <a href="https://next-experiment.org/capture-and-imaging-in-xenon-gas-detectors/"> collaborators at UTA</a>, who constructed a microscope graded to <a href='https://www.nature.com/articles/s41467-024-54872-0'> operate in High-Pressure xenon</a>. 
+            I handled the design, purchase and delivery of the optical and UHV components required for this upgrade. 
+          </li>
+          
           <li> Integration with Ba-ion gun for in-situ detection </li>
         </ul>
       </p>

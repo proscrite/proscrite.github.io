@@ -1,0 +1,112 @@
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.sabatsw-map-container {
+  position: relative;
+
+  /* padding-top is height/width * 100% — use the real canvas aspect ratio
+    to ensure percentage-based overlay positions line up with the visual map.
+    Canvas size: 102.37 x 94.54 -> padding-top = (94.54 / 102.37) * 100 = 92.3835% */
+  padding-top: 92.3835%;
+  /* margin: 2rem auto; */
+  /* Show the whole background image and anchor it to the top so the top
+     margin is preserved. `contain` avoids cropping; if you prefer filling
+     the box use `cover` (may crop). */
+  /* We'll render the background as a real <img> so overlays scale exactly
+    the same. Keep a fallback background in case JS/CSS fails. */
+  background: url('./images/mock_sw/canvas.001.png') top center no-repeat;
+  background-size: contain;
+  overflow: visible; /* keep this so the top can extend if needed */
+}
+.sabatsw-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  z-index: 2;
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.sabatsw-map-img:hover, .sabatsw-map-img:focus {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff4081;
+}
+
+/* The base map image element that sits under the interactive overlays. We
+   use an actual <img> with object-fit:contain so the overlays (which use
+   percentage positions) line up perfectly with the visual map. */
+.sabatsw-map-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* preserve aspect ratio */
+  object-position: top center; /* anchor to top so top margin is preserved */
+  z-index: 1;
+  pointer-events: none; /* let clicks pass to overlay images */
+}
+
+/* result image that replaces the whole canvas when visible */
+.sabatsw-map-result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  z-index: 5; /* above overlays */
+}
+
+.sabatsw-result-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 6;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* fade-in animation for result image */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
+}
+.fade-in {
+  animation: fadeIn 300ms ease forwards;
+}
+
+.sabatsw-map-caption {
+  position: absolute;
+  left: 10%;
+  transform: translateX(0%);
+  bottom: 10px;
+  z-index: 6;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  max-width: 90%;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Dim and visually mark unimplemented area buttons */
+.sabatsw-map-img-disabled {
+  opacity: 0.45;
+  filter: grayscale(30%);
+  transition: opacity 150ms ease-in-out, filter 150ms ease-in-out, transform 150ms ease-in-out;
+  cursor: not-allowed;
+}
+.sabatsw-map-img-disabled:hover,
+.sabatsw-map-img-disabled:focus {
+  /* prevent hover transform and shadow for disabled items */
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.55;
+}

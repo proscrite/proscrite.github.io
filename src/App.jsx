@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route }  from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation }  from 'react-router-dom'
 import Home               from './pages/Home'
 import ScienceCareer      from './pages/ScienceCareer/ScienceCareerPage'
 import ProjectsIndex      from './pages/Projects/index'
@@ -15,6 +15,7 @@ import BoldPage from './pages/Projects/Experiments/Bold/BoldPage'
 import SabatHujiPage from './pages/Projects/Experiments/SabatHuji/SabatHujiPage'
 import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/SurfaceSciencePage'
 import RitaPage from './pages/Projects/Experiments/RaTagSetup/RitaPage'
+import BaSourcePage from './pages/Projects/Experiments/BaSource/BaSourcePage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import RaTagPage from './pages/Projects/Software/RaTag/RaTagPage'
@@ -23,7 +24,21 @@ import './App.css'
 
 
 export default function App() {
+  // Global scroll handler:
+  // - if location.hash is present, do nothing and let hash handlers (HashLink or page effects) manage scrolling
+  // - otherwise scroll to top on navigation
+  function ScrollToTop() {
+    const location = useLocation();
+    useEffect(() => {
+      if (location.hash) return;
+      window.scrollTo(0, 0);
+    }, [location.pathname, location.hash]);
+    return null;
+  }
+
   return (
+    <>
+      <ScrollToTop />
     <Routes>
       <Route path="/"       element={<Home/>}/>
       <Route path="science" element={<ScienceCareer/>}/>
@@ -42,10 +57,12 @@ export default function App() {
           <Route path="Bold" element={<BoldPage/>}/>
           <Route path="RitaSetup" element={<RitaPage/>}/>
           <Route path="SabatHuji" element={<SabatHujiPage/>}/>
+          <Route path="BaSource" element={<BaSourcePage/>} />
           <Route path="SurfaceScience" element={<SurfaceSciencePage/>}/>
         </Route>
         <Route path="outreach"    element={<OutreachPage/>}/>
       </Route>
     </Routes>
+    </>
   )
 }

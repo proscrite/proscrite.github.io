@@ -13,7 +13,6 @@ def to_percentage(component, canvas):
 
 
 
-canvas = {'size': (102.37, 94.54)}
 
 # alphas = {'position': (5.11, 5.59), 'size': (15.05, 11.47)}
 # preparation = {'position': (4.86, 15.58), 'size': (10.47, 22.08)}
@@ -21,6 +20,7 @@ canvas = {'size': (102.37, 94.54)}
 # xrays = {'position': (26.26, 10.44), 'size': (24.9, 3.66)}
 # final = {'position': (51.16, 9.41), 'size': (14.77, 16.29)}
 
+canvas = {'size': (102.37, 94.54)}
 dict_list = [{'take_spectra': {'size': (24.29, 5.48), 'position': (12.3, 41.15)} },
 {'take_trajectories': {'size': (24.29, 5.48), 'position': (38.5, 41.15)} },
 {'power_ramp': {'size': (24.39, 5.48), 'position': (64.6, 41.15)} },
@@ -42,11 +42,15 @@ dict_list = [{'take_spectra': {'size': (24.29, 5.48), 'position': (12.3, 41.15)}
 {'daq_settings': {'size': (24.24, 5.72), 'position': (64.61, 70.74)} },
 {'setup_settings': {'size': (24.24, 5.72), 'position': (38.48, 78.42)} },]
 
-# dict_list = [take_spectra, take_trajectories, power_ramp, autofocus, live_camera,
-#           take_image, set_roi, set_filter, refresh_power, move_z, set_exposure, 
-#           toggle_shutter, daq_settings, setup_settings]
+canvas = {'size': (67.73, 31.75)}
 
-# take_spectra_perc = to_percentage(take_spectra, canvas)
+dict_list = [
+    {'production': {'size': (20.44, 30.42), 'position': (45.53, 1.19)}},
+    {'mass_filtering': {'size': (13.42, 30.55), 'position': (32.37, 1.19)}},
+    {'steering': {'size': (16.03, 30.56), 'position': (16.27, 1.13)}},
+    {'thermalization': {'size': (13.19, 30.64), 'position': (4.18, 1.12)}},
+    {'microscopy_chamber': {'size': (9.1, 30.81), 'position': (0.0, 1.12)}},
+]
 
 for d in dict_list:
     for key in d:

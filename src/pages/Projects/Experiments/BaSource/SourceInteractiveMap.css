@@ -1,0 +1,27 @@
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.baSource-map-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 90%;
+  padding-top: 35%; /* Aspect ratio for the actual image */
+  margin: 3rem auto;
+  background: url('./images/baSource_scheme_canvas.png') center center no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+.baSource-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  z-index: 2;
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.baSource-map-img:hover, .baSource-map-img:focus {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff4081;
+}

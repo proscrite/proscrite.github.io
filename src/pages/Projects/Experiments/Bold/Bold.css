@@ -41,11 +41,12 @@
   }
 }
 /* 1) make your page container wider and centered */
-/* .projects-container {
-  max-width: 800px;
+.projects-container {
+  max-width: 1400px;
   margin: 0 auto;
-  /* padding removed to let .main-container control side margins */
- /* /* }  */
+  padding: 0 1rem;
+}
+
 .paper-list-content {
   flex: 1 1 60%;
   max-width: 60%;
@@ -63,6 +64,18 @@
   gap: 2rem;
   margin: 2rem 0;
   align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.project-details .image-wrapper {
+  flex: 0 1 auto;
+  min-width: 300px;
+  max-width: 50%;
+  margin: 0;
+  position: sticky;
+  top: 20px;
 }
 
 /* 3) video + overlay wrapper */
@@ -138,18 +151,18 @@
 /* @media (max-width: 768px) { … } */
 
 .image-wrapper {
-  flex: 1 1 50%;
-  min-width: 300px;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
   cursor: pointer;
   align-self: flex-start;
   position: relative;
-  position: sticky;
-  top: 20px;
 }
 
 .clickable-image {
   width: 100%;
-  max-width: none;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 8px;
@@ -174,14 +187,20 @@
 
 /* Responsive: stack on smaller screens */
 @media (max-width: 768px) {
+  .projects-container {
+    padding: 0 0.5rem;
+  }
+  
   .project-details {
     flex-direction: column;
   }
   
-  .image-wrapper {
+  .image-wrapper,
+  .project-details .image-wrapper {
     position: relative;
     flex: 1 1 auto;
     width: 100%;
+    max-width: 100%;
     min-width: unset;
   }
 }

@@ -60,7 +60,7 @@ const areas = [
     { name: 'SetExposure', img: setExposureImg, style: {left: '12.1%', top: '64.52%', width: '23.68%', height: '6.5%'}, 
         target: 'showResult', result: exposureResultImg, resultCaption: 'Exposure time setting screen. ' },
     { name: 'MoveZ', img: moveZImg, style: {left: '37.63%', top: '65.0%', width: '23.68%', height: '6.2%'}, 
-        target: 'video', resultVideo: moveZVid2, resultCaption: 'Manual focusing demo (placeholder)' },
+        target: 'video', resultVideo: moveZVid2, resultCaption: 'Some samples are challenging to focus on, so manual focusing can be helpful in this cases.' },
     { name: 'RefreshPower', img: refreshPowerImg, style: {left: '63.16%', top: '64.52%', width: '23.68%', height: '6.5%'},
       target: 'showResult', result: [refreshPowerResultImg1, refreshPowerResultImg2, refreshPowerResultImg3], resultCaption: 'This button simply refreshes the reading output of the powermeter' },
     

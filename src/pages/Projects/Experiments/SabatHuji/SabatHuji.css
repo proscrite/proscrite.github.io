@@ -202,15 +202,16 @@
   background: #555;
 }
 
-.smaller-image-wrapper {
+.smaller-image-wrapper .clickable-image {
   width: 80%;
-  margin: 0 auto;
+  max-width: 80%;
 }
 
-.tiny-image-wrapper {
-  width: 30%;
-  margin: 0 auto;
+.tiny-image-wrapper .clickable-image {
+  width: 50%;
+  max-width: 50%;
 }
+
 /* Responsive: stack on smaller screens */
 @media (max-width: 768px) {
   .project-details {

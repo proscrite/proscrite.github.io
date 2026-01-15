@@ -2,7 +2,7 @@
 .projects-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 /* 2) stack video and text vertically (video on top, text below) */
@@ -83,5 +83,9 @@
   white-space: nowrap;
 }
 
-/* collapse rule no longer needed since it’s now a single column */
-/* @media (max-width: 768px) { … } */
+/* collapse rule no longer needed since it's now a single column */
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 0 0.5rem;
+  }
+}

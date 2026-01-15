@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import './SabatHuji.css'
 
 import scheme1 from './images/setup_scheme/setup_scheme.001.png'
@@ -59,6 +60,29 @@ export default function SabatHujiPage() {
   const [setupIndex, setSetupIndex] = useState(0);
   const [specIndex, setSpecIndex] = useState(0);
   useEffect(() => {window.scrollTo(0, 0);}, []);
+
+  // Helper that retries scrolling to the target id if it isn't present immediately.
+  // Usage: <HashLink to="/path#id" scroll={scrollWithRetry('id')}>...
+  function scrollWithRetry(hashId, attempts = 10, delay = 100) {
+    return (el) => {
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      let tries = 0;
+      const id = hashId.replace('#', '');
+      const t = setInterval(() => {
+        tries += 1;
+        const target = document.getElementById(id) || document.querySelector(`#${id}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          clearInterval(t);
+        } else if (tries >= attempts) {
+          clearInterval(t);
+        }
+      }, delay);
+    };
+  }
   return (
     <div className="projects-container">
       <h1>SABAT (Microscopy at HUJI)</h1>
@@ -69,7 +93,7 @@ export default function SabatHujiPage() {
         This branch would not only encompass the microscopy setup at HUJI, but also the smaller-scale studies on surface-depositions, fluorescence characterization, and other related R&D activities.
       </p>
       <p align='justify'>
-        The other main branch in Israel is the ion-physics setup at the Ben-Gurion University (BGU), with the goal of developing a Barium ion source (<Link to="/projects/experiments/BoldIonSource">BOLD Ion Source</Link>) and Radium source for BOLD (<Link to="/projects/experiments/RitaSetup">RITA</Link>).
+        The other main branch in Israel is the ion-physics setup at the Ben-Gurion University (BGU), with the goal of developing a Barium ion source (<Link to="/projects/experiments/baSource">BOLD Ion Source</Link>) and Radium source for BOLD (<Link to="/projects/experiments/RitaSetup">RITA</Link>).
         Both branches work in close collaboration to achieve the overall goals of BOLD.
       </p>
       <p align='justify'>
@@ -146,11 +170,11 @@ export default function SabatHujiPage() {
         For efficient auto-focusing, a coarse step of 50 µm is initially used to find the approximate focus position, followed by finer adjustments of 5 µm steps to refine the focus.
       </p>
       <div>
-        <div className="tiny-image-wrapper">
+        <div className="tiny-image-wrapper clickable-image">
           <img
             src={focusImg}
             alt="Auto-Focusing Mechanism"
-            className="project-image"
+            className="image-wrapper clickable-image"
           />
           <div className="image-caption">
             Schematic representation of the auto-focusing mechanism in the SABAT microscopy setup.
@@ -158,18 +182,20 @@ export default function SabatHujiPage() {
         </div>
       </div>
 
+
       <h2> Fluorescence Spectroscopy </h2>
+
       <p align='justify'>
         The band-pass filter wheel in the fluorescence collection path allows for selecting different emission wavelengths to characterize the fluorescence spectra of various fluorophores.
         By sequentially acquiring images with different filters, we can reconstruct the emission spectrum of the fluorescent tags used in our experiments.
         This capability is crucial for identifying and optimizing the detection of specific fluorophores and for distinguishing between different types of fluorescent signals.
       </p>
       <div>
-        <div className="smaller-image-wrapper">
+        <div className="smaller-image-wrapper clickable-image">
           <img
             src={spectromImages[specIndex]}
             alt="Fluorescence Spectroscopy"
-            className="project-image clickable-image"
+            className="image-wrapper clickable-image"
               onClick={() => setSpecIndex((specIndex + 1) % spectromImages.length)}
           />
           <div className="image-caption">
@@ -183,6 +209,7 @@ export default function SabatHujiPage() {
       </div>
 
       <h2> Sample Preparation and Preliminary studies </h2>
+
       <p align='justify'>
         Sample preparation is a critical step in fluorescence microscopy to ensure optimal imaging conditions and reliable results.
         In an ideal scenario, a dedicated team would take over the task of optimizing the preparation of samples, adapting protocols for different substrates and fluorophores, 
@@ -193,11 +220,11 @@ export default function SabatHujiPage() {
         Some preliminary results can be seen in the following image. In this study, I used Rhodamine-B, a cheap commercial fluorophore, to evaluate the response at different concentrations of the mother solutions and characterize the sample preparation protocol and the setup performance.
       </p>
       <div>
-        <div className="smaller-image-wrapper">
+        <div className="smaller-image-wrapper clickable-image">
           <img
             src={samplePrepImg1}
             alt="Sample Preparation"
-            className="project-image"
+            className="image-wrapper clickable-image"
           />
           <div className="image-caption">
             Sample preparation workflow for fluorescence microscopy studies in SABAT.
@@ -250,12 +277,12 @@ export default function SabatHujiPage() {
       </ul>
 
       <div>
-        <div className="smaller-image-wrapper">
-          <Link to="/projects/software/sabatsw" className="clickable-image">
+        <div className="smaller-image-wrapper clickable-image">
+          <Link to="/projects/software/sabatsw">
             <img
               src={sabatSwImg}
               alt="SABAT software"
-              className="project-image smaller-image-wrapper"
+              className="image-wrapper clickable-image"
             />
             <div className="image-caption">
               <p>Sabat software preview.</p>
@@ -277,11 +304,11 @@ export default function SabatHujiPage() {
         The Arduino is also used to send a signal to the controller of the shutter, which can be seen in left side of the second image (Thorlabs red component).
       </p>
       <div>
-        <div className="smaller-image-wrapper">
+        <div className="smaller-image-wrapper clickable-image">
           <img
             src={arduinoImg1}
             alt="DIY motorized power filter"
-            className="project-image"
+            className="image-wrapper clickable-image"
           />
           <div className="image-caption">
             Optical components in the DIY-manufactured optical power filter: Passive NDF mounted on a set of 3D-printed gears.
@@ -289,11 +316,11 @@ export default function SabatHujiPage() {
         </div>
       </div>
       <div>
-        <div className="smaller-image-wrapper">
+        <div className="smaller-image-wrapper clickable-image">
           <img
             src={arduinoImg2}
             alt="DIY motorized power filter"
-            className="project-image"
+            className="image-wrapper clickable-image"
           />
           <div className="image-caption">
             Electronic components to control the manufactured NDF: Shutter controller (red), Arduino (left, green case), motor driver (center) and stepper motor (right).
@@ -324,11 +351,12 @@ export default function SabatHujiPage() {
           </li>
           
           <li> <b> <i>In-situ</i> Microscopy</b>: To get closer to the experimental conditions in NEXT, the black box will be replaced with a small pressure vessel for in-situ detection in controlled low-pressure atmoshpere.
-            This will build up on the expertise gathered by our <a href="https://next-experiment.org/capture-and-imaging-in-xenon-gas-detectors/"> collaborators at UTA</a>, who constructed a microscope graded to <a href='https://www.nature.com/articles/s41467-024-54872-0'> operate in High-Pressure xenon</a>. 
+            This will build up on the expertise gathered by our <a href="https://next-experiment.org/capture-and-imaging-in-xenon-gas-detectors/"> collaborators at UTA</a>, 
+            who constructed a microscope graded to <a href='https://www.nature.com/articles/s41467-024-54872-0'> operate in High-Pressure xenon</a>. 
             I handled the design, purchase and delivery of the optical and UHV components required for this upgrade. 
           </li>
           
-          <li> Integration with Ba-ion gun for in-situ detection </li>
+          <li> Integration with Ba-ion gun for in-situ detection. <HashLink to="/projects/experiments/baSource#microscopy-chamber" scroll={scrollWithRetry('microscopy-chamber')}>See details in the Ba ion Source page</HashLink> </li>
         </ul>
       </p>
     </div>

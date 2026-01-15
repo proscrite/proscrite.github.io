@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react'
 import './Bold.css'
 import BoldInteractiveMap from './BoldInteractiveMap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // import nextImg from '../images/fbi_cover_v2.png'
 import bold2 from './images/BOLD_scheme/BOLD_scheme.002.png'
@@ -126,21 +126,27 @@ export default function BoldPage() {
   const fbiImages = [fbi1, fbi2, fbi3]
   const triImages = [tri1, tri2, tri3]
 
-  useEffect(() => {window.scrollTo(0, 0);}, []);
+  const location = useLocation();
+
+  // Ensure we scroll to top on navigation when there is no hash.
+  // If a hash is present (e.g. navigation via HashLink), leave scrolling to the hash handler.
+  useEffect(() => {
+    if (location.hash) return;
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
   return (
     <div className="main-container projects-container">
+      
       <h1 id="bold-start">BOLD: Barium atOm Light Detection</h1>
-      <div>
-        <div className="image-wrapper">
-          <img
-            src={boldImages[boldIndex]}
-            alt={`BOLD Scheme ${boldIndex + 1}`}
-            className="project-image clickable-image"
-            onClick={() => setBoldIndex((boldIndex + 1) % boldImages.length)}
-          />
-          <div className="image-hint">
-            Click to view next ({boldIndex + 1}/{boldImages.length})
-          </div>
+      <div className="image-wrapper">
+        <img
+          src={boldImages[boldIndex]}
+          alt={`BOLD Scheme ${boldIndex + 1}`}
+          className="project-image clickable-image"
+          onClick={() => setBoldIndex((boldIndex + 1) % boldImages.length)}
+        />
+        <div className="image-hint">
+          Click to view next ({boldIndex + 1}/{boldImages.length})
         </div>
       </div>
 
@@ -160,14 +166,15 @@ export default function BoldPage() {
       <BoldInteractiveMap />
 
       <p align='justify'>The BOLD project is based on the principle of Single Molecule Fluorescence Imaging (SMFI), 
-        a technique widely used in biological sciences for detecting single ions and molecules with high sensitivity and spatial resolution.
          The technique involves using fluorescent dyes that can capture specific ions, such as Ba²⁺, 
          and emit fluorescence when excited by a specific wavelength of light. 
          By detecting this fluorescence, it is possible to identify the presence of the target ion with high precision. 
          The challenge lies in adapting this technique to the harsh environment of a high-pressure xenon gas TPC,
           which requires careful selection of dyes and optimization of the detection system.
       </p>
+
       <h2 id="synthesis">Fluorescent Taggers</h2>
+      
       <p align='justify'>
         The fluorescent dyes, or taggers, are the central piece in the BOLD project. 
         These are molecules that are specifically selected (and in some cases even designed from scratch) for their ability to bind to the Ba²⁺ 
@@ -284,7 +291,7 @@ export default function BoldPage() {
               imgSrc={naturePaper}
               imgAlt="Nature Paper"
             >
-              <span style={{whiteSpace: 'nowrap'}}>
+              <span>
                 Paper 1: I. Rivilla, B. Aparicio, J. M. Bueno ..., <u>Pablo Herrero</u> et al., <i>Nature</i> volume <b>583</b>, pages 48–54 (2020),
               </span>{' '}
               <a
@@ -301,7 +308,7 @@ export default function BoldPage() {
               imgSrc={natureCommPaper}
               imgAlt="Nature Communications Paper"
             >
-              <span style={{whiteSpace: 'nowrap'}}>
+              <span>
                 Paper 2: <u>Pablo Herrero</u> et al. <i>Nature Communications</i> volume <b>13</b>, Article number: <b>7421</b> (2022).
               </span>{' '}
               <a
@@ -358,7 +365,7 @@ export default function BoldPage() {
             </PaperListItem>
 
             <PaperListItem
-              href="/projects/experiments/BoldIonSource"
+              href="/projects/experiments/BaSource"
               imgSrc={ionSourceImg}
               imgAlt="Ion Source Scheme"
             >
@@ -370,7 +377,7 @@ export default function BoldPage() {
               The second source is a custom-built system which features differential pumping stages to allow operation in higher gas pressures.
               The ion is guided by ion optics through a tiny capillary into the target chamber filled with a few mbar of helium gas.
               This gas collides with the ions, reducing their energy to a few eV, which is the expected energy of arriving Ba²⁺ ions in the NEXT detector.
-              More details about this source can be found in <Link to="/projects/experiments/BoldIonSource">the BOLD Ion Source Page</Link>.
+              More details about this source can be found in <Link to="/projects/experiments/BaSource">the BOLD Ion Source Page</Link>.
               </span>{' '}
             </PaperListItem>
             
@@ -393,11 +400,6 @@ export default function BoldPage() {
               </span>
             </PaperListItem>
           </ul>
-        </p>
-        <p>
-
-
-
         </p>
     </div>
   )

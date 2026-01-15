@@ -75,7 +75,10 @@ export default function RitaPage() {
         Developing a barium ion source for Ba-tagging in high-pressure xenon gas is a very challenging task. Barium can be produced by sublimation from solid barium compounds,
          but this process requires very low pressures (high vacuum) and high temperatures, conditions that are incompatible with the high-pressure xenon gas environment of the NEXT detector. 
          Moreover, these sources typically produce a large amount of barium ions, which is not ideal for single-ion detection required for Ba-tagging.
-         However, a much more simpler and versatile source can be developed by making use of a little chemistry trick. Barium is chemically identical to Radium (both are alkaline earth metals), and therefore,
+         The NEXT collaboration at BGU is trying to overcome these challenges and develop a source to operate under very low pressure and produce thermal ions. You can read more about it in the <Link to="/projects/experiments/BaSource">Ba ion Source page</Link>.
+      </p>
+      <p align="justify">
+         However, a much more simple and versatile source can be developed by making use of a little chemistry trick. Barium is chemically identical to Radium (both are alkaline earth metals), and therefore,
          Radium ions (Ra²⁺) can be used as a proxy for Ba²⁺. The advantage of Ra²⁺ is that it is radioactive, and therefore it can be used to produce ions in-situ within the high-pressure xenon gas.
       </p>
       <p align="justify">
@@ -99,7 +102,7 @@ export default function RitaPage() {
       </div>
 
       <p align="justify">
-        The RITA experiment is located at the Ben Gurion University of the Negev in Beer Sheba, Israel.
+        The RITA experiment is located at the Ben Gurion University of the Negev in Be'er Sheba, Israel.
         The setup consists of a Time Projection Chamber (TPC) filled with high-pressure xenon gas, which is circulated and purified continuously.
         On top of the TPC, a photomultiplier tube (PMT) detects the scintillation light produced by ionizing radiation in the xenon gas.
       </p>

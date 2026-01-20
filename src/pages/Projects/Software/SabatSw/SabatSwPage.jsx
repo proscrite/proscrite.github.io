@@ -19,6 +19,10 @@ export default function SabatSwPage() {
         <h2> Overview </h2>
           <p align='justify'>
             The SABAT software is a versatile graphical user interface (GUI) designed to control and operate the SABAT microscopy setup.
+            The first CLI version of this software was developed by Nir Kapon during his BSc thesis in 2021-2022 and featured the basic functionalities required to operate the microscope.
+            Later, I developed a more advanced CLI version and then a GUI version during my Postdoc in 2023-2025, adding new features, systematically treating different types of measurements and improving the user experience.
+          </p>
+          <p align='justify'>
             Developed in Python using the Kivy framework, the software provides a user-friendly interface for researchers to interact with the microscope's hardware components and perform various imaging tasks.
             The GUI communicates with the backend through a well-defined API, ensuring seamless integration and efficient operation.
           </p>

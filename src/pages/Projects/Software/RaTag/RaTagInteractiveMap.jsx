@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 // Placeholder image imports - replace with your actual image paths
-import preparationImg from './images/repo_modules/repo_modules.001.png';
-import xRaysImg from './images/repo_modules/repo_modules.002.png';
-import recoilImg from './images/repo_modules/repo_modules.003.png';
-import finalImg from './images/repo_modules/repo_modules.004.png';
-import alphasImg from './images/repo_modules/repo_modules.005.png';
+import preparationImg from './images/repo_modules/preparation.png';
+import xRaysImg from './images/repo_modules/xrays.png';
+import recoilImg from './images/repo_modules/recoil.png';
+import finalImg from './images/repo_modules/final.png';
+import alphasImg from './images/repo_modules/alphas.png';
 import './RaTagInteractiveMap.css';
 
 const areas = [

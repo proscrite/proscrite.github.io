@@ -88,7 +88,18 @@ export default function RaTagPage() {
         This is recorded in the form of a waveform: a time window recorded by the oscilloscope with voltage values for one or more channels.
         Below you can see an example of a PMT waveform or "frame".
       </p>
-      <img id="example-pmt-waveform" src={exampleWfm} alt="Example of PMT waveform" />
+      <div>
+      <div className="image-wrapper smaller-image-wrapper">
+              <img
+                src={exampleWfm}
+                alt="Example of PMT waveform"
+                className="project-image"
+              />
+              <div className="image-caption">
+                <p>Example of a PMT waveform or "frame".</p>
+              </div>
+      </div>
+    </div>
       <p align='justify'>
         Different properties of the ion transport can be studied from these frames.
         In order to obtain statistically significant results, hundreds of thousands of frames like are acquired, stored and analysed. 

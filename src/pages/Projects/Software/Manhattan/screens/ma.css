@@ -1,0 +1,165 @@
+
+/* Styles specific to the Multiple Answer (MA) mock screen */
+.ma-screen {
+  background: #0f0f10;
+  color: #eee;
+}
+.ma-body {
+  padding: 1.25rem 1.5rem;
+}
+
+/* Top area: canvas/stats + prompt overlay */
+.ma-top-row {
+  position: relative; /* allow prompt to be absolutely positioned over the canvas */
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.ma-prompt {
+  position: absolute;
+  /* anchor to bottom-right of the image container (.ma-stats) */
+  right: 0.8rem;
+  bottom: 0.8rem;
+  text-align: center;
+  z-index: 6;
+  pointer-events: none; /* clicks pass through */
+}
+.ma-prompt-label {
+  color: #ffd400;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  margin-right: clamp(3.0rem, 0.9vw + 0.6rem, 3.9rem);
+  /* responsive: grow with viewport width but stay within sensible limits */
+  font-size: clamp(0.8rem, 0.9vw + 0.6rem, 1.15rem);
+}
+.ma-prompt-text {
+  color: #ffd400;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: clamp(3.0rem, 0.9vw + 0.6rem, 3.9rem);
+  /* responsive size */
+  font-size: clamp(1.05rem, 1.6vw + 0.4rem, 2.1rem);
+}
+
+.ma-stats {
+  width: 100%;
+  max-width: 920px; /* cap the canvas width on large viewports */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0;
+  position: relative; /* allow the prompt to be positioned relative to the image container */
+}
+
+.ma-canvas-img {
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  max-height: 72vh; /* allow taller images while keeping viewport-fit */
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.6);
+  background: #000;
+  display: block;
+}
+
+/* Grid of answer tiles */
+.ma-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.ma-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #6f3f0e; /* brown-ish similar to mock */
+  border-radius: 12px;
+  padding: 1.05rem 1.2rem;
+  color: #f0e6d8;
+  border: none;
+  cursor: pointer;
+  font-size: 1.02rem;
+  text-align: left;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 180ms ease;
+}
+
+.ma-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+}
+
+.ma-option-letter {
+  font-weight: 700;
+  min-width: 56px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+}
+
+.ma-option-text {
+  flex: 1 1 auto;
+  font-size: 1.02rem;
+}
+
+.ma-option.correct {
+  background: #2ecc71 !important;
+  color: #07211a;
+}
+
+.ma-option.wrong {
+  background: #e74c3c !important;
+  color: #2b0b07;
+}
+
+.ma-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.ma-feedback {
+  color: #fff;
+  font-weight: 600;
+}
+
+.ma-next {
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ma-instructions {
+  color: rgba(255,255,255,0.75);
+}
+
+/* Responsive: stack options on narrow screens and reduce canvas height */
+@media (max-width: 720px) {
+  .ma-grid {
+    grid-template-columns: 1fr;
+  }
+  .ma-canvas-img {
+    max-height: 48vh;
+  }
+  .ma-prompt {
+    right: 0.65rem;
+    bottom: 0.65rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .ma-canvas-img {
+    max-height: 40vh;
+  }
+}
+

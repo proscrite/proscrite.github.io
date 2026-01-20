@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import './SabatHuji.css'
 
@@ -59,7 +59,12 @@ export default function SabatHujiPage() {
   const [schemeIndex, setSchemeIndex] = useState(0);
   const [setupIndex, setSetupIndex] = useState(0);
   const [specIndex, setSpecIndex] = useState(0);
-  useEffect(() => {window.scrollTo(0, 0);}, []);
+  
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) return;
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
 
   // Helper that retries scrolling to the target id if it isn't present immediately.
   // Usage: <HashLink to="/path#id" scroll={scrollWithRetry('id')}>...
@@ -356,7 +361,7 @@ export default function SabatHujiPage() {
             I handled the design, purchase and delivery of the optical and UHV components required for this upgrade. 
           </li>
           
-          <li> Integration with Ba-ion gun for in-situ detection. <HashLink to="/projects/experiments/baSource#microscopy-chamber" scroll={scrollWithRetry('microscopy-chamber')}>See details in the Ba ion Source page</HashLink> </li>
+          <li> Integration with Ba-ion gun for in-situ detection. <HashLink to="/projects/experiments/baSource#microscopy-chamber">See details in the Ba ion Source page</HashLink> </li>
         </ul>
       </p>
     </div>

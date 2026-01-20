@@ -52,6 +52,18 @@ dict_list = [
     {'microscopy_chamber': {'size': (9.1, 30.81), 'position': (0.0, 1.12)}},
 ]
 
+canvas = {'size': (113.52, 92.11)}
+dict_list = [
+    {'updateDb': {'size': (34.17, 16.49), 'position': (8.65, 9.96)}},
+    {'wi': {'size': (34.17, 16.49), 'position': (45.49, 9.96)}},
+    {'ma': {'size': (34.17, 16.49), 'position': (8.65, 28.69)}},
+    {'conjugation': {'size': (34.17, 16.49), 'position': (45.49, 28.91)}},
+    {'viewTeam': {'size': (34.17, 16.49), 'position': (8.65, 47.42)}},
+    {'cloze': {'size': (34.17, 16.49), 'position': (45.49, 47.57)}},
+    {'langSelect': {'size': (31.39, 14.73), 'position': (8.85, 66.4)}},
+    {'settings': {'size': (31.39, 14.73), 'position': (40.83, 66.45)}}]
+
+
 for d in dict_list:
     for key in d:
         print(f"{key}: {to_percentage(d[key], canvas)}")

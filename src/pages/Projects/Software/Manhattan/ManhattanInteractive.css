@@ -1,0 +1,206 @@
+/* Basic styles for Manhattan interactive and screen overlays */
+.manhattan-map-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 placeholder - adjust if needed */
+  background: #fafafa;
+}
+.manhattan-map-img {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.manhattan-screen-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  padding: 1rem;
+}
+.manhattan-screen {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  width: min(960px, 98%);
+  max-height: 96%;
+  overflow: auto;
+}
+.manhattan-screen-header {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+.manhattan-screen-close {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.manhattan-screen-body {
+  padding: 1rem;
+}
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.manhattan-map-container {
+    position: relative;
+  /* width: 100%; */
+  /* max-width: 960px; */
+  height: 0;
+  padding-top: 90%; /* keep aspect ratio box; actual visual canvas is the <img> */
+  /* margin: 2rem auto; */
+  background: none; /* base image rendered via <img.manhattan-map-base> */
+  overflow: visible;
+}
+.manhattan-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  z-index: 2;
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.manhattan-map-img:hover, .manhattan-map-img:focus {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff4081;
+}
+
+/* MA styles moved to screens/ma.css */
+
+
+/* The base map image element that sits under the interactive overlays. We
+   use an actual <img> with object-fit:contain so the overlays (which use
+   percentage positions) line up perfectly with the visual map. */
+.manhattan-map-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* preserve aspect ratio */
+  object-position: top center; /* anchor to top so top margin is preserved */
+  z-index: 1;
+  pointer-events: none; /* let clicks pass to overlay images */
+}
+
+/* result image that replaces the whole canvas when visible */
+.manhattan-map-result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  z-index: 5; /* above overlays */
+}
+
+.manhattan-result-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 6;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* fade-in animation for result image */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
+}
+.fade-in {
+  animation: fadeIn 300ms ease forwards;
+}
+
+.manhattan-map-caption {
+  position: absolute;
+  left: 10%;
+  transform: translateX(0%);
+  bottom: 10px;
+  z-index: 6;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  max-width: 90%;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Replacement container that occupies the full canvas and shows a screen
+   in-place (hides underlying map and overlays). This makes the interactive
+   screen feel like it replaced the app canvas rather than floating above it. */
+.manhattan-map-replacement {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #0b0b0b; /* dark sheet to match the mock */
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Dim and visually mark unimplemented area buttons */
+.manhattan-map-img-disabled {
+  opacity: 0.45;
+  filter: grayscale(30%);
+  transition: opacity 150ms ease-in-out, filter 150ms ease-in-out, transform 150ms ease-in-out;
+  cursor: not-allowed;
+}
+.manhattan-map-img-disabled:hover,
+.manhattan-map-img-disabled:focus {
+  /* prevent hover transform and shadow for disabled items */
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.55;
+}
+
+
+
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.manhattan-map-container {
+  position: relative;
+  /* width: 100%; */
+  /* max-width: 960px; */
+  height: 0;
+  padding-top: 90%; /* keep aspect ratio box; actual visual canvas is the <img> */
+  /* margin: 2rem auto; */
+  background: none; /* base image rendered via <img.manhattan-map-base> */
+  overflow: hidden;
+}
+.manhattan-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 2;
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.manhattan-map-img:hover, .manhattan-map-img:focus {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff4081;
+}

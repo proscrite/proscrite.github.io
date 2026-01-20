@@ -73,6 +73,17 @@ const microscopyChamberCaptions = [
     'Previous design of the microscopy chamber with re-entrance window to keep the microscope objective outside the pressure chamber.',
     ];
 
+function ScrollToId({id, children }) {
+  function handleClick(e) {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+  return (<a href={`#${id}`} onClick={handleClick} 
+        style={{ color: '#6fa3ff', textDecoration: 'underline', cursor: 'pointer' }}>
+        {children}
+        </a>);
+}
+
 export default function BaSourcePage() {
   const [setupIndex, setSetupIndex] = useState(0);
   const [ionEvaporatorIndex, setIonEvaporatorIndex] = useState(0);
@@ -86,54 +97,6 @@ export default function BaSourcePage() {
         if (location.hash) return;
         window.scrollTo(0, 0);
     }, [location.pathname, location.hash]);
-
-        // If navigation contains a hash, ensure we scroll precisely to the target element.
-        // This retries until the element exists and applies a small header offset if needed.
-        useEffect(() => {
-            if (!location.hash) return;
-            const id = location.hash.replace('#', '');
-            const attempts = 20;
-            const delay = 100; // ms
-            const headerSelector = '.site-header'; // change if you have a different fixed header selector
-            const headerOffset = () => {
-                const h = document.querySelector(headerSelector);
-                return h ? h.getBoundingClientRect().height : 0;
-            };
-
-            function scrollToElement(el) {
-                const offset = headerOffset();
-                const top = el.getBoundingClientRect().top + window.pageYOffset - offset - 8; // slight padding
-                window.scrollTo({ top, behavior: 'smooth' });
-                // make it focusable for accessibility
-                try {
-                    el.setAttribute('tabindex', '-1');
-                    el.focus({ preventScroll: true });
-                } catch (e) {
-                    // ignore
-                }
-            }
-
-            let tries = 0;
-            const t = setInterval(() => {
-                tries += 1;
-                const target = document.getElementById(id) || document.querySelector(`#${id}`);
-                if (target) {
-                    scrollToElement(target);
-                    clearInterval(t);
-                } else if (tries >= attempts) {
-                    clearInterval(t);
-                }
-            }, delay);
-
-            // Try immediately as well
-            const immediate = document.getElementById(id) || document.querySelector(`#${id}`);
-            if (immediate) {
-                scrollToElement(immediate);
-                clearInterval(t);
-            }
-
-            return () => clearInterval(t);
-        }, [location.hash]);
     
   return (
     <div className="projects-container">
@@ -182,7 +145,7 @@ export default function BaSourcePage() {
             However, the main purpose of this setup is to produce thermalized ions, which is achieved by slowing them down in collisions with a noble gas (Helium) at relatively high pressures (0.1 - 1 mbar).
             This abrupt transition of pressure must be managed by a differential pumping system consisting of three pumping stages and small apertures to maintain the required vacuum levels in the different sections of the setup.
         </p>
-        <p align='justify'>
+        <p id='SetupMap' align='justify'>
             The following scheme shows the main components of the Barium ion thermal source. Click on them to learn more about each part.
         </p>
         
@@ -235,7 +198,7 @@ export default function BaSourcePage() {
         Since Barium is a highly reactive metal, the entire ion source assembly must be baked and maintained under ultra-high vacuum conditions to prevent oxidation and contamination of the Barium vapor.
         Therefore, for ease of use, the initial characterization of the source is performed using Xenon, which has approximately similar mass and ionization properties but is chemically inert and can be simply introduced in gas form.
       </p>
-
+      <ScrollToId id='SetupMap'>Return to Setup Map</ScrollToId>
 
       <h2 id='mass-filtering'> Mass spectroscopy and ion beam characterization </h2>
 
@@ -262,6 +225,7 @@ export default function BaSourcePage() {
                 <button onClick={() => setMassSpectrumIndex((massSpectrumIndex + 1) % massSpectrumImages.length)}>Next</button>
             </div>
         </div>
+        <ScrollToId id='SetupMap'>Return to Setup Map</ScrollToId>
 
 
     <h2 id='ion-steering'> Ion steering and focusing </h2>
@@ -292,6 +256,7 @@ export default function BaSourcePage() {
             </div>
         </div>
       </div>
+      <ScrollToId id='SetupMap'>Return to Setup Map</ScrollToId>
 
     <h2 id='ion-thermalization'> Ion thermalization </h2>
 
@@ -324,6 +289,7 @@ export default function BaSourcePage() {
             </div>
         </div>
       </div>
+      <ScrollToId id='SetupMap'>Return to Setup Map</ScrollToId>
 
     <h2 id='microscopy-chamber'> Microscopy chamber (future upgrade) </h2>
         <p align='justify'>
@@ -365,7 +331,7 @@ export default function BaSourcePage() {
             This upgrade aims to enhance the capabilities of the Barium ion thermal source by enabling real-time optical monitoring of the ion beam and its interactions with the surrounding gas.
             The microscopy chamber is designed to accommodate high-resolution optical components, such as lenses and cameras, while maintaining the required vacuum and pressure conditions for ion thermalization.
         </p>
-
+        <ScrollToId id='SetupMap'>Return to Setup Map</ScrollToId>
     </div>
   )
 }

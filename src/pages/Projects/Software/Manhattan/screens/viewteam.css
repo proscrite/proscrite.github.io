@@ -1,0 +1,78 @@
+/* ViewTeam-specific styles: responsive grid of 6 cards */
+.vt-grid {
+  display: grid;
+  /* Use two wider columns by default so cards are larger and taller */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.vt-card {
+  display: flex;
+  flex-direction: column; /* stack image above word for readability */
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: clamp(180px, 28vh, 300px); /* taller cards to fill vertical space */
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 160ms ease;
+}
+.vt-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+
+.vt-card-img {
+  width: clamp(120px, 16vw, 220px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.vt-card-word {
+  width: 100%;
+  text-align: center;
+  color: #eee;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  padding: 0.5rem 0.25rem 0.25rem;
+}
+
+/* Loading view */
+.vt-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.vt-loading-img {
+  width: clamp(180px, 28vw, 420px);
+  height: auto;
+}
+
+.vt-loading-video {
+  width: clamp(180px, 28vw, 420px);
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  background: #000;
+}
+
+/* Counter is rendered into the header <h2> so no separate label needed */
+
+/* Responsive breakpoints */
+/* On very wide screens allow 3 columns */
+@media (min-width: 1400px) {
+  .vt-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1000px) {
+  .vt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .vt-grid { grid-template-columns: 1fr; }
+  .vt-card { justify-content: flex-start; padding: 0.75rem; min-height: 88px; flex-direction: row; }
+  .vt-card-img { width: clamp(64px, 18vw, 120px); }
+  .vt-card-word { text-align: left; padding-left: 0.5rem; }
+}

@@ -18,7 +18,7 @@
 .ma-prompt {
   position: absolute;
   /* anchor to bottom-right of the image container (.ma-stats) */
-  right: 0.8rem;
+  /* right: 0.8rem; */
   bottom: 0.8rem;
   text-align: center;
   z-index: 6;
@@ -142,6 +142,9 @@
 .ma-instructions {
   color: rgba(255,255,255,0.75);
 }
+
+/* Written-input block reused by WiScreen (and compatible with MaScreen layout) */
+/* WI-specific input styles have been moved to wi.css */
 
 /* Responsive: stack options on narrow screens and reduce canvas height */
 @media (max-width: 720px) {

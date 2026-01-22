@@ -1,0 +1,43 @@
+/* Cloze screen specific styles */
+.cloze-prompt-text {
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.25;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cloze-blank {
+  display: inline-block;
+  font-weight: 800;
+  background: rgba(251, 255, 13, 0.06);
+  padding: 0.08rem 0.35rem;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+}
+
+/* Ensure the prompt doesn't overlap the image when used in the ma-top-row layout */
+.ma-top-row .ma-prompt {
+  position: static !important;
+  text-align: left !important;
+  pointer-events: auto !important;
+  width: 100%;
+}
+
+/* Loading spinner + text */
+.loader {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255,255,255,0.12);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: cloze-spin 0.9s linear infinite;
+}
+.loading-text { font-size: 1rem; color: #fff; }
+
+@keyframes cloze-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 720px) {
+  .cloze-prompt-text { font-size: clamp(18px, 4.2vw, 22px); }
+}

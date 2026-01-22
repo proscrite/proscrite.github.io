@@ -1,0 +1,116 @@
+/* Update DB screen styles: grid of book buttons and legend */
+.ud-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.ud-btn {
+  padding: 1.1rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.ud-btn.ud-orange { background: #d66a18; }
+.ud-btn.ud-blue { background: #2c5ea8; }
+.ud-btn.ud-green { background: #2b9a5f; }
+
+.ud-btn.ud-disabled {
+  opacity: 0.45;
+  filter: grayscale(30%);
+  cursor: default;
+}
+
+.ud-legend {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  align-items: center;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+}
+.ud-legend .legend-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.ud-legend .legend-swatch.blue { background: #2c5ea8; }
+.ud-legend .legend-swatch.orange { background: #d66a18; }
+.ud-legend .legend-swatch.green { background: #2b9a5f; }
+
+.ud-process { text-align: center; }
+.ud-actions { display:flex; gap: 0.8rem; justify-content:center; margin-top:1rem; }
+.ud-run { background: #2b9a5f; color: #fff; padding: 0.6rem 1rem; border-radius:6px; border:none; }
+.ud-cancel { background: #444; color: #fff; padding: 0.6rem 1rem; border-radius:6px; border:none; }
+
+@media (max-width: 700px) {
+  .ud-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Preview layout: use table display so columns align across rows */
+.ud-preview-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.ud-preview-table {
+  flex: 1 1 70%;
+  background: rgba(255,255,255,0.02);
+  border-radius: 6px;
+  padding: 0.6rem;
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px; /* gap between cells */
+}
+.ud-table-header { display: table-header-group; margin-bottom: 0.25rem; }
+.ud-col-head { display: table-cell; padding: 0.6rem; color:#fff; border-radius:4px; text-align:center; font-weight:600; }
+.ud-col-head.ud-blue { background: #2c5ea8; }
+.ud-col-head.ud-pink { background: #c5609a; }
+.ud-col-head.ud-orange { background: #d66a18; }
+.ud-col-head.ud-yellow { background: #dba81f; }
+.ud-table-body { display: table-row-group; }
+.ud-table-row { display: table-row; }
+.ud-table-cell { display: table-cell; padding: 0.45rem 0.6rem; background: rgba(0,0,0,0.12); color:#fff; border-radius:4px; min-height:36px; vertical-align: middle; }
+.ud-table-cell.left { text-align:left; }
+
+/* Make table cells adopt a dimmer (semi-transparent) column color to match headers */
+.ud-table-cell.ud-blue { background: rgba(44,94,168,0.36); color: #fff; }
+.ud-table-cell.ud-pink { background: rgba(197,96,154,0.36); color: #fff; }
+.ud-table-cell.ud-orange { background: rgba(214,106,24,0.36); color: #fff; }
+.ud-table-cell.ud-yellow { background: rgba(219,168,31,0.36); color: #111; }
+.ud-table-cell.ud-gold { background: rgba(181,140,50,0.36); color: #fff; }
+.ud-table-cell.ud-green { background: rgba(43,154,95,0.32); color: #fff; }
+
+/* Header variants for additional palettes */
+.ud-col-head.ud-gold { background: #b58c32; }
+.ud-col-head.ud-green { background: #2b9a5f; }
+
+/* Highlight button variants */
+.hl-btn.hl-gold { background:#b58c32; }
+.hl-btn.hl-green { background:#2b9a5f; }
+
+.ud-sidepanel { width: 280px; padding: 0.6rem; display:flex; flex-direction:column; gap:0.8rem; }
+.hl-buttons { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.hl-btn { padding:0.6rem 0.9rem; border-radius:6px; color:#fff; border:none; cursor:pointer; }
+.hl-btn.hl-blue { background:#2c5ea8; }
+.hl-btn.hl-pink { background:#c5609a; }
+.hl-btn.hl-orange { background:#d66a18; }
+.hl-btn.hl-yellow { background:#dba81f; }
+.hl-extra { margin-top:0.6rem; }
+.hl-extra-buttons { display:flex; gap:0.5rem; }
+.hl-extra-btn { padding:0.45rem 0.6rem; border-radius:6px; border:none; background:#444; color:#fff; }
+
+@media (max-width: 880px) {
+  .ud-preview-body { flex-direction: column; }
+  .ud-sidepanel { width: 100%; }
+}

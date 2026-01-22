@@ -63,7 +63,24 @@ export default function MaScreen({ onClose }) {
       // Enter advances to next only after an answer has been selected
       if (e.key === 'Enter') {
         if (selected !== null) {
+          // Prevent the Enter key from also activating the currently focused button on keyup.
+          // This avoids the case where Enter both advances and re-selects the same letter in the next example.
+          try {
+            e.preventDefault();
+            e.stopPropagation();
+          } catch (err) {
+            /* ignore */
+          }
           handleNext();
+          // blur any focused button/input to avoid generating a click on keyup
+          try {
+            const active = document.activeElement;
+            if (active && (active.tagName === 'BUTTON' || active.tagName === 'INPUT')) {
+              active.blur();
+            }
+          } catch (err) {
+            /* ignore for non-browser env */
+          }
         }
       }
     };
@@ -74,7 +91,7 @@ export default function MaScreen({ onClose }) {
   return (
     <div className="manhattan-screen ma-screen">
       <header className="manhattan-screen-header">
-        <h2>Multiple Answer (mock)</h2>
+        <h2>{idx === 0 ? 'Multiple Answer: Reverse Translation' : 'Multiple Answer: Direct Translation'}</h2>
         <div>
           <button onClick={onClose} className="manhattan-screen-close">Close</button>
         </div>

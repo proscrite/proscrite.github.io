@@ -1,9 +1,3 @@
-/* 1) make your page container wider and centered */
-.projects-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
 
 /* 2) stack video and text vertically (video on top, text below) */
 .project-details {
@@ -18,15 +12,73 @@
 .video-wrapper {
   position: relative;
   width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* stack children vertically and center-align */
+  margin: 1rem auto;
 }
 
-/* 4) your video full-width, clickable */
+/* Wider video wrapper variant: center the video and make it ~70% width */
+.video-wrapper--wide {
+  width: 20%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* explicit per-video width classes */
+.video-wrapper--50 {
+  /* 50% of the viewport width, capped by max-width */
+  width: 30vw;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.video-wrapper--70 {
+  /* 70% of the viewport width, capped by max-width */
+  width: 70vw;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 4) make the video fill its wrapper */
 .project-video {
   width: 100%;
   height: auto;
+  display: block;
   border-radius: 8px;
   background: #000;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* caption shown below the video, center-aligned */
+.video-caption-below {
+  margin-top: 0.75rem;
+  color: #ddd;
+  text-align: center;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.video-navigation-below {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
 }
 
 /* 5) caption on top of the video */
@@ -64,7 +116,7 @@
 /* 3) let the image grow bigger */
 .project-image {
   width: 100%;
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   border-radius: 8px;
 }
@@ -87,17 +139,16 @@
 /* @media (max-width: 768px) { … } */
 
 .image-wrapper {
-  position: relative;
-  flex: 0 0 50%;
+  flex: 1 1 50%;
   min-width: 300px;
   cursor: pointer;
   align-self: flex-start;
-  position: sticky;
-  top: 20px;
+  position: relative;
 }
 
 .clickable-image {
   width: 100%;
+  max-width: none;
   height: auto;
   display: block;
   border-radius: 8px;
@@ -110,7 +161,7 @@
 
 .image-hint {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -118,19 +169,73 @@
   border-radius: 4px;
   font-size: 0.875rem;
   pointer-events: none;
+  display: inline-block;
+  width: auto;
+  height: 25px;
+  white-space: nowrap;
 }
 
-.smaller-image-wrapper {
+.image-caption {
+  margin-top: 1rem;
+  color: #ddd;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.image-navigation {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.image-navigation button {
+  padding: 0.5rem 1rem;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-navigation button:hover {
+  background: #555;
+}
+
+.smaller-image-wrapper .clickable-image {
+  width: 80%;
+  max-width: 80%;
+}
+
+/* Dedicated image wrapper classes to avoid persistent overlays when scrolling.
+   Use `doc-image-wrapper` for full-width images and
+   `doc-image-wrapper--narrow` for centered 80% width variants. */
+.doc-image-wrapper {
+  position: static; /* ensure normal document flow */
+  width: 100%;
+  display: block;
+  align-self: stretch;
+  margin: 1.5rem 0;
+  z-index: auto;
+}
+.doc-image-wrapper .project-image,
+.doc-image-wrapper .clickable-image {
+  position: relative; /* keep image positioned relative to wrapper */
+}
+.doc-image-wrapper--narrow {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tiny-image-wrapper .clickable-image {
   width: 50%;
-  margin: 0 auto;
+  max-width: 50%;
 }
 
 /* Responsive: stack on smaller screens */
 @media (max-width: 768px) {
-  .projects-container {
-    padding: 0 0.5rem;
-  }
-  
   .project-details {
     flex-direction: column;
   }

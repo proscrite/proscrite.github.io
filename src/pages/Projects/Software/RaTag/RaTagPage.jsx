@@ -90,14 +90,14 @@ export default function RaTagPage() {
       </p>
       <div>
       <div className="image-wrapper smaller-image-wrapper">
-              <img
-                src={exampleWfm}
-                alt="Example of PMT waveform"
-                className="project-image"
-              />
-              <div className="image-caption">
-                <p>Example of a PMT waveform or "frame".</p>
-              </div>
+          <img
+            src={exampleWfm}
+            alt="Example of PMT waveform"
+            className="project-image"
+          />
+          <div className="image-caption">
+            <p>Example of a PMT waveform or "frame".</p>
+          </div>
       </div>
     </div>
       <p align='justify'>

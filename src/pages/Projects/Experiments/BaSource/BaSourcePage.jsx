@@ -99,7 +99,7 @@ export default function BaSourcePage() {
     }, [location.pathname, location.hash]);
     
   return (
-    <div className="projects-container">
+    <div className="projects-container ba-source-page">
         <h1> Barium ion thermal source </h1>
 
         <p align='justify'>
@@ -122,13 +122,13 @@ export default function BaSourcePage() {
         </p>
 
         <div>
-            <div className="image-wrapper">
+            <div className="image-wrapper smaller-image-wrapper">
                 <div className="image-caption">
                     <p>{captions[setupIndex]} ({setupIndex + 1} / {setupImages.length})</p>
                 </div>
                 <img 
                 src={setupImages[setupIndex]} alt={`RITA scheme ${setupIndex + 1}`} 
-                className='smaller-image-wrapper clickable-image'
+                className='clickable-image'
                 onClick={() => setSetupIndex((setupIndex + 1) % setupImages.length)}
                 />
                 <div className="image-navigation">
@@ -162,13 +162,16 @@ export default function BaSourcePage() {
         The credit for developing this whole interface goes to Dr. Adam Redwine.
         The following image shows a screenshot of the control interface used for operating the Barium ion thermal source.
       </p>
-      <div className="smaller-image-wrapper clickable-image">
-        <img 
-          src={controlInterfaceImage} 
-          alt="Control interface screenshot" 
-          className="image-wrapper clickable-image"
-        />
-      </div>
+            <div className="image-wrapper smaller-image-wrapper">
+                <div className="image-caption">
+                    <p>Control interface screenshot</p>
+                </div>
+                <img 
+                    src={controlInterfaceImage} 
+                    alt="Control interface screenshot" 
+                    className="clickable-image"
+                />
+            </div>
 
 
      <h2 id='ion-production'> Ion production </h2>
@@ -178,14 +181,14 @@ export default function BaSourcePage() {
         Neutral Ba gas produced by sublimation is then ionized using electron bombardment from a hot tungsten filament.
       </p>
       
-      <div>
-        <div className="tiny-image-wrapper clickable-image">
+        <div>
+        <div className="image-wrapper tiny-image-wrapper">
             <div className="image-caption">
                 <p>{ionEvaporatorCaptions[ionEvaporatorIndex]} ({ionEvaporatorIndex + 1} / {ionEvaporatorImages.length})</p>
             </div>
             <img 
             src={ionEvaporatorImages[ionEvaporatorIndex]} alt={`RITA scheme ${ionEvaporatorIndex + 1}`} 
-            className='image-wrapper clickable-image'
+            className='clickable-image'
             onClick={() => setIonEvaporatorIndex((ionEvaporatorIndex + 1) % ionEvaporatorImages.length)}
             />
             <div className="image-navigation">
@@ -211,13 +214,13 @@ export default function BaSourcePage() {
             The other peaks correspond to the carrier Argon gas and to background gases present in the vacuum chamber, such as water vapor and nitrogen.
         </p>
         
-        <div className="smaller-image-wrapper clickable-image">
+        <div className="image-wrapper smaller-image-wrapper">
             <div className="image-caption">
                 <p>{massSpectrumCaptions[massSpectrumIndex]} ({massSpectrumIndex + 1} / {massSpectrumImages.length})</p>
             </div>
             <img 
             src={massSpectrumImages[massSpectrumIndex]} alt={`Mass spectrum ${massSpectrumIndex + 1}`} 
-            className='image-wrapper clickable-image'
+            className='clickable-image'
             onClick={() => setMassSpectrumIndex((massSpectrumIndex + 1) % massSpectrumImages.length)}
             />
             <div className="image-navigation">
@@ -241,13 +244,13 @@ export default function BaSourcePage() {
             The following images show the design and implementation of the ion steerer assembly.
         </p>
         <div>
-        <div className="tiny-image-wrapper clickable-image">
+        <div className="image-wrapper tiny-image-wrapper">
             <div className="image-caption">
                 <p>{steererCaptions[steererIndex]} ({steererIndex + 1} / {steererImages.length})</p>
             </div>
             <img 
             src={steererImages[steererIndex]} alt={`Steerer assembly ${steererIndex + 1}`} 
-            className='image-wrapper clickable-image'
+            className='clickable-image'
             onClick={() => setSteererIndex((steererIndex + 1) % steererImages.length)}
             />
             <div className="image-navigation">
@@ -274,13 +277,13 @@ export default function BaSourcePage() {
             The following images show the design and implementation of the ion thermalization chamber. Click on them to cycle through.
         </p>
         <div>
-        <div className="smaller-image-wrapper clickable-image">
+        <div className="image-wrapper smaller-image-wrapper">
             <div className="image-caption">
                 <p>{thermalizationCaptions[thermalizationIndex]} ({thermalizationIndex + 1} / {thermalizationImages.length})</p>
             </div>
             <img 
             src={thermalizationImages[thermalizationIndex]} alt={`Thermalization chamber ${thermalizationIndex + 1}`} 
-            className='image-wrapper clickable-image'
+            className='clickable-image'
             onClick={() => setThermalizationIndex((thermalizationIndex + 1) % thermalizationImages.length)}
             />
             <div className="image-navigation">
@@ -308,13 +311,13 @@ export default function BaSourcePage() {
             Click on them to cycle through.
         </p>
         <div>
-        <div className="smaller-image-wrapper clickable-image">
+        <div className="image-wrapper smaller-image-wrapper">
             <div className="image-caption">
                 <p>{microscopyChamberCaptions[microscopyChamberIndex]} ({microscopyChamberIndex + 1} / {microscopyChamberImages.length})</p>
             </div>
             <img 
             src={microscopyChamberImages[microscopyChamberIndex]} alt={`Microscopy chamber ${microscopyChamberIndex + 1}`} 
-            className='image-wrapper clickable-image'
+            className='clickable-image'
             onClick={() => setMicroscopyChamberIndex((microscopyChamberIndex + 1) % microscopyChamberImages.length)}
             />
             <div className="image-navigation">

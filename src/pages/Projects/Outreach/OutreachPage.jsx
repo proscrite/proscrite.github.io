@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import VideoWrapper from '../../../components/VideoWrapper.jsx'
 import CommTable  from '../../../components/CommTable.jsx'
 import PubTable from '../../../components/PubTable.jsx'
@@ -45,7 +45,7 @@ export default function OutreachPage() {
         title="Poster Neutrino 2020"
       />
 
-      <h2>Other Communications</h2>
+      <h2 id='conferences' >Other Communications</h2>
       <CommTable data={communications} />
 
     <h1>Publications</h1>

@@ -13,9 +13,13 @@ import OutreachPage       from './pages/Projects/Outreach'
 import NextExperimentPage from './pages/Projects/Experiments/NextExperiment'
 import BoldPage from './pages/Projects/Experiments/Bold/BoldPage'
 import SabatHujiPage from './pages/Projects/Experiments/SabatHuji/SabatHujiPage'
-import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/SurfaceSciencePage'
 import RitaPage from './pages/Projects/Experiments/RaTagSetup/RitaPage'
 import BaSourcePage from './pages/Projects/Experiments/BaSource/BaSourcePage'
+
+import SurfaceSciencePage from './pages/Projects/Experiments/SurfaceScience/SurfaceSciencePage'
+import PreparationPage from './pages/Projects/Experiments/SurfaceScience/PreparationPage'
+import CharacterizationPage from './pages/Projects/Experiments/SurfaceScience/CharacterizationPage'
+import ResultsPage from './pages/Projects/Experiments/SurfaceScience/ResultsPage'
 
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import RaTagPage from './pages/Projects/Software/RaTag/RaTagPage'
@@ -59,6 +63,9 @@ export default function App() {
           <Route path="SabatHuji" element={<SabatHujiPage/>}/>
           <Route path="BaSource" element={<BaSourcePage/>} />
           <Route path="SurfaceScience" element={<SurfaceSciencePage/>}/>
+          <Route path="SurfaceScience/preparation" element={<PreparationPage/>} />
+          <Route path="SurfaceScience/characterization" element={<CharacterizationPage/>} />
+          <Route path="SurfaceScience/results" element={<ResultsPage/>} />
         </Route>
         <Route path="outreach"    element={<OutreachPage/>}/>
       </Route>

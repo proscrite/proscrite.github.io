@@ -1,0 +1,32 @@
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.techniques-map-container {
+  position: relative;
+  /* width: 100%; */
+  /* max-width: 960px; */
+  height: 0;
+  padding-top: 75%; /* 1024:768 = 1.3333 = 75% */
+  /* margin: 2rem auto; */
+  background: url('./images/repo_modules/repo_modules_bg.png') center center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.techniques-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 2;
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.techniques-map-img:hover, .techniques-map-img:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px #ff4081;
+}
+
+/* Page-scoped override: use 16:9 aspect ratio only on the SurfaceScience index page */
+.surface-science-page .techniques-map-container {
+  padding-top: 56.25%; /* 16:9 = 1.7777 -> 56.25% */
+}

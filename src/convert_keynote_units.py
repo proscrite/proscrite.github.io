@@ -63,7 +63,20 @@ dict_list = [
     {'langSelect': {'size': (31.39, 14.73), 'position': (8.85, 66.4)}},
     {'settings': {'size': (31.39, 14.73), 'position': (40.83, 66.45)}}]
 
+canvas = {'size': (36.12, 27.2)}
+dict_list = [
+    {'stm': {'size': (8.2, 15.0), 'position': (3.2, 0.44)}},
+    {'xps': {'size': (10.4, 15.0), 'position': (12.9, 0.44)}},
+    {'afm': {'size': (8.2, 15.0), 'position': (24.7, 0.44)}},
+    {'nexafs': {'size': (22.4, 10.1), 'position': (6.9, 16.52)}},
+    ]
 
+canvas = {'size': (67.73, 38.1)}  
+dict_list = [
+    {'preparation': {'size': (19.6, 30.2), 'position': (0.16, 3.23)}},
+    {'characterization': {'size': (18.85, 30.2), 'position': (20.7, 3.23)}},
+    {'results': {'size': (26.6, 30.2), 'position': (40.64, 3.23)}},
+]
 for d in dict_list:
     for key in d:
         print(f"{key}: {to_percentage(d[key], canvas)}")

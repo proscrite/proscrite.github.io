@@ -1,0 +1,235 @@
+/* PaperListItem two-column layout */
+.paper-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+  gap: 1.5em;
+}
+.paper-list-img-wrapper {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paper-list-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: block;
+}
+.paper-list-content {
+  /* flex: 1 1 60%; */
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .paper-list-item {
+    flex-direction: column;
+    gap: 0.75em;
+  }
+  .paper-list-img-wrapper, .paper-list-content {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .paper-list-img {
+    max-width: 100%;
+  }
+}
+/* 1) make your page container wider and centered */
+/* .projects-container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* padding removed to let .main-container control side margins */
+ /* /* }  */
+.paper-list-content {
+  flex: 1 1 60%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* 2) stack video and text vertically (video on top, text below) */
+.project-details {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+/* 3) video + overlay wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 4) your video full-width, clickable */
+.project-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* 5) caption on top of the video */
+.video-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+/* 6) your “▶ Playing…” and “⬇️ Click to continue” hints */
+.video-wrapper .absolute {
+  position: absolute;
+  top: 1rem;
+  left: 1rem; 
+  /* tailwind classes like .text-gray-400 etc will still apply their colors/font-size */
+}
+
+/* 7) static text under the video */
+.project-text {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* 3) let the image grow bigger */
+.project-image {
+  width: 100%;
+  position: static;
+  /* max-width: 100%; */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* new: horizontal row for all the back-links */
+.back-links {
+  display: flex;
+  flex-wrap: wrap;         /* allows wrapping on very narrow screens */
+  gap: 1rem;               /* space between links */
+  justify-content: center; /* center them in the container */
+  margin-bottom: 2rem;     /* separation from the title */
+}
+
+/* optional: ensure each link doesn’t break onto two lines */
+.back-link {
+  white-space: nowrap;
+}
+
+/* collapse rule no longer needed since it’s now a single column */
+/* @media (max-width: 768px) { … } */
+
+.image-wrapper {
+  /* behave like a side column: fixed flex-basis, stay visible while scrolling */
+  position: sticky;
+  top: 20px;
+  flex: 0 0 50%;
+  min-width: 300px;
+  box-sizing: border-box;
+  cursor: pointer;
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.clickable-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-height: calc(100vh - 160px);
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.clickable-image:hover {
+  transform: scale(1.02);
+}
+
+.image-hint {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  pointer-events: none;
+  display: inline-block;
+  width: auto;
+  height: 25px;
+  white-space: nowrap;
+}
+
+.image-caption {
+  margin-top: 1rem;
+  color: #ddd;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.image-navigation {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.image-navigation button {
+  padding: 0.5rem 1rem;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-navigation button:hover {
+  background: #555;
+}
+
+.smaller-image-wrapper .clickable-image {
+  width: 80%;
+  max-width: 80%;
+}
+
+.tiny-image-wrapper .clickable-image {
+  width: 50%;
+  max-width: 50%;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .project-details {
+    flex-direction: column;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: unset;
+  }
+}

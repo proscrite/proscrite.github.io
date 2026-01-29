@@ -4,6 +4,7 @@ import { HashLink } from 'react-router-hash-link'
 
 import './SurfaceScience.css'
 import SurfaceTechniques from './SurfaceTechniquesMap.jsx'
+import ImageCarousel from '../../../../components/ImageCarousel'
 
 import xpsScheme1 from './images/xps/xps_scheme1.png'
 import xpsScheme2 from './images/xps/xps_scheme2.png'
@@ -82,57 +83,13 @@ const nexafsCaptions = [
   'Me closing the valve connecting the preparation and characterization chambers at the ALOISA beamline.',
 ];
 
-function useImageCarousel(initialIndex = 0, imagesArray) {
-  const [index, setIndex] = React.useState(initialIndex);
-  const next = () => setIndex((index + 1) % imagesArray.length);
-  const prev = () => setIndex((index - 1 + imagesArray.length) % imagesArray.length);
-  return { index, next, prev };
-}
 
-function ImageCarousel({ images, captions = [], initialIndex = 0, width }) {
-  const { index, next, prev } = useImageCarousel(initialIndex, images);
-  const imgClass = 'project-image clickable-image';
-
-  // width can be a number (interpreted as percentage) or a CSS width string like '70%'
-  let wrapperStyle = {};
-  if (width !== undefined && width !== null) {
-    const w = typeof width === 'number' ? `${width}%` : String(width);
-    wrapperStyle = { width: w, flex: '0 0 auto', minWidth: 0, boxSizing: 'border-box', margin: '0 auto', overflow: 'hidden' };
-  }
-
-  const caption = (captions && captions[index]) || '';
-
-  return (
-    <div className="image-wrapper" style={wrapperStyle}>
-      <img
-        src={images[index]}
-        alt={`Image ${index + 1}`}
-        className={imgClass}
-        onClick={next}
-      />
-      <div className="image-caption">
-        <p>
-          {typeof caption === 'string' ? (
-            <span dangerouslySetInnerHTML={{ __html: caption }} />
-          ) : (
-            caption
-          )}
-          {' '}
-          ({index + 1} / {images.length})
-        </p>
-      </div>
-      <div className="image-navigation">
-        <button onClick={prev}>Previous</button>
-        <button onClick={next}>Next</button>
-      </div>
-    </div>
-  );
-}
 
 export default function CharacterizationPage() {
   return (
     <div className="projects-container">
       <h1>Sample Characterization for Surface Science</h1>
+      <p><Link to="/projects/experiments/SurfaceScience">Back to Surface Science index</Link></p>
 
       <p align='justify'>
         Characterization of the functionalized surfaces is essential to verify the survival of molecules to the deposition processes, their successful immobilization on surfaces and to assess the properties of the prepared sample.
@@ -190,7 +147,7 @@ export default function CharacterizationPage() {
         <p align='justify'>
           The results obtained through XPS characterization were crucial to demonstrate the feasibility of the BOLD concept at the monolayer level and in the Ultra-High vacuum regime, which is similar in terms of extreme dryness to the conditions in which the NEXT experiment operates.
           These results were published in the <Link to='https://doi.org/10.1038/s41586-020-2431-5'> Nature </Link> and <Link to='https://doi.org/10.1038/s41467-022-35153-0'> Nature Communications </Link> journals, and presented in <HashLink to="/projects/outreach#conferences"> several conferences </HashLink>.
-          To read more about the surface science studies performed during my PhD, visit the <Link to="/projects/experiments/SurfaceScience/xpsResults"> Surface Science Results </Link> page.
+          To read more about the surface science studies performed during my PhD, visit the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
         </p>
         <p align='justify'>
           I performed dozens of XPS experiments during my PhD at CFM, both independently and in collaboration with other researchers. 
@@ -237,7 +194,7 @@ export default function CharacterizationPage() {
         Although I did not operate the STM setup at CFM personally, I collaborated closely with Dr. Alejandro Berdonces-Layunta, an expert in STM techniques and personal friend, to perform measurements on functionalized surfaces.
         In addition to the studies on FBI molecules, we also investigated the deposition and behavior of another class of molecules called <Link to='https://onlinelibrary.wiley.com/doi/10.1002/anie.202016163'> starphenes</Link>. 
         These are large and fragile molecules which could not be sublimated. Instead, I deposited them via Atomic Layer Injection, a novel technique developed jointly by CFM and the startup Bihur Crystal precisely to deposit such delicate molecules.
-        You can read more about this experiment in the <Link to="/projects/experiments/SurfaceScience/xpsResults"> Surface Science Results </Link> page.
+        You can read more about this experiment in the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
       </p>
 
       <h2 id='afm'> Atomic Force Microscopy (AFM) </h2>
@@ -304,7 +261,7 @@ export default function CharacterizationPage() {
 
       <p align='justify'>
         In addition, I also had the chance to perform experiments in <href to='https://www.cells.es/en/instruments/beamlines/bl29-boreas'> the ALBA synchrotron facility </href> in Barcelona, Spain, during my PhD in 2020. 
-        This was a three-day experiment focused on testing the ALI technique with delicate molecules, like FBIs, as explained in the <Link to="/projects/experiments/SurfaceScience/xpsResults"> Surface Science Results </Link> page.
+        This was a three-day experiment focused on testing the ALI technique with delicate molecules, like FBIs, as explained in the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
         The technique used there was X-ray (magnetic) circular and linear dichroism (XMCD/XMLD) spectroscopy, which is sensitive to the magnetic properties of materials. 
         Since organic molecules like FBIs are non-magnetic, I deposited molecules pre-chelated in solution with Ba²⁺ ions to test the technique.
         Although the results were not conclusive due to time constraints and experimental challenges, this experience provided valuable insights into the capabilities and limitations of synchrotron-based techniques for surface science studies.
@@ -318,9 +275,10 @@ export default function CharacterizationPage() {
         These efforts were instrumental in demonstrating the feasibility of the BOLD concept and advancing the development of novel sensor technologies for Ba²⁺ ion detection.
       </p>
       <p align='justify'>
-        
-        To read more about the surface science studies performed during my PhD, visit the <Link to="/projects/experiments/SurfaceScience/xpsResults"> Surface Science Results </Link> page.
+        To read more about the surface science studies performed during my PhD, visit the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
       </p>
+
+      <p><Link to="/projects/experiments/SurfaceScience">Back to Surface Science index</Link></p>
 
     </div>
   )

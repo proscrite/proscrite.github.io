@@ -192,7 +192,7 @@ export default function BoldPage() {
         setIndex={setNaphIndex}
         title="The Light switch:"
       >
-        <p align='justify'>
+        <p id='naph' align='justify'>
           These are molecules that are essentially switched on when the Ba²⁺ ion is captured. The fluorescence light is <i>off</i> when the molecule is in free state,
           and <i><b>on</b></i> when it catches it. The detection technique then revolves around measuring the intensity of the tagger in both states. 
           If the light intensity in the <b>on</b> state is sufficiently large with respect to the <i>off</i> state, then a threshold can be used to discriminate between them.
@@ -217,7 +217,7 @@ export default function BoldPage() {
         setIndex={setFbiIndex}
         title="The Traffic Light:"
       >
-        <p align='justify'>
+        <p id='fbi' align='justify'>
           These molecules emit a different in wavelengths in their free state and in the Ba-bound state. They are the are so-called Fluorescent Bicolor Indicators (FBI). 
           The crown-ether is also the ion catcher of FBIs. The fluorophore component is different from that of the light switch.
           It contains a rotatable "neck" which plays a crucial role in the detection mechanism. In the free state,
@@ -244,7 +244,7 @@ export default function BoldPage() {
         setIndex={setTriIndex}
         title="The old lightbulb:"
       >
-        <p align='justify'>
+        <p id='tfi' align='justify'>
           Think of these molecules as that old lightbulb that stays on for a few seconds after you have switched off the current. 
           The neat trick is that, in the absence of ion, the lightbulb switches on and off sharp as a razor. 
           This is a fluorescence process, and it therefore has a lifetime in the order of nanoseconds.

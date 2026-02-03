@@ -77,6 +77,20 @@ dict_list = [
     {'characterization': {'size': (18.85, 30.2), 'position': (20.7, 3.23)}},
     {'results': {'size': (26.6, 30.2), 'position': (40.64, 3.23)}},
 ]
+
+canvas = {'size': (36.12, 27.2)}
+dict_list = [
+    {'membrane': {'size': (6.45, 5.18), 'position': (2.51, 21.81)} },
+    {'scrolls': {'size': (13.1, 5.7), 'position': (6.6, 21.26)} },
+    {'turbos': {'size': (11.78, 10.25), 'position': (8.46, 13.6)} },
+    {'ion_pump': {'size': (5.3, 7.2), 'position': (20.75, 17.34)}},
+    {'manipulators1': {'size': (13.9, 5.37), 'position': (0.56, 10.65)} },
+    {'manipulators2': {'size': (14.88, 9.38), 'position': (17.6, 8.76)} },
+    {'microbalance': {'size': (4.86, 6.5), 'position': (14.23, 6.5)} },
+    {'sputter': ({'size': (3.6, 6.4), 'position': (10.9, 4.1) } )},
+    {'plasma': {'size': (7.5, 8.7), 'position': (23.2, 2.09)} },
+    {'analyzer': {'size': (7.9, 7.35), 'position': (16.91, 0.30)} },          
+]
 for d in dict_list:
     for key in d:
         print(f"{key}: {to_percentage(d[key], canvas)}")

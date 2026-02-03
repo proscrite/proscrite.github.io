@@ -83,7 +83,21 @@ const nexafsCaptions = [
   'Me closing the valve connecting the preparation and characterization chambers at the ALOISA beamline.',
 ];
 
-
+function ScrollToId({id, children }) {
+  function handleClick(e) {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+  return (
+    <a
+      href={`#${id}`}
+      onClick={handleClick}
+      style={{ color: '#6fa3ff', textDecoration: 'underline', cursor: 'pointer' }}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function CharacterizationPage() {
   return (
@@ -94,7 +108,7 @@ export default function CharacterizationPage() {
       <p align='justify'>
         Characterization of the functionalized surfaces is essential to verify the survival of molecules to the deposition processes, their successful immobilization on surfaces and to assess the properties of the prepared sample.
       </p>
-      <p align='justify'>
+      <p id='surface_techniques' align='justify'>
         Various surface science techniques were employed for this purpose, including X-ray Photoelectron Spectroscopy (XPS), Atomic Force Microscopy (AFM), and Scanning Tunnelling Microscopy and Spectroscopy (STM-STS).
         XPS was particularly useful for determining the elemental composition and chemical states of the atoms on the surface, confirming the presence of the functionalizing molecules.
         AFM provided insights into the surface topography and roughness at the nano-scale, while STM confirmed this information with much higher resolution, achieving topography images of single-molecule interacting with Ba²⁺ ions.
@@ -156,6 +170,8 @@ export default function CharacterizationPage() {
           This expertise was instrumental in managing not only the surface science aspects, but also the overall progress of the BOLD project.
         </p>
 
+        <ScrollToId id='surface_techniques'>Return to Setups Map</ScrollToId>
+
       <h2 id='stm'> Scanning Tunnelling Microscopy and Spectroscopy (STM-STS) </h2>
 
       <p align='justify'>
@@ -184,6 +200,12 @@ export default function CharacterizationPage() {
             This technique is known as Scanning Tunneling Spectroscopy (STS).
           </p>
           <p align='justify'>
+            One of the challenges of imaging single molecules through STM is the high mobility they usually display on surfaces, which can make it difficult to obtain stable and clear images.
+            This is why the technique is often performed at very low temperatures, typically at liquid helium temperatures (around 4 K), to immobilize the molecules and achieve high-resolution imaging.
+            Some instruments within Low-Temperature STM (LT-STM) can go as low as 300 mK, especially in studies of 2D materials.
+            This is a fascinating field of research by itself, but not necessary for the BOLD project, since the ultimate goal is to operate at room temperature.
+          </p>
+          <p align='justify'>
             STM is widely used in surface science, nanotechnology, and materials science for studying surface structures, defects, and electronic properties at the atomic level.
             In the context of the BOLD project, STM was employed to achieve high-resolution imaging of FBI molecules deposited on surfaces, providing insights into the arrangement and behavior of individual molecules upon Ba²⁺ ion capture.
           </p>
@@ -196,6 +218,9 @@ export default function CharacterizationPage() {
         These are large and fragile molecules which could not be sublimated. Instead, I deposited them via Atomic Layer Injection, a novel technique developed jointly by CFM and the startup Bihur Crystal precisely to deposit such delicate molecules.
         You can read more about this experiment in the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
       </p>
+
+       
+      <ScrollToId id='surface_techniques'>Return to Setups Map</ScrollToId>
 
       <h2 id='afm'> Atomic Force Microscopy (AFM) </h2>
 
@@ -221,6 +246,7 @@ export default function CharacterizationPage() {
 
         </div>
       </div>
+      <ScrollToId id='surface_techniques'>Return to Setups Map</ScrollToId>
 
       <h2 id='nexafs'> Synchrotron Techniques </h2>
       <p align='justify'>
@@ -277,8 +303,11 @@ export default function CharacterizationPage() {
       <p align='justify'>
         To read more about the surface science studies performed during my PhD, visit the <Link to="/projects/experiments/SurfaceScience/results"> Surface Science Results </Link> page.
       </p>
+      <ScrollToId id='surface_techniques'>Return to Setups Map</ScrollToId>
 
-      <p><Link to="/projects/experiments/SurfaceScience">Back to Surface Science index</Link></p>
+      <p>
+        <Link to="/projects/experiments/SurfaceScience">Back to Surface Science index</Link>
+      </p>
 
     </div>
   )

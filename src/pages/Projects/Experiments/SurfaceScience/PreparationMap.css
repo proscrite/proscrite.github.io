@@ -1,0 +1,38 @@
+/* Responsive 16:9 aspect ratio using padding-top hack */
+.vacuum-map-container {
+  position: relative;
+  width: 75%;
+  max-width: 1024px;
+  margin: 2rem auto; /* center the map horizontally */
+  /* Use modern aspect-ratio for correct proportions */
+  aspect-ratio: 4 / 3; /* image is 1024x768 (4:3) */
+  height: auto;
+  background: url('./images/preparation/cfm_xps3.jpg') center center / cover no-repeat;
+  overflow: hidden;
+}
+.vacuum-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(1);
+  /*
+    You must set left, top, width, height as percentages in the style prop of each image in the React component.
+    Example: style={{ left: '6.1%', top: '2.7%', width: '19.3%', height: '44.2%' }}
+    See code comments for conversion.
+  */
+}
+.vacuum-map-img:hover, .vacuum-map-img:focus, .vacuum-map-img:focus-visible {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 0px #ff4081;
+  z-index: 5;
+}
+
+/* On touch devices (no hover) always show overlays so users can tap them */
+@media (hover: none) and (pointer: coarse) {
+  .vacuum-map-img {
+    opacity: 1;
+  }
+}

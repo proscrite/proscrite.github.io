@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
+import ImageCarousel from '../../../../components/ImageCarousel'
+
 import './SurfaceScience.css'
 
 import fbiBaVid from './images/results/fbi_ba_surface.mp4'
 import pelletImg1 from './images/results/pellet_evaporation1.png'
 import pelletImg2 from './images/results/pellet_evaporation2.png'
 import pelletImg3 from './images/results/pellet_evaporation3.png'
-import ImageCarousel from '../../../../components/ImageCarousel'
 
 const pelletImages = [pelletImg1, pelletImg2, pelletImg3];
 const pelletCaptions = [
@@ -126,6 +127,26 @@ const g2StmCaptions = [
     "Comparison of structure formation for FBI-G2 at different coverages."
 ]
 
+import starphene1 from './images/results/stm_starphene/starphene_stm.jpg'
+import starphene2 from './images/results/stm_starphene/starphene_clean.png'
+import starphene3 from './images/results/stm_starphene/starphene_sts.png'
+import starphene4 from './images/results/stm_starphene/large_stm_starphene.png'
+const starpheneImages = [starphene1, starphene2, starphene3, starphene4];
+const starpheneCaptions = [
+    "(a) STM image of the starphene/Au(111) sample after deposition and post-annealing to 150 ºC. (b) HR-STM image (CO tip, constant height) of the hydrogenated starphene before removing hydrogens. c) Chemical structure of the hydrogenated starphene.",
+    "HR-STM image (CO tip, constant height) of a starphene after hydrogen removal. The scale bar corresponds to 5 Å (500 pm).",
+    "(b) STS spectra on starphene showing various resonances marked with dashed lines. The inset marks the positions at which each of the spectra are taken. (c, d) Constant height dI/dV images of a starphene recorded with a Cl tip at the energy of the LOMO and HOMO, respectively, and their calculated wavefunctions (e, f) ",
+    "Large-scale STM immediately as deposited through ALI (a) and after annealing to 150 ºC (b)."
+];
+
+import aliResults1 from './images/results/ali_g1/ali_xps_cu.png'
+import aliResults2 from './images/results/ali_g1/ALI_2pa.png'
+const aliResultImages = [aliResults1, aliResults2];
+const aliResultCaptions = [
+    'XPS results of FBI-G1 in acetonitrile solvent (orange) and methanol (green) deposited on Cu substrate (red).',
+    '2PA tomography image for FBI-G1 deposited on silica, green emission region (top), blue emission region (middle) and after Ba²⁺ addition through ALI, blue emission region (bottom).',
+]
+
 export default function ResultsPage() {
   return (
     <div className="projects-container">
@@ -214,6 +235,9 @@ export default function ResultsPage() {
         <p align='justify'>
             These findings provided crucial evidence of the chemical interactions occurring at the surface level and helped to elucidate the chelation mechanism of FBI-G1 molecules in ultra-dry conditions.
             This work was published in <Link to='https://www.nature.com/articles/s41467-022-35153-0'> Nature Communications </Link> and represented a significant step forward in understanding the <i>surface chemistry</i> of Ba²⁺ chelation by FBI-G1 molecules.
+        </p>
+        <p align='justify'>
+            The software used to parse, process, fit and analyze the XPS spectra was written by myself in Python and is outlined in <Link to='/projects/software/xps-sw'> this dedicated page </Link>.
         </p>
 
         <h3> Evolution of O 1s with progressive addition of Ba²⁺ </h3>
@@ -448,8 +472,93 @@ export default function ResultsPage() {
       </p>
 
       <h2> STM images of Starphene deposited with ALI </h2>
+        <p align='justify'>
+            This project was a fun side mission during my PhD: helping a collaboration image a giant star-shaped molecule called a starphene.
+            These molecules are made of three long “arms” of fused benzene rings, arranged like a molecular propeller. 
+            What makes them interesting is that they sit right at the edge between stable organic molecules and highly reactive carbon nanostructures. 
+            Their size and shape mean electrons don't just move along one direction like in a wire — they spread across the whole star, giving rise to unusual electronic patterns that you can actually see with STM.
+        </p>
+        <div className="project-details">
+            <ImageCarousel images={starpheneImages} captions={starpheneCaptions} width={60} />
+            <div className="project-text">        
+                <p align='justify'>
+                    The hard part wasn't the imaging, but it was getting the molecule onto the surface in the first place. 
+                    These large acene-based systems don't survive normal evaporation methods because they fall apart when heated. 
+                    Instead, we used Atomic Layer Injection (ALI), where a solution of the precursor molecules is sprayed in short bursts onto a clean gold surface in vacuum. 
+                    Since I had spent over a year working with this technique, I was the one helping with this deposition step. 
+                    I explain this deposition method in more detail on the <Link to='/projects/experiments/SurfaceScience/preparation#ali'>ALI technique page</Link>.
+                    This approach lets you land fragile, non-volatile molecules, but it also makes life harder: contamination with remaining solvent molecules is prevalent (image 4), coverage is low, and you have to hunt for the right molecules one by one with the STM. 
+                    Luckily, heating the sample a bit after deposition helps clean the surface without destroying the molecules, making it easier to find them.
+                </p>
+                <p align='justify'>
+                    Once we found them, the STM images clearly showed the three-armed star shape, and spectroscopy measurements revealed their electronic states. 
+                    Interestingly, the molecule doesn't behave like three independent “arms”: the branches remain electronically connected, which results in a smaller energy gap than in a single pentacene unit. 
+                    STM conductance maps at the energies of the HOMO and LUMO reproduce the corresponding orbital patterns on the surface. 
+                    This helps us visualize directly how electrons are delocalized across the whole star-like framework.
+                    
+                </p>
+                <p align='justify'>
+                    We could even modify the molecule directly with the STM tip by removing extra hydrogen atoms (image 1-2), watching its electronic structure change in real time. 
+                    It's a great example of how surface science lets you not only observe single molecules, but also tune them atom by atom.
+                </p>
+            </div>
+        </div>
+        <p align='justify'>
+            This work was published in <Link to='https://onlinelibrary.wiley.com/doi/10.1002/anie.202016163'> Angewandte Chemie </Link>in 2021, showcasing the power of ALI for depositing large, fragile molecules and the unique insights STM can provide into their structure and electronics.
+        </p>
       
       <h2> ALI depositions with FBI-G1 </h2>
+        <p align='justify'>
+            As a final note, I would like to mention that I also attempted to deposit FBI-G1 molecules using the Atomic Layer Injection (ALI) technique.
+            The goal was to explore an alternative deposition method that could potentially offer better control over coverage and molecular arrangement on the surface.
+        </p>
+        <p align='justify'>
+            FBI-G1 molecules were dissolved in acetonitrile at a concentration of 10⁻⁷ M and deposited through ALI onto gold (Au 111) for STM experiments and on policrystalline copper for XPS measurements.
+            This allowed me to optimize the deposition parameters, such as pulse duration, solvent choice, and substrate temperature, to achieve a stable deposition of the molecules.
+        </p>
+
+        <div className="project-details">
+            <ImageCarousel images={aliResultImages} captions={aliResultCaptions} width={60} />
+        <div className="project-text">
+        
+        <p align='justify'>
+            After deposition, I performed XPS and STM measurements to assess the integrity and arrangement of the FBI-G1 molecules on the surface.
+            The STM images revealed the presence of individual molecules, but they appeared to be surrounded by a significant amount of residual solvent contamination.
+            Similarly to the results with starphene, after heating the sample slightly, the surface became cleaner, allowing for better imaging of the surface.
+            However, finding well-isolated molecules remained challenging due to the residual solvent contamination and low coverage.
+            In addition, even when these molecules are deposited through sublimation, they tend to aggregate into islands rather than remaining isolated, which further complicates the analysis.
+            Eventually, this experiment was not pursued further due to these challenges and time constraints. 
+            However, it did provide valuable insights into the strategies needed for successful ALI deposition of delicate molecules, which ended up being very useful for the starphene project.
+        </p>
+        
+        <p align='justify'>
+            I also tried characterizing the depositions with XPS, but the results were not very encouraging.
+            Unlike STM, which can focus on small areas of the surface to find isolated molecules, XPS averages the signal over a much larger area.
+            As a result, the XPS spectra were dominated by signals from the residual solvent and contaminants, making it difficult to discern the contributions from the FBI-G1 molecules.
+            Additionally, the coverage was inconsistent, and the molecules did not form well-defined structures on the substrate.
+            Switching the solvent to methanol improved significantly the stoichiometry ratios, getting closer to the expected values for FBI-G1.
+            This suggests that solvent choice plays a crucial role in the deposition quality, likely due to differences in evaporation rates and interactions with the substrate.
+
+        </p>
+        <p align='justify'>
+            Lastly, we also tested depositing Ba(ClO₄)₂ through ALI on silica pellets containing FBI-G1.
+            Then we measured the fluorescence response using two-photon absorption (2PA) microscopy.
+            These results were more promising, as we observed a similar fluorescence shift as in the sublimation experiments, which is consistent with the chelation of FBI-G1 molecules with Ba²⁺ ions.
+            However, the silica pellets are very porous, and it is likely that some solvent molecules remained trapped within the pores.
+            Therefore, the residual solvent contamination meant that this wasn't strictly the ultra-dry conditions we were aiming for.
+        </p>
+                
+        </div>
+        </div>
+        <p align='justify'>
+            Due to these challenges, I decided to attempt depositing FBI-G1 through sublimation in my subsequent experiments.
+            This method proved to be more effective in achieving clean and well-defined molecular layers suitable for XPS and STM analysis, so I focused my efforts on that approach for the remainder of my PhD research.
+            While ALI remains a promising technique for certain applications, it proved to be less suitable for the delicate FBI-G1 molecules in this context.
+        </p>
+
+      <p>
+        <Link to="/projects/experiments/SurfaceScience">Back to Surface Science index</Link>
+      </p>
     </div>
   )
 }

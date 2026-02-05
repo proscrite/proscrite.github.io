@@ -233,3 +233,48 @@
     min-width: unset;
   }
 }
+
+/* keep wrapper positioned so caption can be absolute */
+.image-wrapper { position: relative; display: block; }
+
+/* place caption on top of image */
+.image-wrapper .image-caption {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  z-index: 10;
+  text-align: center;
+  pointer-events: none; /* lets clicks pass to the image */
+}
+
+/* ensure image scales nicely inside wrapper */
+.image-wrapper img { display: block; width: 100%; height: auto; }
+
+/* Page-specific: keep the carousel + its caption together and limit width
+   The page inserts a sibling `.image-caption` before the carousel; make
+   that caption overlay the carousel and not span the whole page. */
+.image-carousel-container {
+  position: relative;
+  display: inline-block; /* shrink to the carousel width */
+  margin: 0 auto;        /* center on the page */
+  max-width: 100%;
+}
+.image-carousel-container > .image-caption {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+  box-sizing: border-box;
+}

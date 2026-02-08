@@ -32,18 +32,12 @@ export default function NextExperiment() {
 
       <h1>NEXT experiment</h1>
       <p align='justify'>
-        The Neutrino Experiment with a Xenon TPC (NEXT) is a cutting-edge physics experiment
-         designed to search for neutrinoless double beta decay (0νββ) in Xenon-136 (¹³⁶Xe). 
-         More information about the experiment can be found in the <a href="https://next-experiment.org/" target="_blank" rel="noopener noreferrer">Official NEXT Website</a>.
-         I have been involved in the experiment since 2019, contributing to various aspects of its development and operation. 
-         However I have been following the project since its inception in 2009, when I was in high school! 
-         It also happens to be one of the few world-leading particle physics experiments located not in my home country, Spain, but in my Autonomous Region, Aragón.
+        The Neutrino Experiment with a Xenon TPC (NEXT) is a cutting-edge physics experiment designed to search for neutrinoless double beta decay (0νββ) in Xenon-136 (¹³⁶Xe). 
+         It is currently the largest high-pressure xenon gas time projection chamber (TPC) in the world!
       </p>
       <p align='justify'>
-         My contribution has primarily focused on the development of a disruptive new event discrimination technique based on the detection of the Barium Daughter ion (Ba-tagging) produced in the decay of ¹³⁶Xe.
-        This technique has the potential to eliminate all background sources in the experiment, since no other sources of barium ions are expected in the detector. 
-        To learn more about my work on Ba-tagging, please visit the <Link to="/projects/experiments/bold">Ba-tagging project page</Link>.
-        And for an introduction to the NEXT experiment, keep reading!
+        The following animation illustrates the basic working principle of the NEXT detector, highlighting the key processes involved in detecting and reconstructing events within the TPC.
+        Click on the video to advance through the different stages of the detection process.
       </p>
          
       <div className="project-details">
@@ -77,11 +71,26 @@ export default function NextExperiment() {
             </div>
           )}
         </div>
-
-        <div className="project-text">
-          {/* any additional static copy can live here, below the video */}
-        </div>
       </div>
+
+      <p align='justify'>
+        The physics and engineering of the NEXT experiment are complex and fascinating.
+        If you are interested in learning more, the collaboration recently released a paper on: <a href="https://doi.org/10.1140/epjc/s10052-025-14951-y" target="_blank" rel="noopener noreferrer">the NEXT-100 detector </a> in The European Physical Journal C.
+        More information and updates about the experiment can be found in the <a href="https://next-experiment.org/" target="_blank" rel="noopener noreferrer">Official NEXT Website</a>.
+      </p>
+
+      <p align='justify'>
+         I have been involved in the experiment since 2019, contributing to various aspects of its development and operation. 
+         However I have been following the project since its inception in 2009, when I was in high school! 
+         It also happens to be one of the few world-leading particle physics experiments located not just in my home country, Spain, but in my Autonomous Region, Aragón.
+      </p>
+      <p align='justify'>
+         My contribution has primarily focused on the development of a disruptive new event discrimination technique based on the detection of the Barium Daughter ion (Ba-tagging) produced in the decay of ¹³⁶Xe.
+        This technique has the potential to eliminate all background sources in the experiment, since no other sources of barium ions are expected in the detector. 
+        To learn more about my work on Ba-tagging, please visit the <Link to="/projects/experiments/bold">Ba-tagging project page</Link>.
+      </p> 
+
+        
     </div>
   )
 }

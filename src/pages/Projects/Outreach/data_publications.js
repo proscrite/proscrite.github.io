@@ -45,6 +45,12 @@ export const mainPublications = [
 
 export const nextPublications = [
     {
+        year: 2026,
+        journal: 'The European Physical Journal C',
+        title: 'The NEXT-100 Detector',
+        link: 'https://doi.org/10.1140/epjc/s10052-025-14951-y',
+    },
+    {
         year: 2025,
         journal: 'The European Physical Journal C',
         title: 'Ion transport on phased radiofrequency carpets in xenon gas',

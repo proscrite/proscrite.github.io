@@ -40,12 +40,6 @@
     max-width: 100%;
   }
 }
-/* 1) make your page container wider and centered */
-/* .projects-container {
-  max-width: 800px;
-  margin: 0 auto;
-  /* padding removed to let .main-container control side margins */
- /* /* }  */
 .paper-list-content {
   flex: 1 1 60%;
   max-width: 60%;
@@ -95,15 +89,12 @@
   pointer-events: none;
 }
 
-/* 6) your “▶ Playing…” and “⬇️ Click to continue” hints */
 .video-wrapper .absolute {
   position: absolute;
   top: 1rem;
   left: 1rem; 
-  /* tailwind classes like .text-gray-400 etc will still apply their colors/font-size */
 }
 
-/* 7) static text under the video */
 .project-text {
   flex: 1;
   min-width: 0;
@@ -112,34 +103,26 @@
   line-height: 1.6;
 }
 
-/* 3) let the image grow bigger */
 .project-image {
   width: 100%;
   position: static;
-  /* max-width: 100%; */
   height: auto;
   border-radius: 8px;
 }
 
-/* new: horizontal row for all the back-links */
 .back-links {
   display: flex;
-  flex-wrap: wrap;         /* allows wrapping on very narrow screens */
-  gap: 1rem;               /* space between links */
-  justify-content: center; /* center them in the container */
-  margin-bottom: 2rem;     /* separation from the title */
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-/* optional: ensure each link doesn’t break onto two lines */
 .back-link {
   white-space: nowrap;
 }
 
-/* collapse rule no longer needed since it’s now a single column */
-/* @media (max-width: 768px) { … } */
-
 .image-wrapper {
-  /* behave like a side column: fixed flex-basis, stay visible while scrolling */
   position: sticky;
   top: 20px;
   flex: 0 0 50%;
@@ -220,7 +203,6 @@
   max-width: 50%;
 }
 
-/* Responsive: stack on smaller screens */
 @media (max-width: 768px) {
   .project-details {
     flex-direction: column;
@@ -232,49 +214,4 @@
     width: 100%;
     min-width: unset;
   }
-}
-
-/* keep wrapper positioned so caption can be absolute */
-.surface-science-page image-wrapper { position: relative; display: block; }
-
-/* place caption on top of image */
-.surface-science-page image-wrapper .image-caption {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  background: rgba(0,0,0,0);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 4px;
-  z-index: 10;
-  text-align: center;
-  pointer-events: none; /* lets clicks pass to the image */
-}
-
-/* ensure image scales nicely inside wrapper */
-surface-science-page image-wrapper img { display: block; width: 100%; height: auto; }
-
-/* Page-specific: keep the carousel + its caption together and limit width
-   The page inserts a sibling `.image-caption` before the carousel; make
-   that caption overlay the carousel and not span the whole page. */
-.surface-science-page .image-carousel-container {
-  position: relative;
-  display: inline-block; /* shrink to the carousel width */
-  margin: 0 auto;        /* center on the page */
-  max-width: 100%;
-}
-.surface-science-page .image-carousel-container > .image-caption {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 4px;
-  z-index: 20;
-  text-align: center;
-  pointer-events: none;
-  box-sizing: border-box;
 }

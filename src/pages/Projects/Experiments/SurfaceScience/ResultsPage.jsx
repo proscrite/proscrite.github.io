@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import ImageCarousel from '../../../../components/ImageCarousel'
 
-import './SurfaceScience.css'
+import './SurfaceScienceSubpages.css'
 
 import fbiBaVid from './images/results/fbi_ba_surface.mp4'
 import pelletImg1 from './images/results/pellet_evaporation1.png'

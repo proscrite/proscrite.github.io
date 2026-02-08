@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
-import './SurfaceScience.css'
+import './SurfaceScienceSubpages.css'
 import ImageCarousel from '../../../../components/ImageCarousel'
 import VacuumInteractiveMap from './PreparationMap'
 

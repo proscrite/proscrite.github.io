@@ -91,6 +91,20 @@ dict_list = [
     {'plasma': {'size': (7.5, 8.7), 'position': (23.2, 2.09)} },
     {'analyzer': {'size': (7.9, 7.35), 'position': (16.91, 0.30)} },          
 ]
+
+canvas = {'size': (144.5, 108.37)}
+dict_list = [
+    {'import': {'size': (29.66, 30.82), 'position': (1.28, 12.37)} },
+    {'background': {'size': (21.51, 35.82), 'position': (35.64, 7.38)} },
+    {'align': {'size': (25.57, 27.26), 'position': (60.55, 15.93)} },
+    {'integrate': {'size': (20.92, 29.4), 'position': (90.82, 13.79)} },
+    {'fitting': {'size': (25.59, 29.4), 'position': (117.63, 13.86)} },
+    {'txps': {'size': (25.59, 40.9), 'position': (1.23, 66.35)} },
+    {'nexafs': {'size': (23.1, 37.92), 'position': (29.2, 69.35)} },
+    {'ali': {'size': (23.1, 39.8), 'position': (56.6, 67.5)} },
+    {'qcm': {'size': (31.1, 39.8), 'position': (82.4, 67.5)} },
+    {'rga': {'size': (26.9, 38.4), 'position': (116.32, 68.87)} },
+]
 for d in dict_list:
     for key in d:
         print(f"{key}: {to_percentage(d[key], canvas)}")

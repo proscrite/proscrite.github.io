@@ -1,0 +1,34 @@
+/* Responsive 4:3 aspect ratio using padding-top hack */
+.xpsMap-map-container {
+  position: relative;
+  width: 75%;
+  max-width: 1024px;
+  margin: 2rem auto; /* center the map horizontally */
+  /* Use modern aspect-ratio for correct proportions */
+  aspect-ratio: 4 / 3; /* image is 1024x768 (4:3) */
+  height: auto;
+  background: url('./images/xpsSw_map/xpsSw_map_bg.png') center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.xpsMap-map-img {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  transform: scale(1);
+}
+
+.xpsMap-map-img:hover, .xpsMap-map-img:focus {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #ff4081;
+  z-index: 5;
+}
+
+/* On touch devices (no hover) always show overlays so users can tap them */
+@media (hover: none) and (pointer: coarse) {
+  .xpsMap-map-img {
+    opacity: 1;
+  }
+}

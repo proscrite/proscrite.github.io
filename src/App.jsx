@@ -24,6 +24,7 @@ import ResultsPage from './pages/Projects/Experiments/SurfaceScience/ResultsPage
 import ManhattanPage from './pages/Projects/Software/Manhattan/ManhattanPage'
 import RaTagPage from './pages/Projects/Software/RaTag/RaTagPage'
 import SabatSwPage from './pages/Projects/Software/SabatSw/SabatSwPage'
+import XpsSwPage from './pages/Projects/Software/XpsSw/XpsSwPage'
 import './App.css'
 
 
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="manhattan" element={<ManhattanPage/>}/>
           <Route path="RaTag" element={<RaTagPage/>}/>
           <Route path="sabatsw" element={<SabatSwPage/>}/>
+          <Route path="xpssw" element={<XpsSwPage/>}/>
         </Route>
         <Route path="experiments" element={<ExperimentsLayout/>}>
           <Route index              element={<ExperimentsIndex/>}/>

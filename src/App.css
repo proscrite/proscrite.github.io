@@ -146,3 +146,22 @@
     max-width: 400px;
   }
 }
+
+/* --- Home Page Video Background --- */
+.hero-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;  /* Ensures the video scales without stretching */
+  z-index: -1;        /* Pushes the video completely behind the website */
+  opacity: 0.85;      /* Optional: Darkens the video slightly so your white text pops */
+  pointer-events: none; /* Stops the video from blocking clicks on the page */
+}
+
+/* Ensures your text and panels stay in the foreground */
+.home-content-wrapper {
+  position: relative;
+  z-index: 1; 
+}

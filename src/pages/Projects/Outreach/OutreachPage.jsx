@@ -16,7 +16,7 @@ export default function OutreachPage() {
   return (
     <div className="main-container projects-container">
       <h1>Outreach & Communication</h1>
-      <p>
+      <p align='justify'>
             I have been involved in various outreach and communication activities,
             including public talks, workshops, and educational content creation.
             Below are some videos and talks I delivered during my career.
@@ -50,10 +50,10 @@ export default function OutreachPage() {
 
     <h1>Publications</h1>
         <h2>My main publications</h2>
-            <p>Here are some of the publications I have authored or co-authored during my career:</p>
+            <p align='justify'>Here are some of the publications I have authored or co-authored during my career:</p>
             <PubTable data={mainPublications} /> 
         <h2>NEXT Collaboration Publications</h2>
-            <p>The following are publications I co-authored as member of the NEXT collaboration:</p>
+            <p align='justify'>The following are publications I co-authored as member of the NEXT collaboration:</p>
             <PubTable data={nextPublications} />
     </div>
   )

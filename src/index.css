@@ -95,3 +95,167 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* 1. The Video: Pushed to the back and permanently dimmed for baseline legibility */
+.hero-video {
+  position: fixed; /* Keeps it in place if you scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+  filter: brightness(0.4); /* This is the crucial fix. It darkens the video by 60% immediately. */
+}
+
+/* 2. Your Scroll Overlay: Sits above the video, below the text */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* INCREASED OPACTIY: From 0.4 to 0.6 for better contrast */
+  background-color: rgba(15, 23, 42, 0.6); 
+  z-index: -2;
+  pointer-events: none;
+}
+
+.scroll-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f172a; /* Use a slate/navy instead of pure black */
+  z-index: -2;
+  pointer-events: none; /* Ensures it doesn't block clicks on your content */
+}
+
+/* 3. The Content: Pulled to the front and centered */
+.home-content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Consider changing to flex-start if you want to left-align */
+}
+
+.home-container {
+  max-width: 1400px;
+  width: 100%;
+  text-align: center; /* Change to left if you left-align the wrapper */
+  padding: 2rem;
+  box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+/* Ensure text pops against the darkened video */
+.header h1 {
+  /* Remove any backdrop-filter, opacity, or rgba() colors with transparency here */
+  color: #ffffff; 
+  font-weight: 700;
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.9); /* Deep, aggressive shadow for contrast */
+}
+
+.header h2,
+.header p {
+  color: #ffffff;
+  /* Stronger shadow for all header text */
+  text-shadow: 0 4px 8px rgba(0,0,0,0.9); 
+}
+
+.section-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.skills-container {
+  max-width: 1200px;
+  width: 90vw; /* Forces it to break out of tight parent constraints */
+  margin: 0 auto 4rem auto;
+  position: relative;
+  z-index: 1;
+  display: flex; /* Add flex to center children */
+  justify-content: center; /* Center horizontally */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Base state for the card: hidden and pushed down */
+.skill-card {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  
+  /* Animation Setup */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The class added by the IntersectionObserver when scrolling */
+.skill-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the fade-in so they cascade 1-2-3 */
+.skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skill-card:nth-child(2) { transition-delay: 0.25s; }
+.skill-card:nth-child(3) { transition-delay: 0.4s; }
+
+/* Keep the hover effect, but ensure it only triggers when fully visible */
+.skill-card.in-view:hover {
+  transform: translateY(-8px);
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 10px 40px -10px rgba(45, 212, 191, 0.2);
+}
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  color: #2dd4bf; /* Teal/Cyan icon color */
+  margin-bottom: 1.5rem;
+}
+
+.skill-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.skill-card ul {
+  padding-left: 1.2rem;
+  color: #cbd5e1; /* Slightly muted white for body text */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.skill-card li {
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive collapse for mobile */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

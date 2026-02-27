@@ -155,13 +155,68 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;  /* Ensures the video scales without stretching */
-  z-index: -1;        /* Pushes the video completely behind the website */
+  z-index: -2;        /* Pushes the video completely behind the website */
   opacity: 0.85;      /* Optional: Darkens the video slightly so your white text pops */
   pointer-events: none; /* Stops the video from blocking clicks on the page */
+}
+
+.scroll-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f172a; /* Slate color */
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.1s ease-out;
 }
 
 /* Ensures your text and panels stay in the foreground */
 .home-content-wrapper {
   position: relative;
   z-index: 1; 
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Account for #root padding (2rem top + 2rem bottom = 4rem) so it fits in viewport */
+  min-height: calc(100vh - 4rem);
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .header {
+    /* Mobile padding is 1rem top + 1rem bottom = 2rem */
+    min-height: calc(100vh - 2rem);
+  }
+}
+
+/* Typing cursor effect */
+.cursor {
+  display: inline-block;
+  background-color: currentColor;
+  width: 2px;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Motto Text */
+.motto-text {
+  font-size: 1.25rem;
+  font-weight: 300;
+  max-width: 800px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 auto;
 }

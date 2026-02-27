@@ -1,0 +1,47 @@
+@keyframes textSweep {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.text-sweep {
+  /* Make the base text solid white/light grey */
+  color: #e2e8f0; 
+  
+  /* The magic: create a gradient that goes from Text Color -> Bright White -> Text Color */
+  background: linear-gradient(
+    to right, 
+    #e2e8f0 20%, 
+    #ffffff 50%, 
+    #e2e8f0 80%
+  );
+  
+  /* Ensure the background is big enough to animate */
+  background-size: 200% auto;
+  
+  /* Clip the background to the text shape */
+  background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* CRITICAL: Text must be transparent for the background gradient to show through,
+     but since our gradient acts as the "solid" color, this is fine now. 
+     The problem before was likely too much transparency in the gradient colors. */
+  -webkit-text-fill-color: transparent; 
+  
+  /* Add a drop shadow to the CONTAINER or filter, because text-shadow often 
+     doesn't render well with text-fill-color: transparent */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+  
+  animation: shine 4s linear infinite;
+  display: inline-block;
+  font-weight: 700; /* thicker font helps legibility */
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}

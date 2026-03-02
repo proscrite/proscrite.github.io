@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ScienceCareer.css';
-import fbiBaVid from '../../../assets/videos/fbi_ba_surface.mp4';
-import boldVid from '../../../assets/videos/next-bold.mp4';
+import fbiBaVid from './videos/fbi_ba_surface.mp4';
+import boldVid from './videos/next-bold.mp4';
 
 const items = [
   {
@@ -152,8 +152,10 @@ export default function ScienceCareer() {
           if (!isNaN(idx)) setActiveVideoIdx(idx);
         }
       });
-    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
-
+    }, {
+    threshold: 0.2, // Trigger earlier (20% visibility)
+      rootMargin: "-20% 0px -20% 0px"
+    });
     document.querySelectorAll('[data-video-idx]')
       .forEach(el => videoObserver.observe(el));
 
@@ -179,6 +181,9 @@ export default function ScienceCareer() {
           key={idx}
           className={`video-wrapper${idx === activeVideoIdx ? ' active' : ''}`}
         >
+          <h3 className="media-title">
+            {videos[activeVideoIdx].title}
+          </h3>
           {v.src && v.src.startsWith('http') ? (
             <iframe
               src={v.src}

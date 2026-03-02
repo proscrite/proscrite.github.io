@@ -161,6 +161,8 @@
     padding: 1.5rem;
   }
 }
+
+
 /* --- Widen the layout and fix the margins --- */
 .timeline-split-layout {
   display: grid;
@@ -180,14 +182,18 @@
    from breaking the sticky containing-block look-up */
 .timeline-media-column {
   position: sticky;
-  top: 10vh;
+  top: 15vh;
   align-self: start;  /* must not stretch to grid-row height */
   z-index: 10;
+  gap: 2rem;
 }
 
 /* Inner wrapper is plain — no JS touches it */
 .timeline-media-inner {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
 }
 
 /* All video wrappers hidden by default */
@@ -223,6 +229,17 @@
   object-fit: contain;
 }
 
+.media-title {
+  color: #2dd4bf; 
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
 @media (max-width: 1024px) {
   .timeline-split-layout {
     grid-template-columns: 1fr;
@@ -244,23 +261,39 @@
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
-
-.timeline-key-title {
-  color: #2dd4bf; /* Matches your teal accent color */
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+.timeline-content {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3rem; /* CRUCIAL: This creates the vertical gap between cards */
+  text-align: left; /* Restores scannable left-alignment */
+  transition: all 0.3s ease;
 }
 
+/* --- 3. Fix Bullet Point Alignment --- */
 .timeline-bullets {
-  padding-left: 1.2rem;
-  margin: 0;
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0 0;
+  text-align: left;
 }
 
 .timeline-bullets li {
+  position: relative;
+  padding-left: 1.5rem; /* Space for the custom bullet */
   color: #94a3b8;
   font-size: 0.95rem;
-  margin-bottom: 0.4rem;
-  align-content: left;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+/* Add a clean teal bullet point */
+.timeline-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2dd4bf;
+  font-weight: bold;
 }

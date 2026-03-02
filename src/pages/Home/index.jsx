@@ -147,6 +147,10 @@ export default function Home() {
         </header>
 
         {/* Constellation and Roadmap Panels */}
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <h2 className="section-title" style={{ marginBottom: '1rem' }}>Engineering at the Physical Limit</h2>
+            <p style={{ color: '#94a3b8', fontSize: '1.1rem', margin: 0 }}>Cross-domain expertise forged in high-stakes R&D environments.</p>
+          </div>
         <div className="skills-container">
           <div className="skills-grid">
         
@@ -227,6 +231,7 @@ export default function Home() {
             <img src={fbiCover} alt="Science career" />
             <div className="panel-title"><h3>Science career</h3></div>
           </Link>
+          
           <Link to="/projects" className="panel">
             <img src={softwareProj} alt="Projects & Software" />
             <div className="panel-title"><h3>Projects &amp; Software</h3></div>

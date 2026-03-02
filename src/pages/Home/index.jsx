@@ -148,48 +148,74 @@ export default function Home() {
         {/* Constellation and Roadmap Panels */}
         <div className="skills-container">
           <div className="skills-grid">
-          {/* Card 1: Optics */}
-          <div className="skill-card">
-            <svg className="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {/* Laser / Optics Icon */}
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            <h4>Optics & Automated Instrumentation</h4>
-            <ul>
-              <li>Built fully automated closed-loop test benches (Lasers, PMTs, Cameras).</li>
-              <li>Engineered Python orchestration engines for 24/7 unattended data acquisition.</li>
-              <li>Developed computer vision autofocus algorithms for single-molecule detection.</li>
-            </ul>
-          </div>
+        
+        {/* Card 1: Optics */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/>
+            <path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>
+            <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+          </svg>
+          <h4>Optics & Microscopy</h4>
+          <p>Designing and automating high-resolution fluorescence microscopes to image and isolate single molecules.</p>
+        </div>
 
-          {/* Card 2: High-Frequency / ML */}
-          <div className="skill-card">
-            <svg className="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {/* Signal / Waveform Icon */}
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-            <h4>Nuclear & High-Frequency Systems</h4>
-            <ul>
-              <li>Architected hybrid analysis pipelines for 5 GS/s waveform datasets.</li>
-              <li>Deployed CNNs for low-SNR subatomic signal detection and edge extraction.</li>
-              <li>Ported critical bottlenecks to Julia, achieving 50x processing speedups.</li>
-            </ul>
-          </div>
+        {/* Card 2: Surface Science */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {/* Crystal Lattice / Material Science Icon */}
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+            <line x1="12" y1="22.08" x2="12" y2="12" />
+          </svg>
+          <h4>Surface Science & UHV</h4>
+          <p>Mastering techniques like X-ray Photoemission Spectroscopy (XPS) and Scanning Tunneling Microscopy (STM) in Ultra-High Vacuum.</p>
+        </div>
 
-          {/* Card 3: Vacuum / Hardware */}
-          <div className="skill-card">
-            <svg className="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {/* Microchip / Hardware Icon */}
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-            </svg>
-            <h4>Ultra-High Vacuum & Hardware Control</h4>
-            <ul>
-              <li>Programmed SCPI / VISA protocols for automated high-voltage and oscilloscope control.</li>
-              <li>Developed custom GUI control suites (Sabat SW) for centralized hardware management.</li>
-              <li>Built parsing pipelines for automated extraction of raw spectroscopy data.</li>
-            </ul>
-          </div>
+        {/* Card 3: Particle Physics */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"/>
+          </svg>
+          <h4>Particle Physics & Detectors</h4>
+          <p>Operating Gas Xenon TPCs and validating complex sensor arrays (CMOS, PIN, PMT) in extreme environments.</p>
+        </div>
+
+        {/* Card 4: Photochemistry */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+            <path d="M8.5 2h7"/><path d="M14 9.5 13.5 12h-3l-.5-2.5"/>
+          </svg>
+          <h4>Photochemistry & Sensors</h4>
+          <p>Leveraging organic chemistry and photochemistry to characterize novel chemo-sensors for subatomic particle tagging.</p>
+        </div>
+
+        {/* Card 5: Systems Integration */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/>
+            <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>
+          </svg>
+          <h4>Systems Orchestration</h4>
+          <p>Architecting Python-based control suites to synchronize heterogeneous hardware and fully automate data acquisition.</p>
+        </div>
+
+        {/* Card 6: AI & Software */}
+        <div className="skill-card">
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/>
+            <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/>
+            <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/>
+            <path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/>
+          </svg>
+          <h4>AI & Full-Stack Engineering</h4>
+          <p>Deploying custom CNNs for high-noise signal detection and building end-to-end applications integrated with modern LLMs.</p>
+        </div>
+
+      {/* </div> */}
         </div>
       </div>
 

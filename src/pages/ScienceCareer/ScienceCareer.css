@@ -1,34 +1,266 @@
 .science-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-.video-wrapper {
-  position: relative;
+  padding-top: 4rem;
+  max-width: 1200px; /* make the section wider when embedded */
   width: 100%;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  margin: 0 auto;
 }
+
+.science-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: #2dd4bf;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #14b8a6;
+}
+
+.page-title {
+  font-size: 3rem;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+
+/* --- Custom Sleek Timeline --- */
+.custom-timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  margin-left: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  margin-bottom: 2rem;
+  
+  /* Animation Base State */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marker: The dot and the connecting line */
+.timeline-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2rem;
+  width: 20px;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #1e293b;
+  border: 3px solid #334155;
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+/* Glow effect when the item comes into view */
+.timeline-item.in-view .timeline-dot {
+  background-color: #242424;
+  border-color: #2dd4bf;
+  box-shadow: 0 0 15px rgba(45, 212, 191, 0.5);
+}
+
+.timeline-line {
+  position: absolute;
+  top: 16px;
+  bottom: -2rem; /* Extends to the next item */
+  width: 2px;
+  background-color: #334155;
+  z-index: 1;
+}
+
+/* The Content Card */
+.timeline-content {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  text-align: left;   /* override the global text-align: center from #root */
+}
+
+.timeline-item.in-view .timeline-content:hover {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(45, 212, 191, 0.3);
+  transform: translateX(5px); /* Subtle nudge on hover */
+}
+
+.timeline-date {
+  display: inline-block;
+  color: #2dd4bf;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  color: #f8fafc;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.timeline-text {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-link {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.timeline-link:hover {
+  color: #2dd4bf;
+  border-color: #2dd4bf;
+  background: rgba(45, 212, 191, 0.1);
+}
+
+@media (max-width: 768px) {
+  .custom-timeline {
+    margin-left: 0;
+  }
+  .timeline-marker {
+    margin-right: 1.5rem;
+  }
+  .timeline-content {
+    padding: 1.5rem;
+  }
+}
+/* --- Widen the layout and fix the margins --- */
+.timeline-split-layout {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 3rem;
+  align-items: start;
+  max-width: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  /* overflow:clip creates a proper BFC without becoming a scroll container,
+     so position:sticky on children can still scroll relative to the viewport */
+  overflow: clip;
+}
+
+/* CSS sticky — works because overflow:clip above prevents the flex-body
+   from breaking the sticky containing-block look-up */
+.timeline-media-column {
+  position: sticky;
+  top: 10vh;
+  align-self: start;  /* must not stretch to grid-row height */
+  z-index: 10;
+}
+
+/* Inner wrapper is plain — no JS touches it */
+.timeline-media-inner {
+  width: 100%;
+}
+
+/* All video wrappers hidden by default */
+.video-wrapper {
+  display: none;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #000;
+  transition: border-color 0.3s ease;
+}
+
+/* Only the active video is shown */
+.video-wrapper.active {
+  display: block;
+}
+
 .video-wrapper iframe {
   width: 100%;
   height: 100%;
-  border: none;
+  border: 0;
   display: block;
 }
-.chrono-wrapper {
-  height: 500px;
-  margin-top: 1rem;
+
+/* Ensure local <video> elements fill the same responsive wrapper as iframes */
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
-.back-link {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: #f5f1f1;
-  text-decoration: none;
-  font-weight: bold;
+
+@media (max-width: 1024px) {
+  .timeline-split-layout {
+    grid-template-columns: 1fr;
+    width: 90vw;
+  }
+  
+  .timeline-media-column {
+    position: relative;
+    top: 0;
+    margin-bottom: 3rem;
+  }
 }
-.back-link:hover {
-  text-decoration: underline;
+
+
+/* Styling for the new ultra-concise structure */
+.timeline-summary {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.timeline-key-title {
+  color: #2dd4bf; /* Matches your teal accent color */
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-bullets {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.timeline-bullets li {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  align-content: left;
 }

@@ -5,6 +5,7 @@ import profileImg   from '../../assets/profile.jpg'
 import fbiCover     from '../../assets/fbi_cover_v2.png'
 import softwareProj from '../../assets/softwareProjects.png'
 import backgroundVid from '../../assets/tracks-bg.webm'
+import ScienceCareer from '../ScienceCareer/ScienceCareerPage'
 
 export default function Home() {
   const [scrollOpacity, setScrollOpacity] = useState(0);
@@ -162,11 +163,8 @@ export default function Home() {
 
         {/* Card 2: Surface Science */}
         <div className="skill-card">
-          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {/* Crystal Lattice / Material Science Icon */}
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-            <line x1="12" y1="22.08" x2="12" y2="12" />
+          <svg className="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width="64" height="64">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>
           </svg>
           <h4>Surface Science & UHV</h4>
           <p>Mastering techniques like X-ray Photoemission Spectroscopy (XPS) and Scanning Tunneling Microscopy (STM) in Ultra-High Vacuum.</p>
@@ -190,7 +188,7 @@ export default function Home() {
             <path d="M8.5 2h7"/><path d="M14 9.5 13.5 12h-3l-.5-2.5"/>
           </svg>
           <h4>Photochemistry & Sensors</h4>
-          <p>Leveraging organic chemistry and photochemistry to characterize novel chemo-sensors for subatomic particle tagging.</p>
+          <p>Leveraging organic chemistry and photochemistry to characterize novel chemo-sensors for single ion tagging.</p>
         </div>
 
         {/* Card 5: Systems Integration */}
@@ -218,6 +216,11 @@ export default function Home() {
       {/* </div> */}
         </div>
       </div>
+
+        {/* Insert Science career section inline after the skill cards */}
+        <div className="science-section" style={{ paddingTop: '2rem' }}>
+          <ScienceCareer />
+        </div>
 
         <div className="panels" style={{ paddingBottom: '4rem', position: 'relative', zIndex: 1 }}>
           <Link to="/science" className="panel">

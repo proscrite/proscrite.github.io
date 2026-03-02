@@ -244,6 +244,19 @@ button:focus-visible {
   margin-bottom: 1.5rem;
 }
 
+/* Ensure SVGs use the currentColor for strokes and have no fill by default */
+.skill-icon,
+.skill-icon path,
+.skill-icon circle,
+.skill-icon rect,
+.skill-icon ellipse,
+.skill-icon line,
+.skill-icon polyline,
+.skill-icon polygon {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
 .skill-card h4 {
   margin-top: 0;
   margin-bottom: 1rem;

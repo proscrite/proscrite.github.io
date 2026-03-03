@@ -93,7 +93,7 @@ const items = [
         <p className="timeline-key-title"><strong>Key Achievements:</strong></p>
         <ul className="timeline-bullets">
           <li>Redesigned LabVIEW control systems.</li>
-          <li>Automated long-duration data logging.</li>
+          <li>Achieved 40% improvement in critical material cleanliness through A/B testing.</li>
           <li>Built Python/ROOT analytical pipelines.</li>
         </ul>
       </>
@@ -118,10 +118,10 @@ const items = [
 
 // Video list for the left media column. Add or reorder entries here.
 const videos = [
-  { src: 'https://www.youtube.com/embed/4kHX6_VbOJY', title: 'Science Talk' },
-  { src: 'https://www.youtube.com/embed/W4_Qjd3h2PU', title: 'Outreach Video' },
-  { src: fbiBaVid, title: 'FBI-Ba Surface' },
-  { src: boldVid, title: 'NEXT-BOLD' }
+  { src: 'https://www.youtube.com/embed/4kHX6_VbOJY', title: 'Live Keynote: Demystifying NEXT-BOLD' },
+  { src: 'https://www.youtube.com/embed/W4_Qjd3h2PU', title: 'Scientific Explainer: The BOLD Mission' },
+  { src: fbiBaVid, title: 'Blender 3D Simulation: Molecular Folding & Chelation' },
+  { src: boldVid, title: 'Blender 3D Simulation: Detector Topology & Ion Drift' }
 ];
 
 export default function ScienceCareer() {
@@ -181,23 +181,25 @@ export default function ScienceCareer() {
           key={idx}
           className={`video-wrapper${idx === activeVideoIdx ? ' active' : ''}`}
         >
-          <h3 className="media-title">
-            {videos[activeVideoIdx].title}
-          </h3>
-          {v.src && v.src.startsWith('http') ? (
-            <iframe
-              src={v.src}
-              title={v.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          ) : (
-            <video controls>
-              <source src={v.src} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          )}
+          <div className="video-head">
+            <h3 className="media-title">{v.title}</h3>
+          </div>
+          <div className="video-frame">
+            {v.src && v.src.startsWith('http') ? (
+              <iframe
+                src={v.src}
+                title={v.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video controls>
+                <source src={v.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+          </div>
         </div>
       ))}
       </div>{/* /timeline-media-inner */}

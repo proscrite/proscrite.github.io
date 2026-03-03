@@ -172,10 +172,9 @@
   max-width: none;
   width: 100%;
   margin: 0 auto;
-  padding: 0;
-  /* overflow:clip creates a proper BFC without becoming a scroll container,
-     so position:sticky on children can still scroll relative to the viewport */
-  overflow: clip;
+  padding: 0 1rem; /* keep a little horizontal gutter so the right column doesn't butt to the container edge */
+  box-sizing: border-box; /* ensure padding doesn't increase layout width */
+  overflow: visible; /* allow drop-shadows and children to render without being clipped */
 }
 
 /* CSS sticky — works because overflow:clip above prevents the flex-body
@@ -186,6 +185,12 @@
   align-self: start;  /* must not stretch to grid-row height */
   z-index: 10;
   gap: 2rem;
+}
+
+/* Give the right column a small inner padding so cards don't touch the grid edge */
+.timeline-content-column {
+  padding-right: 1rem;
+  box-sizing: border-box;
 }
 
 /* Inner wrapper is plain — no JS touches it */
@@ -199,32 +204,60 @@
 /* All video wrappers hidden by default */
 .video-wrapper {
   display: none;
-  aspect-ratio: 16 / 9;
   width: 100%;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #000;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.15s ease;
+  /* column layout: header area + frame area */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Only the active video is shown */
+/* Only the active video wrapper is visible and keeps the column layout */
 .video-wrapper.active {
-  display: block;
+  display: flex;
 }
 
-.video-wrapper iframe {
+/* Header area above the frame; this reserves space so header doesn't overlap the video */
+.video-head {
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  z-index: 3;
+  position: absolute; /* will be positioned over the reserved spacer */
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Reserve space for the header without reducing the video-frame size. The
+   wrapper gets a spacer (::before) equal to the header height; the actual
+   header is absolutely positioned over that spacer so the video-frame stays
+   the full aspect ratio below. */
+.video-wrapper {
+  position: relative;
+}
+.video-wrapper::before {
+  content: "";
+  display: block;
+  height: 3rem; /* reserve ~48px for header (adjust if you want taller header) */
+}
+
+.video-frame iframe,
+.video-frame video {
   width: 100%;
   height: 100%;
   border: 0;
-  display: block;
-}
-
-/* Ensure local <video> elements fill the same responsive wrapper as iframes */
-.video-wrapper video {
-  width: 100%;
-  height: 100%;
   display: block;
   object-fit: contain;
 }

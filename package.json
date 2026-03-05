@@ -13,9 +13,12 @@
     "deploy": "gh-pages -d dist --dotfiles --no-history"
   },
   "dependencies": {
+    "i18next": "^25.8.14",
+    "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.1.0",
     "react-chrono": "^2.9.1",
     "react-dom": "^19.1.0",
+    "react-i18next": "^16.5.4",
     "react-router-dom": "^7.7.1",
     "react-router-hash-link": "^2.4.3"
   },

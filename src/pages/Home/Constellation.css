@@ -1,0 +1,80 @@
+/* Styles for the Constellation / skills cards section */
+.constellation-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-header .section-title {
+  color: #ffffff;
+}
+
+.skills-container {
+  max-width: 1200px;
+  width: 90vw;
+  margin: 0 auto 4rem auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.skill-card {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.4s; }
+.skill-card:nth-child(5) { transition-delay: 0.5s; }
+.skill-card:nth-child(6) { transition-delay: 0.6s; }
+
+.skill-card p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+
+.skill-card.in-view:hover {
+  transform: translateY(-8px);
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 10px 40px -10px rgba(45, 212, 191, 0.2);
+}
+
+.skill-icon { width: 64px; height: 64px; color: #2dd4bf; margin-bottom: 1.5rem; }
+.skill-icon, .skill-icon path, .skill-icon circle, .skill-icon rect, .skill-icon ellipse, .skill-icon line, .skill-icon polyline, .skill-icon polygon {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+.skill-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.skill-card ul { padding-left: 1.2rem; color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; }
+.skill-card li { margin-bottom: 0.75rem; }
+
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

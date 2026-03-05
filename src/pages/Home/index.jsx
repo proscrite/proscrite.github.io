@@ -6,6 +6,7 @@ import fbiCover     from '../../assets/fbi_cover_v2.png'
 import softwareProj from '../../assets/softwareProjects.png'
 import backgroundVid from '../../assets/tracks-bg.webm'
 import ScienceCareer from '../ScienceCareer/ScienceCareerPage'
+import FeaturedProjects from '../ScienceCareer/FeaturedProjects';
 
 export default function Home() {
   const [scrollOpacity, setScrollOpacity] = useState(0);
@@ -217,7 +218,6 @@ export default function Home() {
           <p>Deploying custom CNNs for high-noise signal detection and building end-to-end applications integrated with modern LLMs.</p>
         </div>
 
-      {/* </div> */}
         </div>
       </div>
 
@@ -226,7 +226,11 @@ export default function Home() {
           <ScienceCareer />
         </div>
 
-        <div className="panels" style={{ paddingBottom: '4rem', position: 'relative', zIndex: 1 }}>
+        <div className="featured-projects-section" style={{ paddingTop: '2rem' }}>
+          <FeaturedProjects />
+        </div>
+
+        {/* <div className="panels" style={{ paddingBottom: '4rem', position: 'relative', zIndex: 1 }}>
           <Link to="/science" className="panel">
             <img src={fbiCover} alt="Science career" />
             <div className="panel-title"><h3>Science career</h3></div>
@@ -236,7 +240,7 @@ export default function Home() {
             <img src={softwareProj} alt="Projects & Software" />
             <div className="panel-title"><h3>Projects &amp; Software</h3></div>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
     </>

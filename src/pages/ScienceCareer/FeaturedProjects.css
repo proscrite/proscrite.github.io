@@ -1,0 +1,209 @@
+/* --- Core Section Settings --- */
+.featured-projects-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95vw;
+}
+
+/* --- Alternating Flex Rows --- */
+.project-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+  margin-bottom: 10rem; /* Deep breathing room between projects */
+}
+
+/* Prevent flex children from forcing the row to wrap; ensure they can shrink */
+.project-row {
+  flex-wrap: nowrap;
+}
+
+.project-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* --- Text Content Styling --- */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.project-content {
+  min-width: 0; /* allow content to shrink inside the flex row */
+  box-sizing: border-box;
+}
+
+.project-supertitle {
+  color: #2dd4bf;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.project-pitch {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* --- Tech Stack Pills --- */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.tech-pill {
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  color: #2dd4bf;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* CTA container: desktop two-column grid */
+.project-cta-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+
+/* --- The CTA Button --- */
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f8fafc;
+  background: #2dd4bf;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  width: 100%;      /* fill the grid column */
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.project-cta:hover {
+  background: transparent;
+  color: #2dd4bf;
+  border-color: #2dd4bf;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(45, 212, 191, 0.15);
+}
+
+.project-cta span {
+  transition: transform 0.3s ease;
+}
+
+.project-cta:hover span {
+  transform: translateX(5px);
+}
+
+/* --- Visual Frame Styling --- */
+.project-visual {
+  flex: 1.2; /* Makes the image slightly wider than the text */
+  width: 100%;
+}
+.project-visual {
+  min-width: 0; /* allow the visual column to shrink instead of wrapping */
+}
+
+.image-browser-frame {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.image-browser-frame:hover {
+  transform: translateY(-5px);
+  border-color: rgba(45, 212, 191, 0.3);
+}
+
+.browser-dots {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.8rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.close { background: #ff5f56; }
+.dot.min { background: #ffbd2e; }
+.dot.max { background: #27c93f; }
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+}
+
+/* Make the visual link fill its column and be clickable */
+.project-visual-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1024px) {
+  .project-row,
+  .project-row.reverse {
+    flex-direction: column-reverse; /* Always stack text below image on mobile */
+    gap: 3rem;
+    margin-bottom: 6rem;
+  }
+  
+  .project-visual {
+    width: 100%;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+  /* Stack CTAs on mobile */
+  .project-cta-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './FeaturedProjects.css';
 
 import ratagImg from './images/RaTag_diagram.png';
@@ -8,12 +9,15 @@ import sabatImg from './images/sabat_software.png';
 import xpsImg from './images/xps_sw_card.png';
 
 export default function FeaturedProjects() {
+  const { t } = useTranslation();
+
+  // Static metadata (routes, images, layout) stays here; translatable text comes from t()
   const projects = [
     {
       id: "ratag",
-      superTitle: "MULTI-MODAL DAQ & FUNCTIONAL ARCHITECTURE",
-      title: "RITA: Physics Orchestration & Analytical Engine",
-      pitch: "A highly modular, functional programming-based orchestration engine built for strict auditability and scale. It automates physical DAQ hardware and processes heterogeneous data streams (PMT, PIN, electrometer) through a layered, three-tier architecture—translating raw subatomic signals into readable physics models",
+      superTitle: t('featuredProjects.projects.ratag.superTitle'),
+      title: t('featuredProjects.projects.ratag.title'),
+      pitch: t('featuredProjects.projects.ratag.pitch'),
       techStack: ["Functional Architecture", "Multi-Modal Pipelines", "Hardware APIs (SCPI)", "Data Orchestration", "GX"],
       linkSw: "/projects/software/RaTag",
       linkHw: "/projects/experiments/RitaSetup",
@@ -22,9 +26,9 @@ export default function FeaturedProjects() {
     },
     {
       id: "manhattan",
-      superTitle: "FULL-STACK SOFTWARE & NLP",
-      title: "ManHatTan: Gamified NLP Learning Language Platform",
-      pitch: "Architected an end-to-end language application integrating custom Kivy GUIs, automated data extraction from e-readers, SpaCy NLP embeddings, and LLM-generated dynamic exercises to drive spaced-repetition learning.",
+      superTitle: t('featuredProjects.projects.manhattan.superTitle'),
+      title: t('featuredProjects.projects.manhattan.title'),
+      pitch: t('featuredProjects.projects.manhattan.pitch'),
       techStack: ["Python", "Kivy (UI/UX)", "NLP (SpaCy, NLTK)", "LLM APIs (OpenAI, Hugging Face)", "Gamification"],
       linkSw: "/projects/software/Manhattan",
       image: manhattanImg,
@@ -32,9 +36,9 @@ export default function FeaturedProjects() {
     },
     {
       id: "sabatsw",
-      superTitle: "HARDWARE-SOFTWARE INTEGRATION",
-      title: "SabatSW: Fluorescence Microscopy Control",
-      pitch: "Engineered a centralized GUI to orchestrate high-resolution optical hardware. It unifies Python APIs for scientific CMOS cameras, precision Z-stages, and lasers, enabling automated autofocus and single-molecule fluorescence tracking.",
+      superTitle: t('featuredProjects.projects.sabatsw.superTitle'),
+      title: t('featuredProjects.projects.sabatsw.title'),
+      pitch: t('featuredProjects.projects.sabatsw.pitch'),
       techStack: ["Python / Kivy", "Computer Vision (OpenCV, scikit-image)", "Hardware APIs (SCPI)", "Closed-Loop Control", "Scientific Instrumentation"],
       linkSw: "/projects/software/SabatSw",
       linkHw: "/projects/experiments/SabatHuji",
@@ -43,9 +47,9 @@ export default function FeaturedProjects() {
     },
     {
       id: "xpssw",
-      superTitle: "BATCH PROCESSING & ALGORITHMS",
-      title: "XpsSW: Spectroscopy Analytical Pipeline",
-      pitch: "Engineered an automated data parsing and peak-fitting pipeline to replace manual XPS workflows, optimizing complex material science metrology.",
+      superTitle: t('featuredProjects.projects.xpssw.superTitle'),
+      title: t('featuredProjects.projects.xpssw.title'),
+      pitch: t('featuredProjects.projects.xpssw.pitch'),
       techStack: ["Python (SciPy/Pandas)", "Algorithm Design", "Data Parsing and Visualization", "Batch Processing", "Scientific Computing"],
       linkSw: "/projects/software/XpsSw",
       linkHw: "/projects/experiments/SurfaceScience",
@@ -58,9 +62,9 @@ export default function FeaturedProjects() {
     <section className="featured-projects-section">
       
       <div className="section-header" style={{ textAlign: 'center', marginBottom: '6rem' }}>
-        <h2 className="section-title">Featured Engineering Projects</h2>
+        <h2 className="section-title">{t('featuredProjects.sectionTitle')}</h2>
         <p style={{ color: '#94a3b8', fontSize: '1.1rem', margin: 0 }}>
-          End-to-end systems built for high-stakes research and personal passion.
+          {t('featuredProjects.sectionSubtitle')}
         </p>
       </div>
 
@@ -83,11 +87,11 @@ export default function FeaturedProjects() {
               
               <div className="project-cta-container">
                 <Link to={project.linkSw || project.link} className="project-cta">
-                  View Software Architecture <span>→</span>
+                  {t('featuredProjects.ctaSw')} <span>→</span>
                 </Link>
                 {project.linkHw && (
                   <Link to={project.linkHw} className="project-cta">
-                    Explore the Physics <span>→</span>
+                    {t('featuredProjects.ctaHw')} <span>→</span>
                   </Link>
                 )}
               </div>

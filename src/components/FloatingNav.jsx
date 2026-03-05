@@ -1,7 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './FloatingNav.css';
 
 export default function FloatingNav() {
+  const { i18n } = useTranslation();
+
+  const languages = [
+    { code: 'en', flag: '🇬🇧', label: 'EN' },
+    { code: 'es', flag: '🇪🇸', label: 'ES' },
+  ];
+
+  // Normalise to bare language code (e.g. 'en-US' → 'en')
+  const currentLang = i18n.language.split('-')[0];
+
   const navItems = [
     { label: 'Home', href: '#hero' },
     { label: 'Timeline', href: '#science-career' },
@@ -36,6 +47,20 @@ export default function FloatingNav() {
           </li>
         ))}
       </ul>
+
+      {/* Language selector */}
+      <div className="floating-nav-lang-wrapper">
+        <select
+          className="floating-nav-lang-select"
+          value={currentLang}
+          onChange={(e) => i18n.changeLanguage(e.target.value)}
+          aria-label="Select language"
+        >
+          {languages.map(({ code, flag, label }) => (
+            <option key={code} value={code}>{flag} {label}</option>
+          ))}
+        </select>
+      </div>
     </nav>
   );
 }

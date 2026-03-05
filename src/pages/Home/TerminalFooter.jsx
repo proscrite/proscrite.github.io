@@ -1,24 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './TerminalFooter.css';
 
 export default function TerminalFooter() {
+  const { t } = useTranslation();
 
   return (
     <section className="terminal-footer-section">
     
       {/* --- Part 1: The "Let's Build" CTA --- */}
       <div className="cta-container">
-        <h2 className="cta-headline">Ready to tackle the next complex system.</h2>
+        <h2 className="cta-headline">{t('terminalFooter.headline')}</h2>
         <p className="cta-subtext">
-          Currently wrapping up Postdoc R&D. Seeking Senior Data / Systems Engineering roles to solve high-stakes architectural challenges.
+          {t('terminalFooter.subtext')}
         </p>
         <div className="cta-buttons">
           {/* Update this href to point to your actual Systems Engineer PDF in your public folder */}
           <a href="/assets/Herrero_Pablo_systems_engineer.pdf" target="_blank" rel="noopener noreferrer" className="cta-btn primary">
-            Download Full Resume (.pdf)
+            {t('terminalFooter.downloadResume')}
           </a>
           <a href="mailto:pablo.herrero-gomez@mail.huji.ac.il" className="cta-btn secondary">
-            Email Me
+            {t('terminalFooter.emailMe')}
           </a>
         </div>
       </div>
@@ -29,13 +31,13 @@ export default function TerminalFooter() {
           <span className="dot close"></span>
           <span className="dot min"></span>
           <span className="dot max"></span>
-          <span className="terminal-title">guest@phg-portfolio: ~</span>
+          <span className="terminal-title">{t('terminalFooter.terminal.windowTitle')}</span>
         </div>
         <div className="terminal-body">
           <p><span className="prompt">➜</span> <span className="command">cat</span> status.txt</p>
-          <p className="output">Target Location: Valencia, Spain (Open to Remote / Relocation)</p>
-          <p className="output">Spoken Languages: Spanish (Native), English (Fluent, C2), German (B2), Hebrew (B1)</p>
-          <p className="output">Continuous Learning: 100+ Data Science Certifications (DataCamp)</p>
+          <p className="output">{t('terminalFooter.terminal.location')}</p>
+          <p className="output">{t('terminalFooter.terminal.languages')}</p>
+          <p className="output">{t('terminalFooter.terminal.learning')}</p>
           
           <br/>
           <p><span className="prompt">➜</span> <span className="command">ls</span> -l connections/</p>
@@ -46,7 +48,7 @@ export default function TerminalFooter() {
 
           <br/>
           <p><span className="prompt">➜</span> <span className="command">echo</span> $COPYRIGHT</p>
-          <p className="output">© 2026 Pablo Herrero-Gomez. Built with React & Vite.</p>
+          <p className="output">{t('terminalFooter.terminal.copyright')}</p>
           <p className="cursor">_</p>
         </div>
       </div>

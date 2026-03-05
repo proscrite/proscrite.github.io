@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import TextSweep from '../../components/TextSweep';
 import profileImg from '../../assets/profile.jpg';
 import backgroundVid from '../../assets/tracks-bg.webm';
 
 export default function Hero() {
-  const mottos = [
-    "From subatomic signals to scalable algorithms.",
-    "Engineering complex hardware-software pipelines at the edge of detection.",
-    "Translating extreme-noise data into high-value intelligence.",
-    "Automating the impossible: 7 years of full-stack problem solving."
-  ];
+  const { t } = useTranslation();
+
+  // All text sourced from i18n — arrays use { returnObjects: true }
+  const mottos = t('hero.mottos', { returnObjects: true });
 
   // rotating motto index (for TextSweep)
   const [activeMottoIndex, setActiveMottoIndex] = useState(0);
@@ -19,10 +18,10 @@ export default function Hero() {
       setActiveMottoIndex((prev) => (prev + 1) % mottos.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [mottos.length]);
 
   // typing effect for job titles
-  const toRotate = ["Computational Physicist", "Applied ML Engineer", "Multidisciplinary Researcher"];
+  const toRotate = t('hero.roles', { returnObjects: true });
   const period = 2000;
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -98,7 +97,7 @@ export default function Hero() {
             </div>
 
             <div style={{ marginTop: '2rem', opacity: Math.max(0, 1 - scrollOpacity * 3) }}>
-              <p style={{ fontSize: '0.9rem', color: '#ccc' }}>Scroll to explore</p>
+              <p style={{ fontSize: '0.9rem', color: '#ccc' }}>{t('hero.scrollPrompt')}</p>
             </div>
           </header>
         </div>

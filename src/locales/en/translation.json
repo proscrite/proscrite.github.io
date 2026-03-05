@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "langToggle": "ES"
+  },
+  "hero": {
+    "scrollPrompt": "Scroll to explore",
+    "mottos": [
+      "From subatomic signals to scalable algorithms.",
+      "Engineering complex hardware-software pipelines at the edge of detection.",
+      "Translating extreme-noise data into high-value intelligence.",
+      "Automating the impossible: 7 years of full-stack problem solving."
+    ],
+    "roles": [
+      "Computational Physicist",
+      "Applied ML Engineer",
+      "Multidisciplinary Researcher"
+    ]
+  },
+  "constellation": {
+    "title": "Engineering at the Physical Limit",
+    "subtitle": "Cross-domain expertise forged in high-stakes R&D environments.",
+    "cards": {
+      "optics": {
+        "title": "Optics & Microscopy",
+        "desc": "Designing and automating high-resolution fluorescence microscopes to image and isolate single molecules."
+      },
+      "surface": {
+        "title": "Surface Science & UHV",
+        "desc": "Mastering techniques like X-ray Photoemission Spectroscopy (XPS) and Scanning Tunneling Microscopy (STM) in Ultra-High Vacuum."
+      },
+      "particle": {
+        "title": "Particle Physics & Detectors",
+        "desc": "Operating Gas Xenon TPCs and validating complex sensor arrays (CMOS, PIN, PMT) in extreme environments."
+      },
+      "photochem": {
+        "title": "Photochemistry & Sensors",
+        "desc": "Leveraging organic chemistry and photochemistry to characterize novel chemo-sensors for single ion tagging."
+      },
+      "systems": {
+        "title": "Systems Orchestration",
+        "desc": "Architecting Python-based control suites to synchronize heterogeneous hardware and fully automate data acquisition."
+      },
+      "ai": {
+        "title": "AI & Full-Stack Engineering",
+        "desc": "Deploying custom CNNs for high-noise signal detection and building end-to-end applications integrated with modern LLMs."
+      }
+    }
+  },
+  "featuredProjects": {
+    "sectionTitle": "Featured Engineering Projects",
+    "sectionSubtitle": "End-to-end systems built for high-stakes research and personal passion.",
+    "ctaSw": "View Software Architecture",
+    "ctaHw": "Explore the Physics",
+    "projects": {
+      "ratag": {
+        "superTitle": "MULTI-MODAL DAQ & FUNCTIONAL ARCHITECTURE",
+        "title": "RITA: Physics Orchestration & Analytical Engine",
+        "pitch": "A highly modular, functional programming-based orchestration engine built for strict auditability and scale. It automates physical DAQ hardware and processes heterogeneous data streams (PMT, PIN, electrometer) through a layered, three-tier architecture—translating raw subatomic signals into readable physics models."
+      },
+      "manhattan": {
+        "superTitle": "FULL-STACK SOFTWARE & NLP",
+        "title": "ManHatTan: Gamified NLP Learning Language Platform",
+        "pitch": "Architected an end-to-end language application integrating custom Kivy GUIs, automated data extraction from e-readers, SpaCy NLP embeddings, and LLM-generated dynamic exercises to drive spaced-repetition learning."
+      },
+      "sabatsw": {
+        "superTitle": "HARDWARE-SOFTWARE INTEGRATION",
+        "title": "SabatSW: Fluorescence Microscopy Control",
+        "pitch": "Engineered a centralized GUI to orchestrate high-resolution optical hardware. It unifies Python APIs for scientific CMOS cameras, precision Z-stages, and lasers, enabling automated autofocus and single-molecule fluorescence tracking."
+      },
+      "xpssw": {
+        "superTitle": "BATCH PROCESSING & ALGORITHMS",
+        "title": "XpsSW: Spectroscopy Analytical Pipeline",
+        "pitch": "Engineered an automated data parsing and peak-fitting pipeline to replace manual XPS workflows, optimizing complex material science metrology."
+      }
+    }
+  },
+  "scienceCareer": {
+    "title": "The R&D Track Record",
+    "subtitle": "From theoretical physics to full-stack systems engineering.",
+    "viewProject": "View Project →",
+    "keyAchievements": "Key Achievements:",
+    "videoTitles": [
+      "Live Keynote: Demystifying NEXT-BOLD",
+      "Scientific Explainer: The BOLD Mission",
+      "Blender 3D Simulation: Molecular Folding & Chelation",
+      "Blender 3D Simulation: Detector Topology & Ion Drift"
+    ],
+    "items": [
+      {
+        "period": "2025 - 2026",
+        "cardTitle": "Postdoc (BGU): RITA Project",
+        "summary": "Developing a custom ion source and automated DAQ architecture for the BOLD experiment.",
+        "bullets": [
+          "Engineered 24/7 unattended DAQ system.",
+          "Increased daily measurement capacity by 140%.",
+          "Architected 5 GS/s waveform multiplexing."
+        ]
+      },
+      {
+        "period": "2023 - 2025",
+        "cardTitle": "Postdoc (HUJI): ML & Microscopy Automation",
+        "summary": "Advancing automated fluorescence microscopy and deploying machine learning for low-SNR signal detection.",
+        "bullets": [
+          "Architected sabat_sw hardware control GUI.",
+          "Deployed CNNs for signal edge detection.",
+          "Achieved major algorithm speedups via Julia."
+        ]
+      },
+      {
+        "period": "2020 - 2023",
+        "cardTitle": "PhD: Optics & Closed-Loop Automation",
+        "summary": "Designed and automated a custom fluorescence microscope for single-molecule detection.",
+        "bullets": [
+          "Built closed-loop optical test bench.",
+          "Developed computer vision autofocus.",
+          "Integrated lasers, PMTs, and APDs."
+        ]
+      },
+      {
+        "period": "2019 - 2023",
+        "cardTitle": "PhD: Surface Science & UHV Prototyping",
+        "summary": "Characterized single-ion barium sensors in Ultra-High Vacuum using XPS and STM.",
+        "bullets": [
+          "First experimental proof of dry-environment chelation.",
+          "Engineered xps_sw data parsing pipeline.",
+          "Validated novel Atomic Layer Injection system."
+        ]
+      },
+      {
+        "period": "2019 - 2023",
+        "cardTitle": "PhD: NEXT-BOLD Operations & Mentorship",
+        "summary": "Drove the technological foundations of NEXT-BOLD and managed Gas Xenon TPC operations.",
+        "bullets": [
+          "Maintained NEXT-100 DAQ reliability.",
+          "Coordinated international technical working groups.",
+          "Mentored 10+ junior researchers."
+        ]
+      },
+      {
+        "period": "2016 - 2018",
+        "cardTitle": "MSc: XENON DAQ Engineering (MPIK)",
+        "summary": "Conducted thesis research optimizing data acquisition systems for the XENON Dark Matter experiment.",
+        "bullets": [
+          "Redesigned LabVIEW control systems.",
+          "Achieved 40% improvement in critical material cleanliness through A/B testing.",
+          "Built Python/ROOT analytical pipelines."
+        ]
+      },
+      {
+        "period": "2012 - 2016",
+        "cardTitle": "BSc: Foundations in Physics",
+        "summary": "Built a theoretical and experimental physics foundation across two European universities.",
+        "bullets": [
+          "B.Sc. in Physics (University of Valencia).",
+          "Erasmus exchange (University of Groningen).",
+          "Thesis on Quantum Chromodynamics."
+        ]
+      }
+    ]
+  },
+  "skillsTags": {
+    "title": "Core Competencies",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks & UI",
+      "dataML": "Data & ML",
+      "hardware": "Hardware & Systems"
+    }
+  },
+  "terminalFooter": {
+    "headline": "Ready to tackle the next complex system.",
+    "subtext": "Currently wrapping up Postdoc R&D. Seeking Senior Data / Systems Engineering roles to solve high-stakes architectural challenges.",
+    "downloadResume": "Download Full Resume (.pdf)",
+    "emailMe": "Email Me",
+    "terminal": {
+      "windowTitle": "guest@phg-portfolio: ~",
+      "location": "Target Location: Valencia, Spain (Open to Remote / Relocation)",
+      "languages": "Spoken Languages: Spanish (Native), English (Fluent, C2), German (B2), Hebrew (B1)",
+      "learning": "Continuous Learning: 100+ Data Science Certifications (DataCamp)",
+      "copyright": "© 2026 Pablo Herrero-Gomez. Built with React & Vite."
+    }
+  }
+}

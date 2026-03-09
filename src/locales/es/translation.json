@@ -26,7 +26,7 @@
       },
       "surface": {
         "title": "Ciencia de Superficies y UHV",
-        "desc": "Dominio de técnicas como la Espectroscopía de Fotoemisión de Rayos X (XPS) y la Microscopía de Efecto Túnel (STM) en Ultra-Alto Vacío."
+        "desc": "Dominio de técnicas como Espectroscopía de Fotoemisión de Rayos X (XPS) y Microscopía de Efecto Túnel (STM) en Ultra-Alto Vacío."
       },
       "particle": {
         "title": "Física de Partículas y Detectores",
@@ -42,7 +42,7 @@
       },
       "ai": {
         "title": "IA e Ingeniería Full-Stack",
-        "desc": "Despliegue de CNNs propias para detección de señales en entornos de alto ruido y construcción de aplicaciones integradas con LLMs modernos."
+        "desc": "Despliegue de CNNs personalizadas para detección de señales en entornos de alto ruido y construcción de aplicaciones integradas con LLMs modernos."
       }
     }
   },
@@ -55,7 +55,7 @@
       "ratag": {
         "superTitle": "DAQ MULTIMODAL Y ARQUITECTURA FUNCIONAL",
         "title": "RITA: Motor de Orquestación Física y Análisis",
-        "pitch": "Un motor de orquestación modular basado en programación funcional, construido para auditoría estricta y escalabilidad. Automatiza hardware físico DAQ y procesa flujos de datos heterogéneos (PMT, PIN, electrómetro) mediante una arquitectura de tres capas, traduciendo señales subatómicas en modelos físicos legibles."
+        "pitch": "Un motor de orquestación modular basado en programación funcional, construido para auditoría estricta y escalabilidad. Automatiza hardware físico DAQ y procesa flujos de datos heterogéneos (PMT, PIN, electrómetro) mediante una arquitectura de tres capas, con el objetivo de transformar señales subatómicas en modelos físicos legibles."
       },
       "manhattan": {
         "superTitle": "SOFTWARE FULL-STACK Y PLN",
@@ -89,7 +89,7 @@
       {
         "period": "2025 - 2026",
         "cardTitle": "Postdoc (BGU): Proyecto RITA",
-        "summary": "Desarrollo de una fuente de iones personalizada y arquitectura DAQ automatizada para el experimento BOLD.",
+        "summary": "Desarrollo de una fuente de iones dedicada y arquitectura DAQ automatizada para el experimento BOLD.",
         "bullets": [
           "Sistema DAQ desatendido 24/7 diseñado.",
           "Capacidad de medición diaria incrementada un 140%.",
@@ -128,7 +128,7 @@
       },
       {
         "period": "2019 - 2023",
-        "cardTitle": "Doctorado: Operaciones NEXT-BOLD y Tutorías",
+        "cardTitle": "Doctorado: Operaciones NEXT-BOLD y Mentorización",
         "summary": "Lideré las bases tecnológicas de NEXT-BOLD y gestioné las operaciones del TPC de Xenón Gaseoso.",
         "bullets": [
           "Fiabilidad del DAQ de NEXT-100 mantenida.",

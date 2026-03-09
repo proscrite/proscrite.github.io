@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "langToggle": "DE"
+  },
+  "hero": {
+    "scrollPrompt": "Scrollen zum Entdecken",
+    "mottos": [
+      "Von subatomaren Signalen zu skalierbaren Algorithmen.",
+      "Entwicklung komplexer Hardware-Software-Pipelines an der Grenze des Messbaren.",
+      "Übersetzung extrem verrauschter Daten in hochwertige Informationen.",
+      "Das Unmögliche automatisieren: 7 Jahre Full-Stack-Problemlösung."
+    ],
+    "roles": [
+      "Computergestützter Physiker",
+      "Applied ML Engineer",
+      "Multidisziplinärer Forscher"
+    ]
+  },
+  "constellation": {
+    "title": "Engineering am physikalischen Limit",
+    "subtitle": "Domänenübergreifende Expertise, geschmiedet in anspruchsvollen F&E-Umgebungen.",
+    "cards": {
+      "optics": {
+        "title": "Optik & Mikroskopie",
+        "desc": "Entwicklung und Automatisierung hochauflösender Fluoreszenzmikroskope zur Abbildung und Isolierung einzelner Moleküle."
+      },
+      "surface": {
+        "title": "Oberflächenphysik & UHV",
+        "desc": "Beherrschung von Techniken wie Röntgenphotoelektronenspektroskopie (XPS) und Rastertunnelmikroskopie (STM) im Ultrahochvakuum."
+      },
+      "particle": {
+        "title": "Teilchenphysik & Detektoren",
+        "desc": "Betrieb von Gas-Xenon-TPCs und Validierung komplexer Sensor-Arrays (CMOS, PIN, PMT) in extremen Umgebungen."
+      },
+      "photochem": {
+        "title": "Photochemie & Sensoren",
+        "desc": "Nutzung von organischer Chemie und Photochemie zur Charakterisierung neuartiger Chemosensoren für das Single-Ion-Tagging."
+      },
+      "systems": {
+        "title": "System-Orchestrierung",
+        "desc": "Architektur Python-basierter Steuerungs-Suites zur Synchronisierung heterogener Hardware und zur vollständigen Automatisierung der Datenerfassung."
+      },
+      "ai": {
+        "title": "KI & Full-Stack Engineering",
+        "desc": "Einsatz maßgeschneiderter CNNs für stark verrauschte Signale und Entwicklung von End-to-End-Anwendungen mit Integration moderner LLMs."
+      }
+    }
+  },
+  "featuredProjects": {
+    "sectionTitle": "Ausgewählte Engineering-Projekte",
+    "sectionSubtitle": "End-to-End-Systeme, entwickelt für anspruchsvolle Forschung und persönliche Leidenschaft.",
+    "ctaSw": "Software-Architektur ansehen",
+    "ctaHw": "Die Physik entdecken",
+    "projects": {
+      "ratag": {
+        "superTitle": "MULTIMODALE DAQ & FUNKTIONALE ARCHITEKTUR",
+        "title": "RITA: Physik-Orchestrierung & Analyse-Engine",
+        "pitch": "Eine hochmodulare, auf funktionaler Programmierung basierende Orchestrierungs-Engine, entwickelt für strikte Auditierbarkeit und Skalierbarkeit. Sie automatisiert physische DAQ-Hardware und verarbeitet heterogene Datenströme (PMT, PIN, Elektrometer) durch eine mehrschichtige Architektur – und übersetzt rohe subatomare Signale in lesbare physikalische Modelle."
+      },
+      "manhattan": {
+        "superTitle": "FULL-STACK SOFTWARE & NLP",
+        "title": "ManHatTan: Gamifizierte NLP-Sprachlernplattform",
+        "pitch": "Architektur einer End-to-End-Sprachanwendung, die maßgeschneiderte Kivy-GUIs, automatisierte Datenextraktion aus E-Readern, SpaCy NLP-Embeddings und LLM-generierte dynamische Übungen integriert, um das Lernen mit verteilter Wiederholung (Spaced Repetition) zu fördern."
+      },
+      "sabatsw": {
+        "superTitle": "HARDWARE-SOFTWARE-INTEGRATION",
+        "title": "SabatSW: Fluoreszenzmikroskopie-Steuerung",
+        "pitch": "Entwicklung einer zentralisierten GUI zur Orchestrierung hochauflösender optischer Hardware. Sie vereinheitlicht Python-APIs für wissenschaftliche CMOS-Kameras, Präzisions-Z-Tische und Laser und ermöglicht automatisierten Autofokus und Einzelmolekül-Fluoreszenz-Tracking."
+      },
+      "xpssw": {
+        "superTitle": "BATCH-VERARBEITUNG & ALGORITHMEN",
+        "title": "XpsSW: Analytische Pipeline für Spektroskopie",
+        "pitch": "Entwicklung einer automatisierten Pipeline für Daten-Parsing und Peak-Fitting als Ersatz für manuelle XPS-Workflows, zur Optimierung komplexer materialwissenschaftlicher Metrologie."
+      }
+    }
+  },
+  "scienceCareer": {
+    "title": "Die F&E-Erfolgsbilanz",
+    "subtitle": "Von der theoretischen Physik zum Full-Stack Systems Engineering.",
+    "viewProject": "Projekt ansehen →",
+    "keyAchievements": "Wichtigste Erfolge:",
+    "videoTitles": [
+      "Live Keynote: NEXT-BOLD entmystifiziert",
+      "Wissenschaftlicher Explainer: Die BOLD-Mission",
+      "Blender 3D-Simulation: Molekulare Faltung & Chelatbildung",
+      "Blender 3D-Simulation: Detektortopologie & Ionendrift"
+    ],
+    "items": [
+      {
+        "period": "2025 - 2026",
+        "cardTitle": "Postdoc (BGU): RITA Projekt",
+        "summary": "Entwicklung einer maßgeschneiderten Ionenquelle und einer automatisierten DAQ-Architektur für das BOLD-Experiment.",
+        "bullets": [
+          "Unbeaufsichtigtes 24/7 DAQ-System entwickelt.",
+          "Tägliche Messkapazität um 140% gesteigert.",
+          "5 GS/s Wellenform-Multiplexing entworfen."
+        ]
+      },
+      {
+        "period": "2023 - 2025",
+        "cardTitle": "Postdoc (HUJI): ML & Mikroskopie-Automatisierung",
+        "summary": "Weiterentwicklung der automatisierten Fluoreszenzmikroskopie und Einsatz von maschinellem Lernen zur Erkennung von Signalen mit niedrigem SNR.",
+        "bullets": [
+          "sabat_sw Hardware-Steuerungs-GUI entworfen.",
+          "CNNs für Signalflankenerkennung eingesetzt.",
+          "Erhebliche Algorithmus-Beschleunigung via Julia erreicht."
+        ]
+      },
+      {
+        "period": "2020 - 2023",
+        "cardTitle": "PhD: Optik & Closed-Loop-Automatisierung",
+        "summary": "Design und Automatisierung eines maßgeschneiderten Fluoreszenzmikroskops zur Einzelmolekülerkennung.",
+        "bullets": [
+          "Closed-Loop optischen Prüfstand gebaut.",
+          "Computer-Vision-Autofokus entwickelt.",
+          "Laser, PMTs und APDs integriert."
+        ]
+      },
+      {
+        "period": "2019 - 2023",
+        "cardTitle": "PhD: Oberflächenphysik & UHV-Prototyping",
+        "summary": "Charakterisierung von Barium-Einzelionensensoren im Ultrahochvakuum mittels XPS und STM.",
+        "bullets": [
+          "Erster experimenteller Beweis für Chelatbildung in trockener Umgebung.",
+          "xps_sw Daten-Parsing-Pipeline entwickelt.",
+          "Neuartiges Atomic Layer Injection System validiert."
+        ]
+      },
+      {
+        "period": "2019 - 2023",
+        "cardTitle": "PhD: NEXT-BOLD Betrieb & Mentoring",
+        "summary": "Vorantreiben der technologischen Grundlagen von NEXT-BOLD und Leitung des Betriebs der Gas-Xenon-TPC.",
+        "bullets": [
+          "NEXT-100 DAQ-Zuverlässigkeit aufrechterhalten.",
+          "Internationale technische Arbeitsgruppen koordiniert.",
+          "Über 10 Nachwuchsforscher betreut."
+        ]
+      },
+      {
+        "period": "2016 - 2018",
+        "cardTitle": "MSc: XENON DAQ Engineering (MPIK)",
+        "summary": "Durchführung von Abschlussforschungen zur Optimierung von Datenerfassungssystemen für das XENON Dark Matter Experiment.",
+        "bullets": [
+          "LabVIEW-Steuerungssysteme neu gestaltet.",
+          "40% Verbesserung der Materialreinheit durch A/B-Tests erreicht.",
+          "Analytische Python/ROOT-Pipelines aufgebaut."
+        ]
+      },
+      {
+        "period": "2012 - 2016",
+        "cardTitle": "BSc: Grundlagen der Physik",
+        "summary": "Aufbau eines theoretischen und experimentellen Physikfundaments an zwei europäischen Universitäten.",
+        "bullets": [
+          "B.Sc. in Physik (Universität Valencia).",
+          "Erasmus-Austausch (Rijksuniversiteit Groningen).",
+          "Abschlussarbeit über Quantenchromodynamik."
+        ]
+      }
+    ]
+  },
+  "skillsTags": {
+    "title": "Kernkompetenzen",
+    "categories": {
+      "languages": "Sprachen",
+      "frameworks": "Frameworks & UI",
+      "dataML": "Daten & ML",
+      "hardware": "Hardware & Systeme"
+    }
+  },
+  "terminalFooter": {
+    "headline": "Bereit für das nächste komplexe System.",
+    "subtext": "Schließe derzeit meine Postdoc-F&E ab. Suche Rollen als Senior Data / Systems Engineer, um anspruchsvolle architektonische Herausforderungen zu lösen.",
+    "downloadResume": "Vollständigen Lebenslauf herunterladen (.pdf)",
+    "emailMe": "Mich kontaktieren",
+    "terminal": {
+      "windowTitle": "gast@phg-portfolio: ~",
+      "location": "Zielort: Valencia, Spanien (Offen für Remote / Relocation)",
+      "languages": "Gesprochene Sprachen: Spanisch (Muttersprache), Englisch (Fließend, C2), Deutsch (B2), Hebräisch (B1)",
+      "learning": "Kontinuierliches Lernen: 100+ Data Science Zertifikate (DataCamp)",
+      "copyright": "© 2026 Pablo Herrero-Gomez. Erstellt mit React & Vite."
+    }
+  }
+}

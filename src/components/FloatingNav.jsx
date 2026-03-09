@@ -8,6 +8,8 @@ export default function FloatingNav() {
   const languages = [
     { code: 'en', flag: '🇬🇧', label: 'EN' },
     { code: 'es', flag: '🇪🇸', label: 'ES' },
+    { code: 'de', flag: '🇩🇪', label: 'DE' },
+    { code: 'he', flag: '🇮🇱', label: 'HE' }
   ];
 
   // Normalise to bare language code (e.g. 'en-US' → 'en')
